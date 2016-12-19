@@ -33,8 +33,7 @@ public extension UIWindow {
             }, completion: { (finished) -> Void in
                 completion()
             })
-        }
-        else {
+        } else {
             self.rootViewController = viewController
         }
     }

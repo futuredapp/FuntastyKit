@@ -36,7 +36,7 @@ class FuntastyKitTests: XCTestCase {
 
 #if os(Linux)
 extension FuntastyKitTests {
-    static var allTests : [(String, (FuntastyKitTests) -> () throws -> Void)] {
+    static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
         return [
             ("testExample", testExample),
         ]

@@ -57,8 +57,7 @@ public extension UIViewController {
                     }
                 }
             }
-        }
-        else {
+        } else {
             for indexPath in selectedIndexPaths {
                 deselectable?.deselectItem(at: indexPath, animated: false)
             }

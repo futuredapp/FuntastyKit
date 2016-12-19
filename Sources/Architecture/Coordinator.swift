@@ -147,7 +147,6 @@ extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-
 protocol CoordinatorDelegate: class {
     func willStop(in coordinator: Coordinator)
     func didStop(in coordinator: Coordinator)
