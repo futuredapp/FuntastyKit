@@ -107,9 +107,9 @@ extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
 
     func stop() {
         delegate?.willStop(in: self)
-        viewController?.dismiss(animated: true, completion: {
+        viewController?.dismiss(animated: true) {
             self.delegate?.didStop(in: self)
-        })
+        }
     }
 }
 
@@ -136,10 +136,10 @@ extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
         delegate?.willStop(in: self)
 
         // TODO: figure out better way to distinguish between Push and Modal behavior
-        if let _ = destinationNavigationController {
-            viewController?.dismiss(animated: true, completion: {
+        if destinationNavigationController != nil {
+            viewController?.dismiss(animated: true) {
                 self.delegate?.didStop(in: self)
-            })
+            }
         } else {
             let _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
