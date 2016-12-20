@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol Keyboardable {
+public protocol Keyboardable {
     func keyboardChanges(height: CGFloat)
 }
 
-extension Keyboardable {
+public extension Keyboardable {
 
     func useKeyboard() {
         let center = NotificationCenter.default

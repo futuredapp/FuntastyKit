@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Coordinator {
+public protocol Coordinator {
     /// Triggers navigation to the corresponding controller
     func start()
 
@@ -20,7 +20,7 @@ protocol Coordinator {
 }
 
 /// Navigate and stop methods are optional
-extension Coordinator {
+public extension Coordinator {
     func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?) {
     }
 
@@ -28,7 +28,7 @@ extension Coordinator {
     }
 }
 
-protocol DefaultCoordinator: Coordinator {
+public protocol DefaultCoordinator: Coordinator {
     associatedtype VC: UIViewController
     weak var viewController: VC? { get set }
 
@@ -36,24 +36,24 @@ protocol DefaultCoordinator: Coordinator {
     weak var delegate: CoordinatorDelegate? { get }
 }
 
-protocol PushCoordinator: DefaultCoordinator {
+public protocol PushCoordinator: DefaultCoordinator {
     var configuration: ((VC) -> ())? { get }
     var navigationController: UINavigationController { get }
 }
 
-protocol ModalCoordinator: DefaultCoordinator {
+public protocol ModalCoordinator: DefaultCoordinator {
     var configuration: ((VC) -> ())? { get }
     var navigationController: UINavigationController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
-protocol PushModalCoordinator: DefaultCoordinator {
+public protocol PushModalCoordinator: DefaultCoordinator {
     var configuration: ((VC) -> ())? { get }
     var navigationController: UINavigationController? { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
-extension DefaultCoordinator {
+public extension DefaultCoordinator {
     // default implementation if not overriden
     var animated: Bool {
         get {
@@ -69,7 +69,7 @@ extension DefaultCoordinator {
     }
 }
 
-extension PushCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushCoordinator where VC: UIViewController, VC: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -87,7 +87,7 @@ extension PushCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -113,7 +113,7 @@ extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -147,22 +147,22 @@ extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-protocol CoordinatorDelegate: class {
+public protocol CoordinatorDelegate: class {
     func willStop(in coordinator: Coordinator)
     func didStop(in coordinator: Coordinator)
 }
 
 /// Used typically on view controllers to refer to it's coordinator
-protocol Coordinated {
+public protocol Coordinated {
     func getCoordinator() -> Coordinator?
     func setCoordinator(_ coordinator: Coordinator)
 }
 
-class CoordinatorSegue: UIStoryboardSegue {
+public class CoordinatorSegue: UIStoryboardSegue {
 
     open var sender: AnyObject!
 
-    override func perform() {
+    override public func perform() {
         guard let source = self.source as? Coordinated else {
             return
         }

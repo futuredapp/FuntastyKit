@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol Service {
+public protocol Service {
     init()
 }
 
-class ServiceHolder {
+public class ServiceHolder {
     private var servicesDictionary: [String: Service] = [:]
 
     init(services: [Service.Type]? = nil) {

@@ -16,9 +16,9 @@ extension UIView {
 
 }
 
-protocol Nibable {}
+public protocol Nibable {}
 
-extension Nibable where Self: UIView {
+public extension Nibable where Self: UIView {
 
     static var nib: UINib {
         return UINib(nibName: Self.nibName, bundle: nil)

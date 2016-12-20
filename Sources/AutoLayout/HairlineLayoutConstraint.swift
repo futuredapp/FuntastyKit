@@ -9,9 +9,9 @@
 import UIKit
 
 /// Useful to ensure 1px size on retina displays
-class HairlineLayoutConstraint: NSLayoutConstraint {
+public class HairlineLayoutConstraint: NSLayoutConstraint {
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         self.constant = self.constant / UIScreen.main.scale
     }
 
