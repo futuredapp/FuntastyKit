@@ -15,9 +15,9 @@ public protocol StoryboardType {
 
 public struct StoryboardReference<S: StoryboardType, T> {
 
-    let id: String
+    public let id: String
 
-    func instantiate() -> T {
+    public func instantiate() -> T {
         if let controller = UIStoryboard(name: S.name, bundle: nil).instantiateViewController(withIdentifier: id) as? T {
             return controller
         } else {
