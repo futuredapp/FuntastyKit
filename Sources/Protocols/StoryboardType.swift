@@ -2,7 +2,7 @@
 //  StoryboardType.swift
 //  FuntastyKit
 //
-//  Created by Patrik Potoček on 20.12.16.
+//  Created by Aleš Kocour on 21.05.16.
 //  Copyright © 2016 The Funtasty. All rights reserved.
 //
 
