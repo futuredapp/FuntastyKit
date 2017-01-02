@@ -37,18 +37,18 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((VC) -> Void)? { get }
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((VC) -> Void)? { get }
     var navigationController: UINavigationController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
 public protocol PushModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((VC) -> Void)? { get }
     var navigationController: UINavigationController? { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
