@@ -2,5 +2,5 @@ import XCTest
 @testable import FuntastyKitTests
 
 XCTMain([
-    testCase(FuntastyKitTests.allTests),
+    testCase(FuntastyKitTests.allTests)
 ])
