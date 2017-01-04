@@ -265,6 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "FuntastyKit-iOS" */;
 			buildPhases = (
+				E7A3D0EF1E1A5E2300EBF79D /* Run Swiftlint */,
 				52D6D9771BEFF229002C0205 /* Sources */,
 				52D6D9781BEFF229002C0205 /* Frameworks */,
 				52D6D9791BEFF229002C0205 /* Headers */,
@@ -301,6 +302,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52D6D9E71BEFFF6E002C0205 /* Build configuration list for PBXNativeTarget "FuntastyKit-watchOS" */;
 			buildPhases = (
+				E7A3D0F11E1A5E6C00EBF79D /* Run Swiftlint */,
 				52D6D9DD1BEFFF6E002C0205 /* Sources */,
 				52D6D9DE1BEFFF6E002C0205 /* Frameworks */,
 				52D6D9DF1BEFFF6E002C0205 /* Headers */,
@@ -319,6 +321,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52D6DA011BEFFFBE002C0205 /* Build configuration list for PBXNativeTarget "FuntastyKit-tvOS" */;
 			buildPhases = (
+				E7A3D0F21E1A5E8200EBF79D /* Run Swiftlint */,
 				52D6D9EB1BEFFFBE002C0205 /* Sources */,
 				52D6D9EC1BEFFFBE002C0205 /* Frameworks */,
 				52D6D9ED1BEFFFBE002C0205 /* Headers */,
@@ -337,6 +340,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52D6DA201BF000BD002C0205 /* Build configuration list for PBXNativeTarget "FuntastyKit-macOS" */;
 			buildPhases = (
+				E7A3D0F01E1A5E4900EBF79D /* Run Swiftlint */,
 				52D6DA0A1BF000BD002C0205 /* Sources */,
 				52D6DA0B1BF000BD002C0205 /* Frameworks */,
 				52D6DA0C1BF000BD002C0205 /* Headers */,
@@ -501,6 +505,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E7A3D0EF1E1A5E2300EBF79D /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E7A3D0F01E1A5E4900EBF79D /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E7A3D0F11E1A5E6C00EBF79D /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		E7A3D0F21E1A5E8200EBF79D /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		52D6D9771BEFF229002C0205 /* Sources */ = {

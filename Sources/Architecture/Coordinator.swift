@@ -29,26 +29,26 @@ public extension Coordinator {
 }
 
 public protocol DefaultCoordinator: Coordinator {
-    associatedtype VC: UIViewController
-    weak var viewController: VC? { get set }
+    associatedtype ViewController: UIViewController
+    weak var viewController: ViewController? { get set }
 
     var animated: Bool { get }
     weak var delegate: CoordinatorDelegate? { get }
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
 public protocol PushModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController? { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
@@ -56,20 +56,16 @@ public protocol PushModalCoordinator: DefaultCoordinator {
 public extension DefaultCoordinator {
     // default implementation if not overriden
     var animated: Bool {
-        get {
-            return true
-        }
+        return true
     }
 
     // default implementation of nil delegate, should be overriden when needed
     weak var delegate: CoordinatorDelegate? {
-        get {
-            return nil
-        }
+        return nil
     }
 }
 
-public extension PushCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushCoordinator where ViewController: UIViewController, ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -87,7 +83,7 @@ public extension PushCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension ModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -113,7 +109,7 @@ public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-public extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -124,7 +120,7 @@ public extension PushModalCoordinator where VC: UIViewController, VC: Coordinate
 
         // TODO: figure out better way to distinguish between Push and Modal behavior
         if let destinationNavigationController = destinationNavigationController {
-            // wrapper navigation controller means VC should be presented modally
+            // wrapper navigation controller means ViewController should be presented modally
             navigationController?.present(destinationNavigationController, animated: animated, completion: nil)
         } else {
             // present controller normally (initializer for this case not implemented, just an exploration of a possible future case)

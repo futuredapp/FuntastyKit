@@ -19,17 +19,20 @@ extension UITableView: Deselectable {
         return indexPathsForSelectedRows
     }
 
-    @nonobjc public func selectItem(at indexPath: IndexPath?, animated: Bool) {
+    @nonobjc
+    public func selectItem(at indexPath: IndexPath?, animated: Bool) {
         selectRow(at: indexPath, animated: animated, scrollPosition: .none)
     }
 
-    @nonobjc public func deselectItem(at indexPath: IndexPath, animated: Bool) {
+    @nonobjc
+    public func deselectItem(at indexPath: IndexPath, animated: Bool) {
         deselectRow(at: indexPath, animated: animated)
     }
 }
 
 extension UICollectionView: Deselectable {
-    @nonobjc public func selectItem(at indexPath: IndexPath?, animated: Bool) {
+    @nonobjc
+    public func selectItem(at indexPath: IndexPath?, animated: Bool) {
         selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionViewScrollPosition())
     }
 }
@@ -42,7 +45,8 @@ public extension UIViewController {
     ///  controller's `viewWillAppear(_:)` method.
     ///
     ///  - parameter deselectable: The (de)selectable view in which to perform deselection/reselection.
-    @nonobjc func smoothlyDeselectItems(on deselectable: Deselectable?) {
+    @nonobjc
+    func smoothlyDeselectItems(on deselectable: Deselectable?) {
         let selectedIndexPaths = deselectable?.indexPathsForSelectedItems ?? []
 
         if let coordinator = transitionCoordinator {
