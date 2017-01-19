@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 public extension UIView {
 
     // MARK: - Corner radius
