@@ -10,13 +10,52 @@ import UIKit
 
 public extension UIView {
 
+    // MARK: - Corner radius
+
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
         set {
             layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
+        }
+    }
+
+    // MARK: - Shadow
+
+    @IBInspectable var shadowColor: UIColor? {
+        get {
+            return layer.shadowColor.flatMap(UIColor.init)
+        }
+        set {
+            layer.shadowColor = newValue?.cgColor
+        }
+    }
+
+    @IBInspectable var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
+    }
+
+    @IBInspectable var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+
+    @IBInspectable var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
         }
     }
 
