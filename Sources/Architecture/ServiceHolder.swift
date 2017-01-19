@@ -16,6 +16,8 @@ public protocol InitializableService: Service {
 public class ServiceHolder {
     private var servicesDictionary: [String: Service] = [:]
 
+    public init() {}
+
     public func add<T>(_ protocolType: T.Type, for concreteType: InitializableService.Type, with name: String? = nil) {
         self.add(protocolType, for: concreteType.init(), with: name)
     }
