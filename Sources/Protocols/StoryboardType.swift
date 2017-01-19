@@ -17,6 +17,10 @@ public struct StoryboardReference<S: StoryboardType, T> {
 
     public let id: String
 
+    public init(id: String) {
+        self.id = id
+    }
+
     public func instantiate() -> T {
         if let controller = UIStoryboard(name: S.name, bundle: nil).instantiateViewController(withIdentifier: id) as? T {
             return controller
