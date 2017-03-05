@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-public protocol Keyboardable {
+public protocol Keyboardable: class {
+    var keyboardObserver: [Any] { get set }
     func keyboardChanges(height: CGFloat)
 }
 
@@ -17,18 +18,27 @@ public extension Keyboardable {
 
     func useKeyboard() {
         let center = NotificationCenter.default
-        center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardWillChange)
-        center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHide)
-    }
 
-    func keyboardWillChange(notification: Notification) {
-        guard let rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
+        let keyboardChangeFrameBlock: (Notification) -> Void = { [weak self] notification in
+            guard let rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+            }
+            self?.keyboardChanges(height: rect.size.height)
         }
-        keyboardChanges(height: rect.size.height)
+
+        let keyboardWillHideBlock: (Notification) -> Void = { [weak self] _ in
+            self?.keyboardChanges(height: 0)
+        }
+
+        keyboardObserver = [
+            center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardChangeFrameBlock),
+            center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHideBlock)
+        ]
+
     }
 
-    func keyboardWillHide(notification: Notification) {
-        keyboardChanges(height: 0)
+    func stopUsingKeyboard() {
+        let center = NotificationCenter.default
+        keyboardObserver.forEach { center.removeObserver($0) }
     }
 }
