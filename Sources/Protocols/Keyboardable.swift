@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol Keyboardable: class {
-    var keyboardObserver: [Any] { get set }
+    var keyboardObservers: [Any] { get set }
     func keyboardChanges(height: CGFloat)
 }
 
@@ -30,7 +30,7 @@ public extension Keyboardable {
             self?.keyboardChanges(height: 0)
         }
 
-        keyboardObserver = [
+        keyboardObservers = [
             center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardChangeFrameBlock),
             center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHideBlock)
         ]
@@ -39,6 +39,6 @@ public extension Keyboardable {
 
     func stopUsingKeyboard() {
         let center = NotificationCenter.default
-        keyboardObserver.forEach { center.removeObserver($0) }
+        keyboardObservers.forEach { center.removeObserver($0) }
     }
 }
