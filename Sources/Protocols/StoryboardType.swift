@@ -15,8 +15,8 @@ public protocol StoryboardType {
 
 public struct StoryboardReference<S: StoryboardType, T> {
 
-    public let id: String
-    public let bundle: Bundle?
+    private let id: String
+    private let bundle: Bundle?
 
     public init(id: String, bundle: Bundle? = nil) {
         self.bundle = bundle
