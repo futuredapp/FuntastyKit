@@ -16,7 +16,7 @@ public protocol Keyboardable: class {
 
 public extension Keyboardable {
 
-    func start() {
+    func startKeyboard() {
         let center = NotificationCenter.default
 
         let keyboardChangeFrameBlock: (Notification) -> Void = { [weak self] notification in
@@ -37,7 +37,7 @@ public extension Keyboardable {
 
     }
 
-    func stop() {
+    func stopKeyboard() {
         let center = NotificationCenter.default
         keyboardObservers.forEach { center.removeObserver($0) }
     }
