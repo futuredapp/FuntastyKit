@@ -57,7 +57,7 @@ public extension UIViewController {
             }) { context in
                 if context.isCancelled {
                     for indexPath in selectedIndexPaths {
-                        deselectable?.deselectItem(at: indexPath, animated: false)
+                        deselectable?.selectItem(at: indexPath, animated: false)
                     }
                 }
             }
