@@ -47,9 +47,15 @@ public protocol ModalCoordinator: DefaultCoordinator {
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
+public enum PresentationStyle {
+    case push
+    case modal
+}
+
 public protocol PushModalCoordinator: DefaultCoordinator {
     var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController? { get }
+    var presentationStyle: PresentationStyle { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
@@ -110,6 +116,13 @@ public extension ModalCoordinator where ViewController: UIViewController, ViewCo
 }
 
 public extension PushModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+    // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
+    // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
+    // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
+    var presentationStyle: PresentationStyle {
+        return self.destinationNavigationController != nil ? .modal : .push
+    }
+
     func start() {
         guard let viewController = viewController else {
             return
@@ -118,25 +131,25 @@ public extension PushModalCoordinator where ViewController: UIViewController, Vi
         configuration?(viewController)
         viewController.setCoordinator(self)
 
-        // TODO: figure out better way to distinguish between Push and Modal behavior
-        if let destinationNavigationController = destinationNavigationController {
-            // wrapper navigation controller means ViewController should be presented modally
-            navigationController?.present(destinationNavigationController, animated: animated, completion: nil)
-        } else {
-            // present controller normally (initializer for this case not implemented, just an exploration of a possible future case)
+        switch presentationStyle {
+        case .modal where destinationNavigationController != nil:
+            navigationController?.present(destinationNavigationController!, animated: animated, completion: nil)
+        case .push:
             navigationController?.pushViewController(viewController, animated: animated)
+        default:
+            break
         }
     }
 
     func stop() {
         delegate?.willStop(in: self)
 
-        // TODO: figure out better way to distinguish between Push and Modal behavior
-        if destinationNavigationController != nil {
+        switch presentationStyle {
+        case .modal:
             viewController?.dismiss(animated: true) {
                 self.delegate?.didStop(in: self)
             }
-        } else {
+        case .push:
             let _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
         }
