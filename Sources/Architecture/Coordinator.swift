@@ -150,7 +150,7 @@ public extension PushModalCoordinator where ViewController: UIViewController, Vi
                 self.delegate?.didStop(in: self)
             }
         case .push:
-            let _ = navigationController?.popViewController(animated: animated)
+            _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
         }
     }
