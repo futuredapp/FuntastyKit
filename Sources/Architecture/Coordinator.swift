@@ -43,7 +43,7 @@ public protocol PushCoordinator: DefaultCoordinator {
 
 public protocol ModalCoordinator: DefaultCoordinator {
     var configuration: ((ViewController) -> Void)? { get }
-    var navigationController: UINavigationController { get }
+    var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
@@ -100,10 +100,10 @@ public extension ModalCoordinator where ViewController: UIViewController, ViewCo
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
-            navigationController.present(destinationNavigationController, animated: animated, completion: nil)
+            sourceViewController.present(destinationNavigationController, animated: animated, completion: nil)
         } else {
             // no wrapper navigation controller given, present actual controller
-            navigationController.present(viewController, animated: animated, completion: nil)
+            sourceViewController.present(viewController, animated: animated, completion: nil)
         }
     }
 
