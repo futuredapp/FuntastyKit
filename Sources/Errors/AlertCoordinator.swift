@@ -34,8 +34,8 @@ public final class AlertCoordinator {
     }
 }
 
-extension DefaultCoordinator {
-    func navigateToAlert(for error: Error) {
+public extension DefaultCoordinator {
+    public func navigateToAlert(for error: Error) {
         guard let viewController = self.viewController else {
             return
         }
@@ -43,7 +43,7 @@ extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    func navigateToAlert(title: String, message: String) {
+    public func navigateToAlert(title: String, message: String) {
         guard let viewController = self.viewController else {
             return
         }
@@ -51,7 +51,7 @@ extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    func navigateToAlert(title: String, message: String, actions: [UIAlertAction]?) {
+    public func navigateToAlert(title: String, message: String, actions: [UIAlertAction]?) {
         guard let viewController = self.viewController else {
             return
         }
@@ -61,7 +61,7 @@ extension DefaultCoordinator {
 }
 
 public extension AlertCoordinator {
-    func start() {
+    public func start() {
         var alert = UIAlertController()
         if let error = error {
             alert = UIAlertController(error: error)
@@ -73,7 +73,7 @@ public extension AlertCoordinator {
         viewController = alert
     }
 
-    func stop() {
+    public func stop() {
         viewController?.dismiss(animated: true, completion: nil)
     }
 }
