@@ -71,7 +71,7 @@ public extension DefaultCoordinator {
     }
 }
 
-public extension PushCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension PushCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -89,7 +89,7 @@ public extension PushCoordinator where ViewController: UIViewController, ViewCon
     }
 }
 
-public extension ModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension ModalCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -115,7 +115,7 @@ public extension ModalCoordinator where ViewController: UIViewController, ViewCo
     }
 }
 
-public extension PushModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension PushModalCoordinator where ViewController: Coordinated {
     // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
     // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
     // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
