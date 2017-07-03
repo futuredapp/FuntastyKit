@@ -175,6 +175,6 @@ public extension Coordinated {
     }
 
     mutating func setCoordinator(_ coordinator: Coordinator) {
-        self.coordinator = coordinator as? C
+        self.coordinator = coordinator as! C
     }
 }
