@@ -43,7 +43,7 @@ public protocol PushCoordinator: DefaultCoordinator {
 
 public protocol ModalCoordinator: DefaultCoordinator {
     var configuration: ((ViewController) -> Void)? { get }
-    var navigationController: UINavigationController { get }
+    var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
@@ -71,7 +71,7 @@ public extension DefaultCoordinator {
     }
 }
 
-public extension PushCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension PushCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -89,7 +89,7 @@ public extension PushCoordinator where ViewController: UIViewController, ViewCon
     }
 }
 
-public extension ModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension ModalCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -100,10 +100,10 @@ public extension ModalCoordinator where ViewController: UIViewController, ViewCo
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
-            navigationController.present(destinationNavigationController, animated: animated, completion: nil)
+            sourceViewController.present(destinationNavigationController, animated: animated, completion: nil)
         } else {
             // no wrapper navigation controller given, present actual controller
-            navigationController.present(viewController, animated: animated, completion: nil)
+            sourceViewController.present(viewController, animated: animated, completion: nil)
         }
     }
 
@@ -115,7 +115,7 @@ public extension ModalCoordinator where ViewController: UIViewController, ViewCo
     }
 }
 
-public extension PushModalCoordinator where ViewController: UIViewController, ViewController: Coordinated {
+public extension PushModalCoordinator where ViewController: Coordinated {
     // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
     // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
     // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
@@ -150,7 +150,7 @@ public extension PushModalCoordinator where ViewController: UIViewController, Vi
                 self.delegate?.didStop(in: self)
             }
         case .push:
-            let _ = navigationController?.popViewController(animated: animated)
+            _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
         }
     }
@@ -162,20 +162,19 @@ public protocol CoordinatorDelegate: class {
 }
 
 /// Used typically on view controllers to refer to it's coordinator
-public protocol Coordinated {
+public protocol Coordinated: class where Self: UIViewController {
+    associatedtype C: Coordinator
+    var coordinator: C! { get set }
     func getCoordinator() -> Coordinator?
     func setCoordinator(_ coordinator: Coordinator)
 }
 
-public class CoordinatorSegue: UIStoryboardSegue {
+public extension Coordinated {
+    func getCoordinator() -> Coordinator? {
+        return coordinator
+    }
 
-    open var sender: AnyObject!
-
-    override public func perform() {
-        guard let source = self.source as? Coordinated else {
-            return
-        }
-
-        source.getCoordinator()?.navigate(from: self.source, to: destination, with: identifier, and: sender)
+    func setCoordinator(_ coordinator: Coordinator) {
+        self.coordinator = coordinator as! C
     }
 }

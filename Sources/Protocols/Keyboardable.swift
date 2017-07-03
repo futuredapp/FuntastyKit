@@ -9,14 +9,30 @@
 import Foundation
 import UIKit
 
+public class KeyboardableToken {
+    let center: NotificationCenter
+    let changeFrameToken: NSObjectProtocol
+    let hideToken: NSObjectProtocol
+
+    init(changeFrameToken: NSObjectProtocol, hideToken: NSObjectProtocol, center: NotificationCenter) {
+        self.changeFrameToken = changeFrameToken
+        self.hideToken = hideToken
+        self.center = center
+    }
+
+    deinit {
+        center.removeObserver(changeFrameToken)
+        center.removeObserver(hideToken)
+    }
+}
+
 public protocol Keyboardable: class {
-    var keyboardObservers: [Any] { get set }
     func keyboardChanges(height: CGFloat)
 }
 
 public extension Keyboardable {
 
-    func useKeyboard() {
+    func useKeyboard() -> KeyboardableToken {
         let center = NotificationCenter.default
 
         let keyboardChangeFrameBlock: (Notification) -> Void = { [weak self] notification in
@@ -30,15 +46,8 @@ public extension Keyboardable {
             self?.keyboardChanges(height: 0)
         }
 
-        keyboardObservers = [
-            center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardChangeFrameBlock),
-            center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHideBlock)
-        ]
-
-    }
-
-    func stopUsingKeyboard() {
-        let center = NotificationCenter.default
-        keyboardObservers.forEach { center.removeObserver($0) }
+        let changeFrameToken = center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardChangeFrameBlock)
+        let hideToken = center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHideBlock)
+        return KeyboardableToken(changeFrameToken: changeFrameToken, hideToken: hideToken, center: center)
     }
 }
