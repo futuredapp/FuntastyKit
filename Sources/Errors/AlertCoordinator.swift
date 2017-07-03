@@ -8,10 +8,10 @@
 
 import UIKit
 
-public final class AlertCoordinator {
+public class AlertCoordinator: DefaultCoordinator {
 
     let parentViewController: UIViewController
-    weak var viewController: UIAlertController?
+    public weak var viewController: UIAlertController?
 
     var error: Error?
 
