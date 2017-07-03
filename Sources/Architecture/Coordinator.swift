@@ -163,10 +163,18 @@ public protocol CoordinatorDelegate: class {
 
 /// Used typically on view controllers to refer to it's coordinator
 public protocol Coordinated {
+    associatedtype C: Coordinator
+    var coordinator: C! { get set }
     func getCoordinator() -> Coordinator?
     func setCoordinator(_ coordinator: Coordinator)
 }
 
+public extension Coordinated {
+    func getCoordinator() -> Coordinator? {
+        return coordinator
+    }
 
+    mutating func setCoordinator(_ coordinator: Coordinator) {
+        self.coordinator = coordinator as? C
     }
 }
