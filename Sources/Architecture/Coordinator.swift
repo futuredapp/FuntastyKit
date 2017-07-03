@@ -167,15 +167,6 @@ public protocol Coordinated {
     func setCoordinator(_ coordinator: Coordinator)
 }
 
-public class CoordinatorSegue: UIStoryboardSegue {
 
-    open var sender: AnyObject!
-
-    override public func perform() {
-        guard let source = self.source as? Coordinated else {
-            return
-        }
-
-        source.getCoordinator()?.navigate(from: self.source, to: destination, with: identifier, and: sender)
     }
 }
