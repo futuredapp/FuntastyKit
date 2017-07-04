@@ -13,12 +13,7 @@ public extension UIAlertController {
         switch error {
         case let error as ResolvableError:
             self.init(title: error.errorDescription ?? NSLocalizedString("Error", comment: "Error"), message: error.failureReason ?? error.localizedDescription, preferredStyle: .alert)
-            error.actions.forEach { errorAction in
-                let action = UIAlertAction(title: errorAction.title, style: .default, handler: { _ in
-                    errorAction.action?()
-                })
-                self.addAction(action)
-            }
+            error.actions.map { $0.alertAction() }.forEach(self.addAction)
             if error.actions.isEmpty {
                 self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
             }
