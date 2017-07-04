@@ -162,7 +162,7 @@ public protocol CoordinatorDelegate: class {
 }
 
 /// Used typically on view controllers to refer to it's coordinator
-public protocol Coordinated: class where Self: UIViewController {
+public protocol Coordinated: class {
     associatedtype C: Coordinator
     var coordinator: C! { get set }
     func getCoordinator() -> Coordinator?
