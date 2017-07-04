@@ -15,6 +15,18 @@
 		52D6DA261BF00118002C0205 /* FuntastyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6D9961BEFF375002C0205 /* FuntastyKit.swift */; };
 		B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C301E0967D2005336D2 /* UITableView+Extensions.swift */; };
 		B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C321E09682D005336D2 /* StoryboardType.swift */; };
+		D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
+		D09AACC61ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
+		D09AACC71ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
+		D09AACC81ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
+		D09AACC91ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
+		D09AACCA1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
+		D09AACCB1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
+		D09AACCC1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
+		D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
+		D09AACCE1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
+		D09AACCF1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
+		D09AACD01ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
 		D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */; };
 		D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */; };
 		D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */; };
@@ -68,6 +80,9 @@
 		AD2FAA281CD0B6E100659CF4 /* FuntastyKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FuntastyKitTests.plist; sourceTree = "<group>"; };
 		B91C3C301E0967D2005336D2 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Extensions.swift"; path = "Sources/Extensions/UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		B91C3C321E09682D005336D2 /* StoryboardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryboardType.swift; path = Sources/Protocols/StoryboardType.swift; sourceTree = "<group>"; };
+		D09AACC21ED8683200438527 /* AlertCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCoordinator.swift; path = Sources/Errors/AlertCoordinator.swift; sourceTree = "<group>"; };
+		D09AACC31ED8683200438527 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Errors/Errors.swift; sourceTree = "<group>"; };
+		D09AACC41ED8683200438527 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Error.swift"; path = "Sources/Errors/UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HairlineLayoutConstraint.swift; path = Sources/AutoLayout/HairlineLayoutConstraint.swift; sourceTree = "<group>"; };
 		D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Deselection.swift"; path = "Sources/Extensions/UIViewController+Deselection.swift"; sourceTree = "<group>"; };
 		D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+RootViewController.swift"; path = "Sources/Extensions/UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
@@ -143,6 +158,7 @@
 				D0C9B68D1E07369C00EA3376 /* Architecture */,
 				D0C9B67E1E072A5600EA3376 /* Extensions */,
 				D0C9B6651E07249C00EA3376 /* Protocols */,
+				D09AACC11ED8681900438527 /* Errors */,
 				D0EC60511E07229800D3E4D8 /* AutoLayout */,
 				52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
@@ -171,6 +187,16 @@
 				DD7502731C68FC20006590AF /* Tests */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		D09AACC11ED8681900438527 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D09AACC21ED8683200438527 /* AlertCoordinator.swift */,
+				D09AACC31ED8683200438527 /* Errors.swift */,
+				D09AACC41ED8683200438527 /* UIAlertController+Error.swift */,
+			);
+			name = Errors;
 			sourceTree = "<group>";
 		};
 		D0C9B6651E07249C00EA3376 /* Protocols */ = {
@@ -571,14 +597,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */,
+				D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
 				D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */,
 				D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */,
 				D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */,
 				52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */,
+				D09AACC91ED8683200438527 /* Errors.swift in Sources */,
 				B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */,
 				D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */,
 				D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */,
+				D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
 				D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */,
 			);
@@ -596,7 +625,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09AACCB1ED8683200438527 /* Errors.swift in Sources */,
 				52D6D9EA1BEFFFA4002C0205 /* FuntastyKit.swift in Sources */,
+				D09AACC71ED8683200438527 /* AlertCoordinator.swift in Sources */,
+				D09AACCF1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44A1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,7 +637,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09AACCC1ED8683200438527 /* Errors.swift in Sources */,
 				52D6DA091BF00081002C0205 /* FuntastyKit.swift in Sources */,
+				D09AACC81ED8683200438527 /* AlertCoordinator.swift in Sources */,
+				D09AACD01ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44C1E07EFB2004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +649,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09AACCA1ED8683200438527 /* Errors.swift in Sources */,
 				52D6DA261BF00118002C0205 /* FuntastyKit.swift in Sources */,
+				D09AACC61ED8683200438527 /* AlertCoordinator.swift in Sources */,
+				D09AACCE1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44B1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
