@@ -13,13 +13,21 @@ public protocol ResolvableError: LocalizedError {
 }
 
 public struct ErrorAction {
+    public enum Style: Int {
+        case `default`
+        case cancel
+        case destructive
+    }
+
     public typealias ErrorHandler = () -> Void
 
     let title: String
     var action: ErrorHandler?
+    var style: Style
 
-    public init(title: String, action: ErrorHandler? = nil) {
+    public init(title: String, style: Style = .default, action: ErrorHandler? = nil) {
         self.title = title
+        self.style = style
         self.action = action
     }
 }

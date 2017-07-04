@@ -11,7 +11,7 @@ import UIKit
 public class AlertCoordinator: DefaultCoordinator {
     enum InputType {
         case error(Error)
-        case custom(title: String, message: String?, actions: [UIAlertAction]?)
+        case custom(title: String, message: String?, actions: [ErrorAction]?)
 
         func alertController() -> UIAlertController {
             switch self {
@@ -19,7 +19,7 @@ public class AlertCoordinator: DefaultCoordinator {
                 return UIAlertController(error: error)
             case .custom(let title, let message, let actions):
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                actions?.forEach(alert.addAction)
+                actions?.map { $0.alertAction() }.forEach(alert.addAction)
                 return alert
             }
         }
@@ -37,7 +37,7 @@ public class AlertCoordinator: DefaultCoordinator {
         self.type = .error(error)
     }
 
-    public init(parent: UIViewController, title: String, message: String?, actions: [UIAlertAction] = [UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default)]) {
+    public init(parent: UIViewController, title: String, message: String?, actions: [ErrorAction] = [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
     }
@@ -55,6 +55,23 @@ public class AlertCoordinator: DefaultCoordinator {
     }
 }
 
+public extension ErrorAction {
+    func alertStyle() -> UIAlertActionStyle {
+        switch self.style {
+        case .default:
+            return .default
+        case .cancel:
+            return .cancel
+        case .destructive:
+            return .destructive
+        }
+    }
+
+    func alertAction() -> UIAlertAction {
+        return UIAlertAction(title: self.title, style: self.alertStyle(), handler: { _ in self.action?() })
+    }
+}
+
 public extension DefaultCoordinator {
     public func showAlert(for error: Error) {
         guard let viewController = self.viewController else {
@@ -65,7 +82,7 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String, message: String, actions: [UIAlertAction]? = nil) {
+    public func showAlert(title: String, message: String, actions: [ErrorAction]? = nil) {
         guard let viewController = self.viewController else {
             return
         }
