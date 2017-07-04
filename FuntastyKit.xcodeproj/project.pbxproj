@@ -30,6 +30,10 @@
 		DD7502881C68FEDE006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */; };
 		DD7502921C690C7A006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */; };
 		DD75029A1C690CBE006590AF /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */; };
+		E75FF8271E4CCA49002B5EC0 /* CellConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FF8231E4CCA49002B5EC0 /* CellConvertible.swift */; };
+		E75FF8281E4CCA49002B5EC0 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FF8241E4CCA49002B5EC0 /* CellModel.swift */; };
+		E75FF8291E4CCA49002B5EC0 /* CellModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FF8251E4CCA49002B5EC0 /* CellModelDataSource.swift */; };
+		E75FF82A1E4CCA49002B5EC0 /* UITableView+DequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FF8261E4CCA49002B5EC0 /* UITableView+DequeueReusableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Sources/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* FuntastyKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* FuntastyKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E75FF8231E4CCA49002B5EC0 /* CellConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConvertible.swift; sourceTree = "<group>"; };
+		E75FF8241E4CCA49002B5EC0 /* CellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		E75FF8251E4CCA49002B5EC0 /* CellModelDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModelDataSource.swift; sourceTree = "<group>"; };
+		E75FF8261E4CCA49002B5EC0 /* UITableView+DequeueReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+DequeueReusableCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				52D6D9961BEFF375002C0205 /* FuntastyKit.swift */,
+				E75FF8221E4CCA34002B5EC0 /* Table view data source */,
 				D0C9B68D1E07369C00EA3376 /* Architecture */,
 				D0C9B67E1E072A5600EA3376 /* Extensions */,
 				D0C9B6651E07249C00EA3376 /* Protocols */,
@@ -225,6 +234,17 @@
 				AD2FAA281CD0B6E100659CF4 /* FuntastyKitTests.plist */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		E75FF8221E4CCA34002B5EC0 /* Table view data source */ = {
+			isa = PBXGroup;
+			children = (
+				E75FF8231E4CCA49002B5EC0 /* CellConvertible.swift */,
+				E75FF8241E4CCA49002B5EC0 /* CellModel.swift */,
+				E75FF8251E4CCA49002B5EC0 /* CellModelDataSource.swift */,
+				E75FF8261E4CCA49002B5EC0 /* UITableView+DequeueReusableCell.swift */,
+			);
+			name = "Table view data source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,14 +591,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */,
+				E75FF8271E4CCA49002B5EC0 /* CellConvertible.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
 				D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */,
+				E75FF8291E4CCA49002B5EC0 /* CellModelDataSource.swift in Sources */,
 				D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */,
+				E75FF82A1E4CCA49002B5EC0 /* UITableView+DequeueReusableCell.swift in Sources */,
 				D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */,
 				52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */,
 				B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */,
 				D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */,
 				D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */,
+				E75FF8281E4CCA49002B5EC0 /* CellModel.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
 				D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */,
 			);
