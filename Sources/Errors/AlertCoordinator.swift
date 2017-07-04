@@ -9,71 +9,73 @@
 import UIKit
 
 public class AlertCoordinator: DefaultCoordinator {
+    enum InputType {
+        case error(Error)
+        case custom(title: String, message: String?, actions: [UIAlertAction]?)
+
+        func alertController() -> UIAlertController {
+            switch self {
+            case .error(let error):
+                return UIAlertController(error: error)
+            case .custom(let title, let message, let actions):
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                actions?.forEach(alert.addAction)
+                return alert
+            }
+        }
+    }
 
     let parentViewController: UIViewController
     public weak var viewController: UIAlertController?
 
-    var error: Error?
-
-    var title: String?
-    var message: String?
-    var actions: [UIAlertAction]?
+    private var type: InputType
 
     // MARK: - Inits
 
     public init(parent: UIViewController, error: Error) {
         self.parentViewController = parent
-        self.error = error
+        self.type = .error(error)
     }
 
-    public init(parent: UIViewController, title: String?, message: String?, actions: [UIAlertAction]? = [UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default)]) {
+    public init(parent: UIViewController, title: String, message: String?, actions: [UIAlertAction] = [UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default)]) {
         self.parentViewController = parent
-        self.title = title
-        self.message = message
-        self.actions = actions
-    }
-}
-
-public extension DefaultCoordinator {
-    public func navigateToAlert(for error: Error) {
-        guard let viewController = self.viewController else {
-            return
-        }
-        let alertCoordinator = AlertCoordinator(parent: viewController, error: error)
-        alertCoordinator.start()
+        self.type = .custom(title: title, message: message, actions: actions)
     }
 
-    public func navigateToAlert(title: String, message: String) {
-        guard let viewController = self.viewController else {
-            return
-        }
-        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message)
-        alertCoordinator.start()
-    }
-
-    public func navigateToAlert(title: String, message: String, actions: [UIAlertAction]?) {
-        guard let viewController = self.viewController else {
-            return
-        }
-        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
-        alertCoordinator.start()
-    }
-}
-
-public extension AlertCoordinator {
     public func start() {
-        var alert = UIAlertController()
-        if let error = error {
-            alert = UIAlertController(error: error)
-        } else {
-            alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            actions?.forEach(alert.addAction)
-        }
-        parentViewController.present(alert, animated: true, completion: nil)
+        let alert = type.alertController()
+        parentViewController.present(alert, animated: animated, completion: nil)
         viewController = alert
     }
 
     public func stop() {
-        viewController?.dismiss(animated: true, completion: nil)
+        delegate?.willStop(in: self)
+        viewController?.dismiss(animated: animated, completion: nil)
+        delegate?.didStop(in: self)
+    }
+}
+
+public extension DefaultCoordinator {
+    public func showAlert(for error: Error) {
+        guard let viewController = self.viewController else {
+            return
+        }
+
+        let alertCoordinator = AlertCoordinator(parent: viewController, error: error)
+        alertCoordinator.start()
+    }
+
+    public func showAlert(title: String, message: String, actions: [UIAlertAction]? = nil) {
+        guard let viewController = self.viewController else {
+            return
+        }
+
+        var alertCoordinator: AlertCoordinator
+        if let actions = actions {
+            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
+        } else {
+            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message)
+        }
+        alertCoordinator.start()
     }
 }
