@@ -9,26 +9,45 @@
 import Foundation
 import UIKit
 
-public protocol Keyboardable {
+public class KeyboardableToken {
+    let center: NotificationCenter
+    let changeFrameToken: NSObjectProtocol
+    let hideToken: NSObjectProtocol
+
+    init(changeFrameToken: NSObjectProtocol, hideToken: NSObjectProtocol, center: NotificationCenter) {
+        self.changeFrameToken = changeFrameToken
+        self.hideToken = hideToken
+        self.center = center
+    }
+
+    deinit {
+        center.removeObserver(changeFrameToken)
+        center.removeObserver(hideToken)
+    }
+}
+
+public protocol Keyboardable: class {
     func keyboardChanges(height: CGFloat)
 }
 
 public extension Keyboardable {
 
-    func useKeyboard() {
+    func useKeyboard() -> KeyboardableToken {
         let center = NotificationCenter.default
-        center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardWillChange)
-        center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHide)
-    }
 
-    func keyboardWillChange(notification: Notification) {
-        guard let rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
+        let keyboardChangeFrameBlock: (Notification) -> Void = { [weak self] notification in
+            guard let rect = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+                return
+            }
+            self?.keyboardChanges(height: rect.size.height)
         }
-        keyboardChanges(height: rect.size.height)
-    }
 
-    func keyboardWillHide(notification: Notification) {
-        keyboardChanges(height: 0)
+        let keyboardWillHideBlock: (Notification) -> Void = { [weak self] _ in
+            self?.keyboardChanges(height: 0)
+        }
+
+        let changeFrameToken = center.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: keyboardChangeFrameBlock)
+        let hideToken = center.addObserver(forName: .UIKeyboardWillHide, object: nil, queue: nil, using: keyboardWillHideBlock)
+        return KeyboardableToken(changeFrameToken: changeFrameToken, hideToken: hideToken, center: center)
     }
 }

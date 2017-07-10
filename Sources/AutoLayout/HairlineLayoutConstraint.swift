@@ -12,7 +12,8 @@ import UIKit
 public class HairlineLayoutConstraint: NSLayoutConstraint {
 
     override public func awakeFromNib() {
-        self.constant = self.constant / UIScreen.main.scale
+        super.awakeFromNib()
+        self.constant /= UIScreen.main.scale
     }
 
 }

@@ -38,7 +38,7 @@ class FuntastyKitTests: XCTestCase {
 extension FuntastyKitTests {
     static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
         return [
-            ("testExample", testExample),
+            ("testExample", testExample)
         ]
     }
 }

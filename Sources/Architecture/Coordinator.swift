@@ -29,47 +29,49 @@ public extension Coordinator {
 }
 
 public protocol DefaultCoordinator: Coordinator {
-    associatedtype VC: UIViewController
-    weak var viewController: VC? { get set }
+    associatedtype ViewController: UIViewController
+    weak var viewController: ViewController? { get set }
 
     var animated: Bool { get }
     weak var delegate: CoordinatorDelegate? { get }
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
-    var navigationController: UINavigationController { get }
+    var configuration: ((ViewController) -> Void)? { get }
+    var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
+public enum PresentationStyle {
+    case push
+    case modal
+}
+
 public protocol PushModalCoordinator: DefaultCoordinator {
-    var configuration: ((VC) -> ())? { get }
+    var configuration: ((ViewController) -> Void)? { get }
     var navigationController: UINavigationController? { get }
+    var presentationStyle: PresentationStyle { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
 public extension DefaultCoordinator {
     // default implementation if not overriden
     var animated: Bool {
-        get {
-            return true
-        }
+        return true
     }
 
     // default implementation of nil delegate, should be overriden when needed
     weak var delegate: CoordinatorDelegate? {
-        get {
-            return nil
-        }
+        return nil
     }
 }
 
-public extension PushCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -87,7 +89,7 @@ public extension PushCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension ModalCoordinator where ViewController: Coordinated {
     func start() {
         guard let viewController = viewController else {
             return
@@ -98,10 +100,10 @@ public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
-            navigationController.present(destinationNavigationController, animated: animated, completion: nil)
+            sourceViewController.present(destinationNavigationController, animated: animated, completion: nil)
         } else {
             // no wrapper navigation controller given, present actual controller
-            navigationController.present(viewController, animated: animated, completion: nil)
+            sourceViewController.present(viewController, animated: animated, completion: nil)
         }
     }
 
@@ -113,7 +115,14 @@ public extension ModalCoordinator where VC: UIViewController, VC: Coordinated {
     }
 }
 
-public extension PushModalCoordinator where VC: UIViewController, VC: Coordinated {
+public extension PushModalCoordinator where ViewController: Coordinated {
+    // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
+    // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
+    // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
+    var presentationStyle: PresentationStyle {
+        return self.destinationNavigationController != nil ? .modal : .push
+    }
+
     func start() {
         guard let viewController = viewController else {
             return
@@ -122,26 +131,26 @@ public extension PushModalCoordinator where VC: UIViewController, VC: Coordinate
         configuration?(viewController)
         viewController.setCoordinator(self)
 
-        // TODO: figure out better way to distinguish between Push and Modal behavior
-        if let destinationNavigationController = destinationNavigationController {
-            // wrapper navigation controller means VC should be presented modally
-            navigationController?.present(destinationNavigationController, animated: animated, completion: nil)
-        } else {
-            // present controller normally (initializer for this case not implemented, just an exploration of a possible future case)
+        switch presentationStyle {
+        case .modal where destinationNavigationController != nil:
+            navigationController?.present(destinationNavigationController!, animated: animated, completion: nil)
+        case .push:
             navigationController?.pushViewController(viewController, animated: animated)
+        default:
+            break
         }
     }
 
     func stop() {
         delegate?.willStop(in: self)
 
-        // TODO: figure out better way to distinguish between Push and Modal behavior
-        if destinationNavigationController != nil {
+        switch presentationStyle {
+        case .modal:
             viewController?.dismiss(animated: true) {
                 self.delegate?.didStop(in: self)
             }
-        } else {
-            let _ = navigationController?.popViewController(animated: animated)
+        case .push:
+            _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
         }
     }
@@ -153,20 +162,19 @@ public protocol CoordinatorDelegate: class {
 }
 
 /// Used typically on view controllers to refer to it's coordinator
-public protocol Coordinated {
+public protocol Coordinated: class {
+    associatedtype C: Coordinator
+    var coordinator: C! { get set }
     func getCoordinator() -> Coordinator?
     func setCoordinator(_ coordinator: Coordinator)
 }
 
-public class CoordinatorSegue: UIStoryboardSegue {
+public extension Coordinated {
+    func getCoordinator() -> Coordinator? {
+        return coordinator
+    }
 
-    open var sender: AnyObject!
-
-    override public func perform() {
-        guard let source = self.source as? Coordinated else {
-            return
-        }
-
-        source.getCoordinator()?.navigate(from: self.source, to: destination, with: identifier, and: sender)
+    func setCoordinator(_ coordinator: Coordinator) {
+        self.coordinator = coordinator as! C
     }
 }

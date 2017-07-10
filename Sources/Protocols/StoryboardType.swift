@@ -15,14 +15,19 @@ public protocol StoryboardType {
 
 public struct StoryboardReference<S: StoryboardType, T> {
 
-    public let id: String
+    private let id: String
+    private let bundle: Bundle?
+
+    public init(id: String, bundle: Bundle? = nil) {
+        self.bundle = bundle
+        self.id = id
+    }
 
     public func instantiate() -> T {
-        if let controller = UIStoryboard(name: S.name, bundle: nil).instantiateViewController(withIdentifier: id) as? T {
+        if let controller = UIStoryboard(name: S.name, bundle: bundle).instantiateViewController(withIdentifier: id) as? T {
             return controller
         } else {
             fatalError("Instantiated controller with \(id) has different type than expected!")
         }
     }
-
 }
