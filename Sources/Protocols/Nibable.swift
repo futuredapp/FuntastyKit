@@ -16,7 +16,9 @@ public extension UIView {
 
 }
 
-public protocol Nibable {}
+public protocol Nibable {
+    static var nib: UINib { get }
+}
 
 public extension Nibable where Self: UIView {
 
