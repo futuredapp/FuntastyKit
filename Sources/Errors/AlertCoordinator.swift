@@ -76,25 +76,25 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error) {
+    public func showAlert(for error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, error: error)
+        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String, message: String, actions: [ErrorAction]? = nil) {
+    public func showAlert(title: String, message: String, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
         var alertCoordinator: AlertCoordinator
         if let actions = actions {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
+            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
         } else {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message)
+            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, preferredStyle: preferredStyle)
         }
         alertCoordinator.start()
     }
