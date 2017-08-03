@@ -11,7 +11,7 @@ import UIKit
 public class AlertCoordinator: DefaultCoordinator {
     enum InputType {
         case error(Error)
-        case custom(title: String, message: String?, actions: [ErrorAction]?)
+        case custom(title: String?, message: String?, actions: [ErrorAction]?)
 
         func alertController() -> UIAlertController {
             switch self {
@@ -19,7 +19,7 @@ public class AlertCoordinator: DefaultCoordinator {
                 return UIAlertController(error: error)
             case .custom(let title, let message, let actions):
                 let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                actions?.map { $0.alertAction() }.forEach(alert.addAction)
+                (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
                 return alert
             }
         }
@@ -37,7 +37,7 @@ public class AlertCoordinator: DefaultCoordinator {
         self.type = .error(error)
     }
 
-    public init(parent: UIViewController, title: String, message: String?, actions: [ErrorAction] = [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]) {
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
     }
@@ -82,17 +82,12 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String, message: String, actions: [ErrorAction]? = nil) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil) {
         guard let viewController = self.viewController else {
             return
         }
 
-        var alertCoordinator: AlertCoordinator
-        if let actions = actions {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
-        } else {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message)
-        }
+        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
         alertCoordinator.start()
     }
 }
