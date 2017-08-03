@@ -13,12 +13,12 @@ public class AlertCoordinator: DefaultCoordinator {
         case error(Error)
         case custom(title: String?, message: String?, actions: [ErrorAction]?)
 
-        func alertController() -> UIAlertController {
+        func alertController(preferredStyle: UIAlertControllerStyle = .alert) -> UIAlertController {
             switch self {
             case .error(let error):
-                return UIAlertController(error: error)
+                return UIAlertController(error: error, preferredStyle: preferredStyle)
             case .custom(let title, let message, let actions):
-                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
                 (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
                 return alert
             }
@@ -29,21 +29,24 @@ public class AlertCoordinator: DefaultCoordinator {
     public weak var viewController: UIAlertController?
 
     private var type: InputType
+    private var preferredStyle: UIAlertControllerStyle
 
     // MARK: - Inits
 
-    public init(parent: UIViewController, error: Error) {
+    public init(parent: UIViewController, error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
         self.parentViewController = parent
         self.type = .error(error)
+        self.preferredStyle = preferredStyle
     }
 
-    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil) {
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
+        self.preferredStyle = preferredStyle
     }
 
     public func start() {
-        let alert = type.alertController()
+        let alert = type.alertController(preferredStyle: preferredStyle)
         parentViewController.present(alert, animated: animated, completion: nil)
         viewController = alert
     }
@@ -73,21 +76,21 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error) {
+    public func showAlert(for error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, error: error)
+        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions)
+        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 }
