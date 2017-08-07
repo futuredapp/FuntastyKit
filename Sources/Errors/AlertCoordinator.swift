@@ -11,7 +11,7 @@ import UIKit
 public class AlertCoordinator: DefaultCoordinator {
     enum InputType {
         case error(Error)
-        case custom(title: String, message: String?, actions: [ErrorAction]?)
+        case custom(title: String?, message: String?, actions: [ErrorAction]?)
 
         func alertController(preferredStyle: UIAlertControllerStyle = .alert) -> UIAlertController {
             switch self {
@@ -19,7 +19,7 @@ public class AlertCoordinator: DefaultCoordinator {
                 return UIAlertController(error: error, preferredStyle: preferredStyle)
             case .custom(let title, let message, let actions):
                 let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-                actions?.map { $0.alertAction() }.forEach(alert.addAction)
+                (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
                 return alert
             }
         }
@@ -39,7 +39,7 @@ public class AlertCoordinator: DefaultCoordinator {
         self.preferredStyle = preferredStyle
     }
 
-    public init(parent: UIViewController, title: String, message: String?, actions: [ErrorAction] = [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))], preferredStyle: UIAlertControllerStyle = .alert) {
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
         self.preferredStyle = preferredStyle
@@ -85,17 +85,12 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String, message: String, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
-        var alertCoordinator: AlertCoordinator
-        if let actions = actions {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
-        } else {
-            alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, preferredStyle: preferredStyle)
-        }
+        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 }
