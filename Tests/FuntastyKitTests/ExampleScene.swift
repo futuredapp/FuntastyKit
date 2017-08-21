@@ -64,9 +64,10 @@ final class ExampleCoordinator: ModalCoordinator {
     private let model: Model
 
     init(from source: UIViewController, model: Model, serviceHolder: ServiceHolder) {
+        let controller = ExampleViewController()
+        self.destinationNavigationController = UINavigationController(rootViewController: controller)
+        self.viewController = controller
         self.sourceViewController = source
-        self.destinationNavigationController = UINavigationController(rootViewController: ExampleViewController())
-        self.viewController = destinationNavigationController?.topViewController as? ExampleViewController
         self.model = model
         self.serviceHolder = serviceHolder
     }
