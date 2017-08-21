@@ -32,12 +32,12 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(controller: ViewController)
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(controller: ViewController)
     var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
@@ -48,7 +48,7 @@ public enum PresentationStyle {
 }
 
 public protocol PushModalCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(controller: ViewController)
     var navigationController: UINavigationController? { get }
     var presentationStyle: PresentationStyle { get }
     weak var destinationNavigationController: UINavigationController? { get }
@@ -72,8 +72,7 @@ public extension PushCoordinator where ViewController: Coordinated {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(controller: viewController)
         navigationController.pushViewController(viewController, animated: animated)
     }
 
@@ -90,8 +89,7 @@ public extension ModalCoordinator where ViewController: Coordinated {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(controller: viewController)
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
@@ -123,8 +121,7 @@ public extension PushModalCoordinator where ViewController: Coordinated {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(controller: viewController)
 
         switch presentationStyle {
         case .modal where destinationNavigationController != nil:
