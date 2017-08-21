@@ -42,6 +42,9 @@
 		DD7502881C68FEDE006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */; };
 		DD7502921C690C7A006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */; };
 		DD75029A1C690CBE006590AF /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */; };
+		E788B8CF1F4ACE4D0066DBC0 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788B8CD1F4ACE3A0066DBC0 /* ExampleScene.swift */; };
+		E788B8D01F4ACE4E0066DBC0 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788B8CD1F4ACE3A0066DBC0 /* ExampleScene.swift */; };
+		E788B8D11F4ACE4E0066DBC0 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E788B8CD1F4ACE3A0066DBC0 /* ExampleScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +75,7 @@
 		52D6D97C1BEFF229002C0205 /* FuntastyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FuntastyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* FuntastyKit-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9961BEFF375002C0205 /* FuntastyKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FuntastyKit.swift; path = Sources/FuntastyKit.swift; sourceTree = "<group>"; };
-		52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FuntastyKitTests.swift; path = Tests/FuntastyKitTests/FuntastyKitTests.swift; sourceTree = "<group>"; };
+		52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FuntastyKitTests.swift; path = ../Tests/FuntastyKitTests/FuntastyKitTests.swift; sourceTree = "<group>"; };
 		52D6D9E21BEFFF6E002C0205 /* FuntastyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FuntastyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FuntastyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FuntastyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +96,7 @@
 		D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Sources/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* FuntastyKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* FuntastyKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E788B8CD1F4ACE3A0066DBC0 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExampleScene.swift; path = ../Tests/FuntastyKitTests/ExampleScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +164,7 @@
 				D0C9B6651E07249C00EA3376 /* Protocols */,
 				D09AACC11ED8681900438527 /* Errors */,
 				D0EC60511E07229800D3E4D8 /* AutoLayout */,
-				52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */,
+				E788B8CC1F4ACE160066DBC0 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
 				52D6D97D1BEFF229002C0205 /* Products */,
 			);
@@ -251,6 +255,16 @@
 				AD2FAA281CD0B6E100659CF4 /* FuntastyKitTests.plist */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		E788B8CC1F4ACE160066DBC0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E788B8CD1F4ACE3A0066DBC0 /* ExampleScene.swift */,
+				52D6D9971BEFF375002C0205 /* FuntastyKitTests.swift */,
+			);
+			name = Tests;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -618,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D6D99B1BEFF375002C0205 /* FuntastyKitTests.swift in Sources */,
+				E788B8CF1F4ACE4D0066DBC0 /* ExampleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7502861C68FDDC006590AF /* FuntastyKitTests.swift in Sources */,
+				E788B8D01F4ACE4E0066DBC0 /* ExampleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD75029A1C690CBE006590AF /* FuntastyKitTests.swift in Sources */,
+				E788B8D11F4ACE4E0066DBC0 /* ExampleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
