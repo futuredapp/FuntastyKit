@@ -32,18 +32,18 @@ extension ExampleViewController: ExampleViewControllerInput {
 // MARK: - View model
 
 final class ExampleViewModel {
-    private weak var view: ExampleViewControllerInput?
+    private weak var viewController: ExampleViewControllerInput?
     private let coordinator: ExampleCoordinatorInput
 
     private let model: Model
 
     private let service: ExampleService
 
-    init(model: Model, coordinator: ExampleCoordinatorInput, view: ExampleViewControllerInput, service: ExampleService) {
+    init(model: Model, coordinator: ExampleCoordinatorInput, viewController: ExampleViewControllerInput, service: ExampleService) {
         self.model = model
         self.service = service
         self.coordinator = coordinator
-        self.view = view
+        self.viewController = viewController
     }
 }
 
@@ -73,7 +73,7 @@ final class ExampleCoordinator: ModalCoordinator {
     }
 
     func configure(controller: ExampleViewController) {
-        let viewModel = ExampleViewModel(model: model, coordinator: self, view: controller, service: serviceHolder.get())
+        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: controller, service: serviceHolder.get())
         controller.viewModel = viewModel
     }
 }
