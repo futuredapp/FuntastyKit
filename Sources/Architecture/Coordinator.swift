@@ -32,12 +32,12 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    func configure(controller: ViewController)
+    func configure(viewController: ViewController)
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    func configure(controller: ViewController)
+    func configure(viewController: ViewController)
     var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
@@ -72,7 +72,7 @@ public extension PushCoordinator {
             return
         }
 
-        configure(controller: viewController)
+        configure(viewController: viewController)
         navigationController.pushViewController(viewController, animated: animated)
     }
 
@@ -89,7 +89,7 @@ public extension ModalCoordinator {
             return
         }
 
-        configure(controller: viewController)
+        configure(viewController: viewController)
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
