@@ -72,9 +72,9 @@ final class ExampleCoordinator: ModalCoordinator {
         self.serviceHolder = serviceHolder
     }
 
-    func configure(controller: ExampleViewController) {
-        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: controller, service: serviceHolder.get())
-        controller.viewModel = viewModel
+    func configure(viewController: ExampleViewController) {
+        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: viewController, service: serviceHolder.get())
+        viewController.viewModel = viewModel
     }
 }
 
