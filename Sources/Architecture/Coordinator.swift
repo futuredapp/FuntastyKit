@@ -109,7 +109,7 @@ public extension ModalCoordinator where ViewController: Coordinated {
 
     func stop() {
         delegate?.willStop(in: self)
-        viewController?.dismiss(animated: true) {
+        viewController?.dismiss(animated: animated) {
             self.delegate?.didStop(in: self)
         }
     }
@@ -146,7 +146,7 @@ public extension PushModalCoordinator where ViewController: Coordinated {
 
         switch presentationStyle {
         case .modal:
-            viewController?.dismiss(animated: true) {
+            viewController?.dismiss(animated: animated) {
                 self.delegate?.didStop(in: self)
             }
         case .push:
