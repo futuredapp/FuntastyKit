@@ -53,8 +53,9 @@ public class AlertCoordinator: DefaultCoordinator {
 
     public func stop() {
         delegate?.willStop(in: self)
-        viewController?.dismiss(animated: animated, completion: nil)
-        delegate?.didStop(in: self)
+        viewController?.dismiss(animated: animated) {
+            self.delegate?.didStop(in: self)
+        }
     }
 }
 
