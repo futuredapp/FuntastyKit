@@ -33,7 +33,7 @@ public protocol DefaultCoordinator: Coordinator {
     weak var viewController: ViewController? { get set }
 
     var animated: Bool { get }
-    weak var delegate: CoordinatorDelegate? { get }
+    weak var delegate: CoordinatorDelegate? { get set }
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
@@ -67,7 +67,11 @@ public extension DefaultCoordinator {
 
     // default implementation of nil delegate, should be overriden when needed
     weak var delegate: CoordinatorDelegate? {
-        return nil
+        get {
+            return nil
+        }
+        set {
+        }
     }
 }
 
