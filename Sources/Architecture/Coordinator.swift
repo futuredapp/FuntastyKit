@@ -30,7 +30,7 @@ public extension Coordinator {
 
 public protocol DefaultCoordinator: Coordinator {
     associatedtype ViewController: UIViewController
-    weak var viewController: ViewController? { get set }
+    weak var viewController: ViewController? { get }
 
     var animated: Bool { get }
     weak var delegate: CoordinatorDelegate? { get set }
