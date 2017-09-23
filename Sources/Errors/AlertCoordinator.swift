@@ -27,6 +27,7 @@ public class AlertCoordinator: DefaultCoordinator {
 
     let parentViewController: UIViewController
     public weak var viewController: UIAlertController?
+    public weak var delegate: CoordinatorDelegate?
 
     private var type: InputType
     private var preferredStyle: UIAlertControllerStyle
