@@ -25,10 +25,10 @@ public extension Coordinator {
 
 public protocol DefaultCoordinator: Coordinator {
     associatedtype ViewController: UIViewController
-    weak var viewController: ViewController? { get set }
+    weak var viewController: ViewController? { get }
 
     var animated: Bool { get }
-    weak var delegate: CoordinatorDelegate? { get }
+    weak var delegate: CoordinatorDelegate? { get set }
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
@@ -62,7 +62,11 @@ public extension DefaultCoordinator {
 
     // default implementation of nil delegate, should be overriden when needed
     weak var delegate: CoordinatorDelegate? {
-        return nil
+        get {
+            return nil
+        }
+        set {
+        }
     }
 }
 
@@ -102,7 +106,7 @@ public extension ModalCoordinator {
 
     func stop() {
         delegate?.willStop(in: self)
-        viewController?.dismiss(animated: true) {
+        viewController?.dismiss(animated: animated) {
             self.delegate?.didStop(in: self)
         }
     }
@@ -138,7 +142,7 @@ public extension PushModalCoordinator {
 
         switch presentationStyle {
         case .modal:
-            viewController?.dismiss(animated: true) {
+            viewController?.dismiss(animated: animated) {
                 self.delegate?.didStop(in: self)
             }
         case .push:
