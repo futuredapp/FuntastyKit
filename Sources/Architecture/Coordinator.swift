@@ -68,6 +68,11 @@ public extension DefaultCoordinator {
         set {
         }
     }
+
+    func stop() {
+        delegate?.willStop(in: self)
+        delegate?.didStop(in: self)
+    }
 }
 
 public extension PushCoordinator {
