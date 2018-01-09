@@ -12,18 +12,13 @@ public protocol Coordinator {
     /// Triggers navigation to the corresponding controller
     func start()
 
-    /// Stops corresponding controller and returns back to previous one
+    /// Stops corresponding controller and returns back to previous one.
+    ///
+    /// This method is optional.
     func stop()
-
-    /// Called when segue navigation form corresponding controller to different controller is about to start and should handle this navigation
-    func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?)
 }
 
-/// Navigate and stop methods are optional
 public extension Coordinator {
-    func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?) {
-    }
-
     func stop() {
     }
 }
@@ -37,12 +32,12 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(viewController: ViewController)
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(viewController: ViewController)
     var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
@@ -53,7 +48,7 @@ public enum PresentationStyle {
 }
 
 public protocol PushModalCoordinator: DefaultCoordinator {
-    var configuration: ((ViewController) -> Void)? { get }
+    func configure(controller: ViewController)
     var navigationController: UINavigationController? { get }
     var presentationStyle: PresentationStyle { get }
     weak var destinationNavigationController: UINavigationController? { get }
@@ -73,16 +68,20 @@ public extension DefaultCoordinator {
         set {
         }
     }
+
+    func stop() {
+        delegate?.willStop(in: self)
+        delegate?.didStop(in: self)
+    }
 }
 
-public extension PushCoordinator where ViewController: Coordinated {
+public extension PushCoordinator {
     func start() {
         guard let viewController = viewController else {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(viewController: viewController)
         navigationController.pushViewController(viewController, animated: animated)
     }
 
@@ -93,14 +92,13 @@ public extension PushCoordinator where ViewController: Coordinated {
     }
 }
 
-public extension ModalCoordinator where ViewController: Coordinated {
+public extension ModalCoordinator {
     func start() {
         guard let viewController = viewController else {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(viewController: viewController)
 
         if let destinationNavigationController = destinationNavigationController {
             // wrapper navigation controller given, present it
@@ -119,7 +117,7 @@ public extension ModalCoordinator where ViewController: Coordinated {
     }
 }
 
-public extension PushModalCoordinator where ViewController: Coordinated {
+public extension PushModalCoordinator {
     // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
     // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
     // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
@@ -132,8 +130,7 @@ public extension PushModalCoordinator where ViewController: Coordinated {
             return
         }
 
-        configuration?(viewController)
-        viewController.setCoordinator(self)
+        configure(controller: viewController)
 
         switch presentationStyle {
         case .modal where destinationNavigationController != nil:
@@ -163,22 +160,4 @@ public extension PushModalCoordinator where ViewController: Coordinated {
 public protocol CoordinatorDelegate: class {
     func willStop(in coordinator: Coordinator)
     func didStop(in coordinator: Coordinator)
-}
-
-/// Used typically on view controllers to refer to it's coordinator
-public protocol Coordinated: class {
-    associatedtype C: Coordinator
-    var coordinator: C! { get set }
-    func getCoordinator() -> Coordinator?
-    func setCoordinator(_ coordinator: Coordinator)
-}
-
-public extension Coordinated {
-    func getCoordinator() -> Coordinator? {
-        return coordinator
-    }
-
-    func setCoordinator(_ coordinator: Coordinator) {
-        self.coordinator = coordinator as! C
-    }
 }

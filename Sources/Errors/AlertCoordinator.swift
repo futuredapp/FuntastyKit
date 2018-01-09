@@ -9,16 +9,36 @@
 import UIKit
 
 public class AlertCoordinator: DefaultCoordinator {
+
+    public enum Source {
+        case button(UIBarButtonItem)
+        case view(UIView)
+    }
+
+    public enum Style {
+        case alert
+        case actionSheet(source: Source?)
+
+        var controllerStyle: UIAlertControllerStyle {
+            switch self {
+            case .alert:
+                return .alert
+            case .actionSheet:
+                return .actionSheet
+            }
+        }
+    }
+
     enum InputType {
         case error(Error)
         case custom(title: String?, message: String?, actions: [ErrorAction]?)
 
-        func alertController(preferredStyle: UIAlertControllerStyle = .alert) -> UIAlertController {
+        func alertController(preferredStyle: Style = .alert) -> UIAlertController {
             switch self {
             case .error(let error):
-                return UIAlertController(error: error, preferredStyle: preferredStyle)
+                return UIAlertController(error: error, preferredStyle: preferredStyle.controllerStyle)
             case .custom(let title, let message, let actions):
-                let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+                let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle.controllerStyle)
                 (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
                 return alert
             }
@@ -30,17 +50,17 @@ public class AlertCoordinator: DefaultCoordinator {
     public weak var delegate: CoordinatorDelegate?
 
     private var type: InputType
-    private var preferredStyle: UIAlertControllerStyle
+    private var preferredStyle: Style
 
     // MARK: - Inits
 
-    public init(parent: UIViewController, error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
+    public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert) {
         self.parentViewController = parent
         self.type = .error(error)
         self.preferredStyle = preferredStyle
     }
 
-    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: Style = .alert) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
         self.preferredStyle = preferredStyle
@@ -48,6 +68,14 @@ public class AlertCoordinator: DefaultCoordinator {
 
     public func start() {
         let alert = type.alertController(preferredStyle: preferredStyle)
+        if case .actionSheet(let source) = preferredStyle, let sourceView = source {
+            switch sourceView {
+            case .button(let button):
+                alert.popoverPresentationController?.barButtonItem = button
+            case .view(let view):
+                alert.popoverPresentationController?.sourceView = view
+            }
+        }
         parentViewController.present(alert, animated: animated, completion: nil)
         viewController = alert
     }
@@ -78,7 +106,7 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
+    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }
@@ -87,7 +115,7 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: UIAlertControllerStyle = .alert) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }
