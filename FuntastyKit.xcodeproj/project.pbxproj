@@ -15,17 +15,11 @@
 		B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C301E0967D2005336D2 /* UITableView+Extensions.swift */; };
 		B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C321E09682D005336D2 /* StoryboardType.swift */; };
 		D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
-		D09AACC61ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
-		D09AACC71ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
-		D09AACC81ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
 		D09AACC91ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCA1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCB1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCC1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
-		D09AACCE1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
-		D09AACCF1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
-		D09AACD01ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
 		D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */; };
 		D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */; };
 		D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */; };
@@ -647,8 +641,6 @@
 			files = (
 				D09AACCB1ED8683200438527 /* Errors.swift in Sources */,
 				52D6D9EA1BEFFFA4002C0205 /* FuntastyKit.swift in Sources */,
-				D09AACC71ED8683200438527 /* AlertCoordinator.swift in Sources */,
-				D09AACCF1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44A1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,8 +651,6 @@
 			files = (
 				D09AACCC1ED8683200438527 /* Errors.swift in Sources */,
 				52D6DA091BF00081002C0205 /* FuntastyKit.swift in Sources */,
-				D09AACC81ED8683200438527 /* AlertCoordinator.swift in Sources */,
-				D09AACD01ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44C1E07EFB2004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,8 +661,6 @@
 			files = (
 				D09AACCA1ED8683200438527 /* Errors.swift in Sources */,
 				52D6DA261BF00118002C0205 /* FuntastyKit.swift in Sources */,
-				D09AACC61ED8683200438527 /* AlertCoordinator.swift in Sources */,
-				D09AACCE1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0D5D44B1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
