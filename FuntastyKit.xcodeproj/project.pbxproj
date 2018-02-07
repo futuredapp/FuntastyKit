@@ -29,7 +29,6 @@
 		D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */; };
 		D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */; };
 		D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */; };
-		D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */; };
 		D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6841E072F2D00EA3376 /* Nibable.swift */; };
 		D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D4461E07EFAF004889D6 /* Coordinator.swift */; };
 		D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D4471E07EFAF004889D6 /* ServiceHolder.swift */; };
@@ -84,7 +83,6 @@
 		D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HairlineLayoutConstraint.swift; path = Sources/AutoLayout/HairlineLayoutConstraint.swift; sourceTree = "<group>"; };
 		D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Deselection.swift"; path = "Sources/Extensions/UIViewController+Deselection.swift"; sourceTree = "<group>"; };
 		D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+RootViewController.swift"; path = "Sources/Extensions/UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
-		D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboardable.swift; path = Sources/Protocols/Keyboardable.swift; sourceTree = "<group>"; };
 		D0C9B6841E072F2D00EA3376 /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nibable.swift; path = Sources/Protocols/Nibable.swift; sourceTree = "<group>"; };
 		D0D5D4461E07EFAF004889D6 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = Sources/Architecture/Coordinator.swift; sourceTree = "<group>"; };
 		D0D5D4471E07EFAF004889D6 /* ServiceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceHolder.swift; path = Sources/Architecture/ServiceHolder.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 		D0C9B6651E07249C00EA3376 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */,
 				D0C9B6841E072F2D00EA3376 /* Nibable.swift */,
 				B91C3C321E09682D005336D2 /* StoryboardType.swift */,
 			);
@@ -624,7 +621,6 @@
 				52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */,
 				D09AACC91ED8683200438527 /* Errors.swift in Sources */,
 				B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */,
-				D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */,
 				D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */,
 				D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
