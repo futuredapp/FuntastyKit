@@ -60,4 +60,23 @@ public extension UIView {
         }
     }
 
+    // MARK: - Border
+
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return layer.borderColor.flatMap(UIColor.init)
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
 }

@@ -27,10 +27,19 @@ import XCTest
 import FuntastyKit
 
 class FuntastyKitTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        //// XCTAssertEqual(FuntastyKit().text, "Hello, World!")
+
+    func testArchitecture() {
+
+        let holder = ServiceHolder()
+        holder.add(ExampleService.self, constructor: ExampleService.init)
+
+        let model = Model()
+
+        let viewController = UIViewController()
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+
+        let coordinator = ExampleCoordinator(from: viewController, model: model, serviceHolder: holder)
+        coordinator.start()
     }
 }
 
@@ -38,7 +47,7 @@ class FuntastyKitTests: XCTestCase {
 extension FuntastyKitTests {
     static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
         return [
-            ("testExample", testExample)
+            ("testArchitecture", testArchitecture)
         ]
     }
 }
