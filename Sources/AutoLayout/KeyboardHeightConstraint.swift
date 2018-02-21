@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class KeyboardHeightConstraint: NSLayoutConstraint {
+public final class KeyboardHeightConstraint: NSLayoutConstraint {
 
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
 
         let center: NotificationCenter = .default
