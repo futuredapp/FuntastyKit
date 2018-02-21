@@ -12,7 +12,14 @@ final class KeyboardHeightConstraint: NSLayoutConstraint {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: .UIKeyboardWillChangeFrame, object: nil)
+
+        let center: NotificationCenter = .default
+        center.addObserver(self, selector: #selector(keyboardWillChange), name: .UIKeyboardWillHide, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillChange), name: .UIKeyboardWillShow, object: nil)
+    }
+
+    private var superview: UIView? {
+        return (secondItem as? UIView)?.superview
     }
 
     @objc
@@ -21,28 +28,13 @@ final class KeyboardHeightConstraint: NSLayoutConstraint {
             return
         }
 
-        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]
-            .flatMap { $0 as? NSNumber }
-            .flatMap { $0.doubleValue } ?? 0.0
-        let options = userInfo[UIKeyboardAnimationCurveUserInfoKey]
-            .flatMap { $0 as? NSNumber }
-            .flatMap { $0.uintValue << 16 }
-            .flatMap(UIViewAnimationOptions.init)
-        let height = userInfo[UIKeyboardFrameEndUserInfoKey]
-            .flatMap { $0 as? NSValue }
-            .flatMap { $0.cgRectValue.height } ?? 0.0
-
-        let insetHeight = height - inset
+        let insetHeight = (notification.name == .UIKeyboardWillHide) ? 0.0 : height(for: userInfo) - inset
 
         superview?.layoutIfNeeded()
-        UIView.animate(withDuration: duration, delay: 0, options: options ?? [], animations: {
+        UIView.animate(withDuration: duration(from: userInfo), delay: 0, options: options(from: userInfo), animations: {
             self.constant = insetHeight
             self.superview?.layoutIfNeeded()
         }, completion: nil)
-    }
-
-    private var superview: UIView? {
-        return secondItem?.superview.flatMap { $0 }
     }
 
     private var inset: CGFloat {
@@ -50,5 +42,24 @@ final class KeyboardHeightConstraint: NSLayoutConstraint {
             return superview?.safeAreaInsets.bottom ?? 0.0
         }
         return 0.0
+    }
+
+    private func height(for userInfo: [AnyHashable: Any]) -> CGFloat {
+        return userInfo[UIKeyboardFrameEndUserInfoKey]
+            .flatMap { $0 as? NSValue }
+            .map { $0.cgRectValue.height } ?? 0.0
+    }
+
+    private func duration(from userInfo: [AnyHashable: Any]) -> Double {
+        return userInfo[UIKeyboardAnimationDurationUserInfoKey]
+            .flatMap { $0 as? NSNumber }
+            .map { $0.doubleValue } ?? 0.0
+    }
+
+    private func options(from userInfo: [AnyHashable: Any]) -> UIViewAnimationOptions {
+        return userInfo[UIKeyboardAnimationCurveUserInfoKey]
+            .flatMap { $0 as? NSNumber }
+            .map { $0.uintValue << 16 }
+            .map(UIViewAnimationOptions.init) ?? UIViewAnimationOptions()
     }
 }
