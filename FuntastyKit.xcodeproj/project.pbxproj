@@ -38,7 +38,7 @@
 		D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */; };
 		DD7502881C68FEDE006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */; };
 		DD7502921C690C7A006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */; };
-		E70CCED7202B341100785FBC /* KeyboardHeightConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CCED6202B341100785FBC /* KeyboardHeightConstraint.swift */; };
+		E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */; };
 		E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */; };
 		E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */; };
 /* End PBXBuildFile section */
@@ -90,7 +90,7 @@
 		D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Sources/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* FuntastyKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* FuntastyKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E70CCED6202B341100785FBC /* KeyboardHeightConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightConstraint.swift; sourceTree = "<group>"; };
+		E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHeightConstraint.swift; path = Sources/AutoLayout/KeyboardHeightConstraint.swift; sourceTree = "<group>"; };
 		E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
 		E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuntastyKitTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */,
-				E70CCED6202B341100785FBC /* KeyboardHeightConstraint.swift */,
+				E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */,
 			);
 			name = AutoLayout;
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E70CCED7202B341100785FBC /* KeyboardHeightConstraint.swift in Sources */,
+				E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */,
 				D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */,
 				D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
