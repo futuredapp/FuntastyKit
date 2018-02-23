@@ -45,6 +45,7 @@ public protocol ModalCoordinator: DefaultCoordinator {
 public protocol TabBarCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var tabBarController: UITabBarController { get }
+    weak var destinationNavigationController: UINavigationController? { get }
 }
 
 public enum PresentationStyle {
@@ -170,7 +171,7 @@ extension TabBarCoordinator {
         configure(viewController: viewController)
 
         var viewControllers = tabBarController.viewControllers ?? []
-        viewControllers.append(viewController)
+        viewControllers.append(destinationNavigationController ?? viewController)
 
         tabBarController.setViewControllers(viewControllers, animated: animated)
     }
@@ -182,7 +183,7 @@ extension TabBarCoordinator {
 
         var mutableViewControllers = viewControllers
         mutableViewControllers
-            .index(of: viewController)
+            .index(of: destinationNavigationController ?? viewController)
             .flatMap { _ = mutableViewControllers.remove(at: $0) }
 
         tabBarController.setViewControllers(mutableViewControllers, animated: animated)
