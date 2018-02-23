@@ -68,6 +68,10 @@ public extension DefaultCoordinator {
         }
     }
 
+    func start() {
+        viewController.flatMap(configure)
+    }
+
     func stop() {
         delegate?.willStop(in: self)
         delegate?.didStop(in: self)
