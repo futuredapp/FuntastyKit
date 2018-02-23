@@ -29,15 +29,15 @@ public protocol DefaultCoordinator: Coordinator {
 
     var animated: Bool { get }
     weak var delegate: CoordinatorDelegate? { get set }
+
+    func configure(viewController: ViewController)
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
-    func configure(viewController: ViewController)
     var navigationController: UINavigationController { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
-    func configure(viewController: ViewController)
     var sourceViewController: UIViewController { get }
     weak var destinationNavigationController: UINavigationController? { get }
 }
@@ -48,7 +48,6 @@ public enum PresentationStyle {
 }
 
 public protocol PushModalCoordinator: DefaultCoordinator {
-    func configure(controller: ViewController)
     var navigationController: UINavigationController? { get }
     var presentationStyle: PresentationStyle { get }
     weak var destinationNavigationController: UINavigationController? { get }
@@ -130,7 +129,7 @@ public extension PushModalCoordinator {
             return
         }
 
-        configure(controller: viewController)
+        configure(viewController: viewController)
 
         switch presentationStyle {
         case .modal where destinationNavigationController != nil:
