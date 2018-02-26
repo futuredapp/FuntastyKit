@@ -177,6 +177,7 @@ extension TabBarCoordinator {
     }
 
     func stop() {
+        delegate?.willStop(in: self)
         guard let viewController = viewController, let viewControllers = tabBarController.viewControllers else {
             return
         }
@@ -187,6 +188,7 @@ extension TabBarCoordinator {
         }
 
         tabBarController.setViewControllers(mutableViewControllers, animated: animated)
+        delegate?.didStop(in: self)
     }
 }
 
