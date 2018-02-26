@@ -182,9 +182,9 @@ extension TabBarCoordinator {
         }
 
         var mutableViewControllers = viewControllers
-        mutableViewControllers
-            .index(of: destinationNavigationController ?? viewController)
-            .flatMap { _ = mutableViewControllers.remove(at: $0) }
+        if let index = mutableViewControllers.index(of: destinationNavigationController ?? viewController) {
+            mutableViewControllers.remove(at: index)
+        }
 
         tabBarController.setViewControllers(mutableViewControllers, animated: animated)
     }
