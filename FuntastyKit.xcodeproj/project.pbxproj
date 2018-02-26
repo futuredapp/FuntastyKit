@@ -23,7 +23,6 @@
 		D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */; };
 		D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */; };
 		D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */; };
-		D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */; };
 		D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6841E072F2D00EA3376 /* Nibable.swift */; };
 		D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D4461E07EFAF004889D6 /* Coordinator.swift */; };
 		D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D4471E07EFAF004889D6 /* ServiceHolder.swift */; };
@@ -33,6 +32,7 @@
 		D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */; };
 		DD7502881C68FEDE006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */; };
 		DD7502921C690C7A006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */; };
+		E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */; };
 		E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */; };
 		E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */; };
 /* End PBXBuildFile section */
@@ -78,13 +78,13 @@
 		D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HairlineLayoutConstraint.swift; path = Sources/AutoLayout/HairlineLayoutConstraint.swift; sourceTree = "<group>"; };
 		D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Deselection.swift"; path = "Sources/Extensions/UIViewController+Deselection.swift"; sourceTree = "<group>"; };
 		D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+RootViewController.swift"; path = "Sources/Extensions/UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
-		D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboardable.swift; path = Sources/Protocols/Keyboardable.swift; sourceTree = "<group>"; };
 		D0C9B6841E072F2D00EA3376 /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nibable.swift; path = Sources/Protocols/Nibable.swift; sourceTree = "<group>"; };
 		D0D5D4461E07EFAF004889D6 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinator.swift; path = Sources/Architecture/Coordinator.swift; sourceTree = "<group>"; };
 		D0D5D4471E07EFAF004889D6 /* ServiceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceHolder.swift; path = Sources/Architecture/ServiceHolder.swift; sourceTree = "<group>"; };
 		D0D5D44D1E07F015004889D6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "Sources/Extensions/UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DD75027A1C68FCFC006590AF /* FuntastyKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* FuntastyKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHeightConstraint.swift; path = Sources/AutoLayout/KeyboardHeightConstraint.swift; sourceTree = "<group>"; };
 		E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
 		E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuntastyKitTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 		D0C9B6651E07249C00EA3376 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D0C9B6831E072F2D00EA3376 /* Keyboardable.swift */,
 				D0C9B6841E072F2D00EA3376 /* Nibable.swift */,
 				B91C3C321E09682D005336D2 /* StoryboardType.swift */,
 			);
@@ -228,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */,
+				E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */,
 			);
 			name = AutoLayout;
 			sourceTree = "<group>";
@@ -609,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */,
 				D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */,
 				D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
@@ -618,7 +619,6 @@
 				52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */,
 				D09AACC91ED8683200438527 /* Errors.swift in Sources */,
 				B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */,
-				D0C9B6851E072F2D00EA3376 /* Keyboardable.swift in Sources */,
 				D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */,
 				D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
