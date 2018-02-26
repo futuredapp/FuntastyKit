@@ -42,7 +42,7 @@ public protocol ModalCoordinator: DefaultCoordinator {
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
-public protocol TabBarCoordinator: DefaultCoordinator {
+public protocol TabBarItemCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var tabBarController: UITabBarController { get }
     weak var destinationNavigationController: UINavigationController? { get }
@@ -163,7 +163,7 @@ public extension PushModalCoordinator {
     }
 }
 
-extension TabBarCoordinator {
+extension TabBarItemCoordinator {
     func start() {
         guard let viewController = viewController else {
             return
