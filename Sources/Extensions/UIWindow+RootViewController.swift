@@ -23,7 +23,7 @@ public extension UIWindow {
     @nonobjc
     func setRootViewController(_ viewController: UIViewController, animated: Bool, duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
         if animated {
-            UIView.transition(with: self, duration: 0.3, options: .transitionCrossDissolve, animations: { () -> Void in
+            UIView.transition(with: self, duration: duration, options: .transitionCrossDissolve, animations: {
                 let oldState = UIView.areAnimationsEnabled
                 UIView.setAnimationsEnabled(false)
 
