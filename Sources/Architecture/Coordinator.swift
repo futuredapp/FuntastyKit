@@ -163,7 +163,7 @@ public extension PushModalCoordinator {
     }
 }
 
-extension TabBarItemCoordinator {
+public extension TabBarItemCoordinator {
     func start() {
         guard let viewController = viewController else {
             return
