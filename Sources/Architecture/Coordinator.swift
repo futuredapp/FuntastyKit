@@ -42,6 +42,12 @@ public protocol ModalCoordinator: DefaultCoordinator {
     weak var destinationNavigationController: UINavigationController? { get }
 }
 
+public protocol TabBarItemCoordinator: DefaultCoordinator {
+    func configure(viewController: ViewController)
+    var tabBarController: UITabBarController { get }
+    weak var destinationNavigationController: UINavigationController? { get }
+}
+
 public enum PresentationStyle {
     case push
     case modal
@@ -154,6 +160,35 @@ public extension PushModalCoordinator {
             _ = navigationController?.popViewController(animated: animated)
             delegate?.didStop(in: self)
         }
+    }
+}
+
+public extension TabBarItemCoordinator {
+    func start() {
+        guard let viewController = viewController else {
+            return
+        }
+        configure(viewController: viewController)
+
+        var viewControllers = tabBarController.viewControllers ?? []
+        viewControllers.append(destinationNavigationController ?? viewController)
+
+        tabBarController.setViewControllers(viewControllers, animated: animated)
+    }
+
+    func stop() {
+        delegate?.willStop(in: self)
+        guard let viewController = viewController, let viewControllers = tabBarController.viewControllers else {
+            return
+        }
+
+        var mutableViewControllers = viewControllers
+        if let index = mutableViewControllers.index(of: destinationNavigationController ?? viewController) {
+            mutableViewControllers.remove(at: index)
+        }
+
+        tabBarController.setViewControllers(mutableViewControllers, animated: animated)
+        delegate?.didStop(in: self)
     }
 }
 
