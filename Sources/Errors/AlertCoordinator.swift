@@ -8,8 +8,7 @@
 
 import UIKit
 
-public class AlertCoordinator: DefaultCoordinator {
-
+public class AlertCoordinator: ModalCoordinator {
     public enum Source {
         case button(UIBarButtonItem)
         case view(UIView)
@@ -31,60 +30,76 @@ public class AlertCoordinator: DefaultCoordinator {
 
     enum InputType {
         case error(Error)
-        case custom(title: String?, message: String?, actions: [ErrorAction]?)
-
-        func alertController(preferredStyle: Style = .alert) -> UIAlertController {
-            switch self {
-            case .error(let error):
-                return UIAlertController(error: error, preferredStyle: preferredStyle.controllerStyle)
-            case .custom(let title, let message, let actions):
-                let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle.controllerStyle)
-                (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
-                return alert
-            }
-        }
+        case custom(title: String?, message: String?, actions: [ErrorAction])
     }
 
-    let parentViewController: UIViewController
+    public let sourceViewController: UIViewController
+    public var destinationNavigationController: UINavigationController?
     public weak var viewController: UIAlertController?
     public weak var delegate: CoordinatorDelegate?
 
-    private var type: InputType
-    private var preferredStyle: Style
+    private let type: InputType
+    private let preferredStyle: Style
 
     // MARK: - Inits
 
     public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert) {
-        self.parentViewController = parent
+        self.sourceViewController = parent
         self.type = .error(error)
         self.preferredStyle = preferredStyle
     }
 
-    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: Style = .alert) {
-        self.parentViewController = parent
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction] = [], preferredStyle: Style = .alert) {
+        self.sourceViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
         self.preferredStyle = preferredStyle
     }
 
-    public func start() {
-        let alert = type.alertController(preferredStyle: preferredStyle)
+    public func configure(viewController: UIAlertController) {
+        configure(viewController: viewController, preferredStyle: preferredStyle)
+
+        switch type {
+        case let .custom(title, message, actions):
+            viewController.title = title
+            viewController.message = message
+            configure(viewController: viewController, actions: actions)
+        case let .error(error):
+            configure(viewController: viewController, error: error)
+        }
+    }
+
+    private func configure(viewController: UIAlertController, preferredStyle: Style) {
         if case .actionSheet(let source) = preferredStyle, let sourceView = source {
             switch sourceView {
             case .button(let button):
-                alert.popoverPresentationController?.barButtonItem = button
+                viewController.popoverPresentationController?.barButtonItem = button
             case .view(let view):
-                alert.popoverPresentationController?.sourceView = view
+                viewController.popoverPresentationController?.sourceView = view
             }
         }
-        parentViewController.present(alert, animated: animated, completion: nil)
-        viewController = alert
     }
 
-    public func stop() {
-        delegate?.willStop(in: self)
-        viewController?.dismiss(animated: animated) {
-            self.delegate?.didStop(in: self)
+    private func configure(viewController: UIAlertController, error: Error) {
+        switch error {
+        case let error as ResolvableError:
+            viewController.title = error.errorDescription ?? NSLocalizedString("Error", comment: "Error")
+            viewController.message = error.failureReason ?? error.localizedDescription
+            configure(viewController: viewController, actions: error.actions)
+        case let error as LocalizedError:
+            viewController.title = error.errorDescription ?? NSLocalizedString("Error", comment: "Error")
+            viewController.message = error.failureReason ?? error.localizedDescription
+            configure(viewController: viewController, actions: [])
+        default:
+            viewController.title = NSLocalizedString("Error", comment: "Error")
+            viewController.message = error.localizedDescription
+            configure(viewController: viewController, actions: [])
         }
+    }
+
+    private func configure(viewController: UIAlertController, actions: [ErrorAction]) {
+        let okAction = ErrorAction(title: NSLocalizedString("OK", comment: "OK"))
+        let allActions = actions.isEmpty ? [okAction] : actions
+        allActions.forEach { viewController.addAction($0.alertAction()) }
     }
 }
 
@@ -115,7 +130,7 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction] = [], preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }

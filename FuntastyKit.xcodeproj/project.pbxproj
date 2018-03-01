@@ -19,7 +19,6 @@
 		D09AACCA1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCB1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
 		D09AACCC1ED8683200438527 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC31ED8683200438527 /* Errors.swift */; };
-		D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC41ED8683200438527 /* UIAlertController+Error.swift */; };
 		D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */; };
 		D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */; };
 		D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */; };
@@ -74,7 +73,6 @@
 		B91C3C321E09682D005336D2 /* StoryboardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryboardType.swift; path = Sources/Protocols/StoryboardType.swift; sourceTree = "<group>"; };
 		D09AACC21ED8683200438527 /* AlertCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertCoordinator.swift; path = Sources/Errors/AlertCoordinator.swift; sourceTree = "<group>"; };
 		D09AACC31ED8683200438527 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Errors.swift; path = Sources/Errors/Errors.swift; sourceTree = "<group>"; };
-		D09AACC41ED8683200438527 /* UIAlertController+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIAlertController+Error.swift"; path = "Sources/Errors/UIAlertController+Error.swift"; sourceTree = "<group>"; };
 		D0C9B6681E07295400EA3376 /* HairlineLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HairlineLayoutConstraint.swift; path = Sources/AutoLayout/HairlineLayoutConstraint.swift; sourceTree = "<group>"; };
 		D0C9B67F1E072A6200EA3376 /* UIViewController+Deselection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Deselection.swift"; path = "Sources/Extensions/UIViewController+Deselection.swift"; sourceTree = "<group>"; };
 		D0C9B6801E072A6200EA3376 /* UIWindow+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIWindow+RootViewController.swift"; path = "Sources/Extensions/UIWindow+RootViewController.swift"; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			children = (
 				D09AACC21ED8683200438527 /* AlertCoordinator.swift */,
 				D09AACC31ED8683200438527 /* Errors.swift */,
-				D09AACC41ED8683200438527 /* UIAlertController+Error.swift */,
 			);
 			name = Errors;
 			sourceTree = "<group>";
@@ -620,7 +617,6 @@
 				D09AACC91ED8683200438527 /* Errors.swift in Sources */,
 				B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */,
 				D0C9B6691E07295400EA3376 /* HairlineLayoutConstraint.swift in Sources */,
-				D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
 				D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */,
 			);
