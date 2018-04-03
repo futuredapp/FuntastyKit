@@ -25,10 +25,10 @@ public extension Coordinator {
 
 public protocol DefaultCoordinator: Coordinator {
     associatedtype ViewController: UIViewController
-    weak var viewController: ViewController? { get }
+    var viewController: ViewController? { get }
 
     var animated: Bool { get }
-    weak var delegate: CoordinatorDelegate? { get set }
+    var delegate: CoordinatorDelegate? { get set }
 }
 
 public protocol PushCoordinator: DefaultCoordinator {
@@ -39,13 +39,13 @@ public protocol PushCoordinator: DefaultCoordinator {
 public protocol ModalCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var sourceViewController: UIViewController { get }
-    weak var destinationNavigationController: UINavigationController? { get }
+    var destinationNavigationController: UINavigationController? { get }
 }
 
 public protocol TabBarItemCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var tabBarController: UITabBarController { get }
-    weak var destinationNavigationController: UINavigationController? { get }
+    var destinationNavigationController: UINavigationController? { get }
 }
 
 public enum PresentationStyle {
@@ -57,7 +57,7 @@ public protocol PushModalCoordinator: DefaultCoordinator {
     func configure(controller: ViewController)
     var navigationController: UINavigationController? { get }
     var presentationStyle: PresentationStyle { get }
-    weak var destinationNavigationController: UINavigationController? { get }
+    var destinationNavigationController: UINavigationController? { get }
 }
 
 public extension DefaultCoordinator {
@@ -67,7 +67,7 @@ public extension DefaultCoordinator {
     }
 
     // default implementation of nil delegate, should be overriden when needed
-    weak var delegate: CoordinatorDelegate? {
+    var delegate: CoordinatorDelegate? {
         get {
             return nil
         }
