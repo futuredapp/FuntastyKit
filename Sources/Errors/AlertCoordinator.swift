@@ -9,6 +9,7 @@
 import UIKit
 
 public class AlertCoordinator: DefaultCoordinator {
+    public typealias ViewController = UIAlertController
 
     public enum Source {
         case button(UIBarButtonItem)
