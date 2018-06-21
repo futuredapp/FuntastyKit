@@ -44,7 +44,7 @@ public protocol ModalCoordinator: DefaultCoordinator {
 
 public protocol TabBarItemCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
-    var tabBarController: UITabBarController { get }
+    var tabBarController: UITabBarController? { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
@@ -170,15 +170,15 @@ public extension TabBarItemCoordinator {
         }
         configure(viewController: viewController)
 
-        var viewControllers = tabBarController.viewControllers ?? []
+        var viewControllers = tabBarController?.viewControllers ?? []
         viewControllers.append(destinationNavigationController ?? viewController)
 
-        tabBarController.setViewControllers(viewControllers, animated: animated)
+        tabBarController?.setViewControllers(viewControllers, animated: animated)
     }
 
     func stop() {
         delegate?.willStop(in: self)
-        guard let viewController = viewController, let viewControllers = tabBarController.viewControllers else {
+        guard let viewController = viewController, let viewControllers = tabBarController?.viewControllers else {
             return
         }
 
@@ -187,7 +187,7 @@ public extension TabBarItemCoordinator {
             mutableViewControllers.remove(at: index)
         }
 
-        tabBarController.setViewControllers(mutableViewControllers, animated: animated)
+        tabBarController?.setViewControllers(mutableViewControllers, animated: animated)
         delegate?.didStop(in: self)
     }
 }
