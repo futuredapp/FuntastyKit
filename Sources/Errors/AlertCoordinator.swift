@@ -20,7 +20,7 @@ public class AlertCoordinator: DefaultCoordinator {
         case alert
         case actionSheet(source: Source?)
 
-        var controllerStyle: UIAlertControllerStyle {
+        var controllerStyle: UIAlertController.Style {
             switch self {
             case .alert:
                 return .alert
@@ -90,7 +90,7 @@ public class AlertCoordinator: DefaultCoordinator {
 }
 
 public extension ErrorAction {
-    func alertStyle() -> UIAlertActionStyle {
+    func alertStyle() -> UIAlertAction.Style {
         switch self.style {
         case .default:
             return .default

@@ -33,7 +33,7 @@ extension UITableView: Deselectable {
 extension UICollectionView: Deselectable {
     @nonobjc
     public func selectItem(at indexPath: IndexPath?, animated: Bool) {
-        selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionViewScrollPosition())
+        selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionView.ScrollPosition())
     }
 }
 
