@@ -14,8 +14,8 @@ public final class KeyboardHeightConstraint: NSLayoutConstraint {
         super.awakeFromNib()
 
         let center: NotificationCenter = .default
-        center.addObserver(self, selector: #selector(keyboardWillChange), name: .UIKeyboardWillHide, object: nil)
-        center.addObserver(self, selector: #selector(keyboardWillChange), name: .UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
+        center.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
 
     private var superview: UIView? {
@@ -28,7 +28,7 @@ public final class KeyboardHeightConstraint: NSLayoutConstraint {
             return
         }
 
-        let insetHeight = (notification.name == .UIKeyboardWillHide) ? 0.0 : height(for: userInfo) - inset
+        let insetHeight = (notification.name == UIResponder.keyboardWillHideNotification) ? 0.0 : height(for: userInfo) - inset
 
         superview?.layoutIfNeeded()
         UIView.animate(withDuration: duration(from: userInfo), delay: 0, options: options(from: userInfo), animations: {
@@ -45,21 +45,21 @@ public final class KeyboardHeightConstraint: NSLayoutConstraint {
     }
 
     private func height(for userInfo: [AnyHashable: Any]) -> CGFloat {
-        return userInfo[UIKeyboardFrameEndUserInfoKey]
+        return userInfo[UIResponder.keyboardFrameEndUserInfoKey]
             .flatMap { $0 as? NSValue }
             .map { $0.cgRectValue.height } ?? 0.0
     }
 
     private func duration(from userInfo: [AnyHashable: Any]) -> Double {
-        return userInfo[UIKeyboardAnimationDurationUserInfoKey]
+        return userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]
             .flatMap { $0 as? NSNumber }
             .map { $0.doubleValue } ?? 0.0
     }
 
-    private func options(from userInfo: [AnyHashable: Any]) -> UIViewAnimationOptions {
-        return userInfo[UIKeyboardAnimationCurveUserInfoKey]
+    private func options(from userInfo: [AnyHashable: Any]) -> UIView.AnimationOptions {
+        return userInfo[UIResponder.keyboardAnimationCurveUserInfoKey]
             .flatMap { $0 as? NSNumber }
             .map { $0.uintValue << 16 }
-            .map(UIViewAnimationOptions.init) ?? UIViewAnimationOptions()
+            .map(UIView.AnimationOptions.init) ?? UIView.AnimationOptions()
     }
 }

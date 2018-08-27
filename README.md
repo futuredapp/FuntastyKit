@@ -1,6 +1,6 @@
 # FuntastyKit
 
-[![Build Status](https://www.bitrise.io/app/b2201bef8986b898/status.svg?token=55zmQOJfJyHGQ2nOwaQ23Q&branch=master)](https://www.bitrise.io/app/b2201bef8986b898)
+[![Build Status](https://app.bitrise.io/app/b2201bef8986b898/status.svg?token=55zmQOJfJyHGQ2nOwaQ23Q&branch=master)](https://app.bitrise.io/app/b2201bef8986b898)
 
 FuntastyKit iOS framework contains:
 

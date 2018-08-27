@@ -825,12 +825,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.ios;
 				PRODUCT_NAME = FuntastyKit;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -848,11 +846,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.ios;
 				PRODUCT_NAME = FuntastyKit;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -894,7 +891,7 @@
 				INFOPLIST_FILE = Configs/FuntastyKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.watchos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -916,7 +913,7 @@
 				INFOPLIST_FILE = Configs/FuntastyKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.watchos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -939,7 +936,7 @@
 				INFOPLIST_FILE = Configs/FuntastyKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.tvos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -961,7 +958,7 @@
 				INFOPLIST_FILE = Configs/FuntastyKit.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.tvos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -987,7 +984,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.macos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -1010,7 +1007,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.funtasty.funtastykit.macos;
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;

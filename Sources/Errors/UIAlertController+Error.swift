@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIAlertController {
-    convenience init(error: Error, preferredStyle: UIAlertControllerStyle = .alert) {
+    convenience init(error: Error, preferredStyle: UIAlertController.Style = .alert) {
         switch error {
         case let error as ResolvableError:
             self.init(title: error.errorDescription ?? NSLocalizedString("Error", comment: "Error"), message: error.failureReason ?? error.localizedDescription, preferredStyle: preferredStyle)
