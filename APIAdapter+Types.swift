@@ -8,7 +8,14 @@
 
 import Foundation
 
-// MARK: - API Result
+// MARK: - API adapter error
+
+enum APIAdapterError: Error {
+    case noResponse
+    case errorCode(Int, Data?)
+}
+
+// MARK: - API result
 
 enum APIResult<T> {
     case value(T)

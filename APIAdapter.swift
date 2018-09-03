@@ -116,7 +116,7 @@ final class URLSessionAPIAdapter: APIAdapter {
             switch (data, response, error) {
             case let (_, response as HTTPURLResponse, _) where response.statusCode == 204:
                 completion(.value(Data()))
-            case let (data?, response as HTTPURLResponse, nil):
+            case let (data?, response as HTTPURLResponse, nil) where response.statusCode < 400:
                 if let constructor = self.customErrorConstructor, let error = constructor(data, response, error, self.jsonDecoder) {
                     completion(.error(error))
                 } else {
@@ -124,8 +124,10 @@ final class URLSessionAPIAdapter: APIAdapter {
                 }
             case let (_, _, error?):
                 completion(.error(error))
+            case let (data, response as HTTPURLResponse, nil):
+                completion(.error(APIAdapterError.errorCode(response.statusCode, data)))
             default:
-                break
+                completion(.error(APIAdapterError.noResponse))
             }
         }
         task.resume()

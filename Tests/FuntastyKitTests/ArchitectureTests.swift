@@ -26,7 +26,7 @@ import Foundation
 import XCTest
 import FuntastyKit
 
-class FuntastyKitTests: XCTestCase {
+class ArchitectureTests: XCTestCase {
 
     func testArchitecture() {
 
@@ -45,7 +45,7 @@ class FuntastyKitTests: XCTestCase {
 
 #if os(Linux)
 extension FuntastyKitTests {
-    static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
+    static var allTests: [(String, (ArchitectureTests) -> () throws -> Void)] {
         return [
             ("testArchitecture", testArchitecture)
         ]

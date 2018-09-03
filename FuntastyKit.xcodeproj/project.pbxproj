@@ -49,8 +49,11 @@
 		E746EAF7213D14340059ADBB /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EADF213D11BF0059ADBB /* APIAdapter.swift */; };
 		E746EAF8213D14340059ADBB /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EADF213D11BF0059ADBB /* APIAdapter.swift */; };
 		E746EAF9213D14340059ADBB /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EADF213D11BF0059ADBB /* APIAdapter.swift */; };
+		E746EAFB213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
+		E746EAFC213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
+		E746EAFD213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
 		E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */; };
-		E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */; };
+		E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +108,9 @@
 		E746EADE213D11BF0059ADBB /* APIAdapter+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIAdapter+Types.swift"; sourceTree = "<group>"; };
 		E746EADF213D11BF0059ADBB /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
 		E746EAE0213D11BF0059ADBB /* URLRequest+APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+APIAdapter.swift"; sourceTree = "<group>"; };
+		E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAdapterTests.swift; sourceTree = "<group>"; };
 		E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
-		E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuntastyKitTests.swift; sourceTree = "<group>"; };
+		E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,7 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */,
-				E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */,
+				E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */,
+				E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */,
 			);
 			path = FuntastyKitTests;
 			sourceTree = "<group>";
@@ -494,11 +499,11 @@
 					};
 					DD7502791C68FCFC006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 					DD75028C1C690C7A006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -666,8 +671,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */,
+				E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */,
 				E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */,
+				E746EAFB213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +723,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EAFC213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +731,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EAFD213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,6 +1076,7 @@
 		DD7502831C68FCFC006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
@@ -1076,6 +1085,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1083,6 +1093,7 @@
 		DD7502841C68FCFC006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
@@ -1099,11 +1110,13 @@
 		DD7502961C690C7A006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -1112,6 +1125,7 @@
 		DD7502971C690C7A006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS-Tests";
