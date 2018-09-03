@@ -10,7 +10,7 @@ import Foundation
 
 public protocol APIAdapterDelegate: class {
     func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningrequestCount: UInt)
-    func apiAdapter(_ apiAdapter: APIAdapter, requests: URLRequest, completion: @escaping (URLRequest) -> Void)
+    func apiAdapter(_ apiAdapter: APIAdapter, requests endpoint: APIEndpoint, signing request: URLRequest, completion: @escaping (URLRequest) -> Void)
 }
 
 public typealias APIAdapterErrorConstructor = (Data?, URLResponse?, Error?, JSONDecoder) -> Error?
@@ -64,15 +64,11 @@ public final class URLSessionAPIAdapter: APIAdapter {
     }
 
     public func request(data endpoint: APIEndpoint, completion: @escaping (APIResult<Data>) -> Void) {
-        request(path: endpoint.path, method: endpoint.method, data: endpoint.data, completion: completion)
-    }
-
-    func request(path: String, method: HTTPMethod, data: RequestData, completion: @escaping (APIResult<Data>) -> Void) {
-        let url = baseUrl.appendingPathComponent(path)
+        let url = baseUrl.appendingPathComponent(endpoint.path)
         var request = URLRequest(url: url)
-        request.httpMethod = method.description
+        request.httpMethod = endpoint.method.description
 
-        switch data {
+        switch endpoint.data {
         case .jsonBody(let encodable):
             do {
                 try request.setJSONBody(encodable: encodable, using: jsonEncoder)
@@ -92,11 +88,12 @@ public final class URLSessionAPIAdapter: APIAdapter {
         }
 
         if let delegate = delegate {
-            delegate.apiAdapter(self, requests: request) { request in
+            delegate.apiAdapter(self, requests: endpoint, signing: request) { request in
                 self.execute(request: request, completion: completion)
             }
+        } else {
+            execute(request: request, completion: completion)
         }
-        return execute(request: request, completion: completion)
     }
 
     private func execute(request: URLRequest, completion: @escaping (APIResult<Data>) -> Void) {
