@@ -43,24 +43,6 @@ enum RequestData {
     static let empty: RequestData = .jsonParams([:])
 }
 
-protocol RequestAuth {
-    func sign(request: inout URLRequest)
-}
-
-struct HeaderRequestAuth: RequestAuth {
-    let field: String
-    let value: String
-
-    init(field: String = "Authorization", value: String) {
-        self.field = field
-        self.value = value
-    }
-
-    func sign(request: inout URLRequest) {
-        request.setValue(value, forHTTPHeaderField: field)
-    }
-}
-
 // MARK: - API endpoint definition protocol
 
 protocol APIEndpoint {
