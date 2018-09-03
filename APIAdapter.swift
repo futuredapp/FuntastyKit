@@ -8,23 +8,23 @@
 
 import Foundation
 
-protocol APIAdapterDelegate: class {
+public protocol APIAdapterDelegate: class {
     func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningrequestCount: UInt)
     func apiAdapter(_ apiAdapter: APIAdapter, requests: URLRequest, completion: @escaping (URLRequest) -> Void)
 }
 
-typealias APIAdapterErrorConstructor = (Data?, URLResponse?, Error?, JSONDecoder) -> Error?
+public typealias APIAdapterErrorConstructor = (Data?, URLResponse?, Error?, JSONDecoder) -> Error?
 
-protocol APIAdapter {
+public protocol APIAdapter {
     var delegate: APIAdapterDelegate? { get set }
 
     func request<Endpoint: APIResponseEndpoint>(response endpoint: Endpoint, completion: @escaping (APIResult<Endpoint.Response>) -> Void)
     func request(data endpoint: APIEndpoint, completion: @escaping (APIResult<Data>) -> Void)
 }
 
-final class URLSessionAPIAdapter: APIAdapter {
+public final class URLSessionAPIAdapter: APIAdapter {
 
-    weak var delegate: APIAdapterDelegate?
+    public weak var delegate: APIAdapterDelegate?
 
     private let urlSession = URLSession.shared
     private let baseUrl: URL
@@ -40,23 +40,19 @@ final class URLSessionAPIAdapter: APIAdapter {
         }
     }
 
-    init(baseUrl: URL, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder(), customErrorConstructor: APIAdapterErrorConstructor? = nil) {
+    public init(baseUrl: URL, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder(), customErrorConstructor: APIAdapterErrorConstructor? = nil) {
         self.baseUrl = baseUrl
         self.jsonDecoder = jsonDecoder
         self.jsonEncoder = jsonEncoder
         self.customErrorConstructor = customErrorConstructor
     }
 
-    func request<Endpoint: APIResponseEndpoint>(response endpoint: Endpoint, completion: @escaping (APIResult<Endpoint.Response>) -> Void) {
-        request(model: endpoint, completion: completion)
-    }
-
-    func request<Model: Decodable>(model endpoint: APIEndpoint, completion: @escaping (APIResult<Model>) -> Void) {
+    public func request<Endpoint: APIResponseEndpoint>(response endpoint: Endpoint, completion: @escaping (APIResult<Endpoint.Response>) -> Void) {
         request(data: endpoint) { result in
             switch result {
             case .value(let data):
                 do {
-                    let model = try self.jsonDecoder.decode(Model.self, from: data)
+                    let model = try self.jsonDecoder.decode(Endpoint.Response.self, from: data)
                     completion(.value(model))
                 } catch {
                     completion(.error(error))
@@ -67,7 +63,7 @@ final class URLSessionAPIAdapter: APIAdapter {
         }
     }
 
-    func request(data endpoint: APIEndpoint, completion: @escaping (APIResult<Data>) -> Void) {
+    public func request(data endpoint: APIEndpoint, completion: @escaping (APIResult<Data>) -> Void) {
         request(path: endpoint.path, method: endpoint.method, data: endpoint.data, completion: completion)
     }
 

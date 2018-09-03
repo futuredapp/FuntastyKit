@@ -9,7 +9,7 @@
 // swiftlint:disable nesting
 
 import XCTest
-@testable import FuntastyKit
+import FuntastyKit
 
 final class APIAdapterTests: XCTestCase {
 
