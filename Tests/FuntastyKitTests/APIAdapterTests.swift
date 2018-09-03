@@ -119,4 +119,38 @@ final class APIAdapterTests: XCTestCase {
         }
         wait(for: [expectation], timeout: timeout)
     }
+
+    func testAuthorization() {
+        struct Endpoint: APIEndpoint {
+            let path = "bearer"
+            let authorized = true
+        }
+        final class Delegate: APIAdapterDelegate {
+            func apiAdapter(_ apiAdapter: APIAdapter, requests endpoint: APIEndpoint, signing request: URLRequest, completion: @escaping (URLRequest) -> Void) {
+                if endpoint.authorized {
+                    var newRequest = request
+                    newRequest.addValue("Bearer " + UUID().uuidString, forHTTPHeaderField: "Authorization")
+                    completion(newRequest)
+                } else {
+                    completion(request)
+                }
+            }
+
+            func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningrequestCount: UInt) {
+            }
+        }
+
+        let delegate = Delegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
+
+        let expectation = self.expectation(description: "Result")
+        adapter.request(data: Endpoint()) { result in
+            expectation.fulfill()
+            if case let .error(error) = result {
+                XCTFail(error.localizedDescription)
+            }
+        }
+        wait(for: [expectation], timeout: timeout)
+    }
 }
