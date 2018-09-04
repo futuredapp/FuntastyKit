@@ -64,6 +64,9 @@
 		E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
 		E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
 		E7C70DAF213E7F6C0079264F /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */; };
+		E7C70DB0213E80290079264F /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */; };
+		E7C70DB1213E802A0079264F /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */; };
+		E7C70DB2213E802A0079264F /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */; };
 		E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */; };
 		E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */; };
 /* End PBXBuildFile section */
@@ -722,6 +725,7 @@
 				E746EAF8213D14340059ADBB /* APIAdapter.swift in Sources */,
 				E746EB05213DB7AC0059ADBB /* Data+APIAdapter.swift in Sources */,
 				D0D5D44A1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
+				E7C70DB1213E802A0079264F /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +742,7 @@
 				E746EAF9213D14340059ADBB /* APIAdapter.swift in Sources */,
 				E746EB07213DB7AC0059ADBB /* Data+APIAdapter.swift in Sources */,
 				D0D5D44C1E07EFB2004889D6 /* ServiceHolder.swift in Sources */,
+				E7C70DB2213E802A0079264F /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +759,7 @@
 				E746EAF7213D14340059ADBB /* APIAdapter.swift in Sources */,
 				E746EB03213DB7AB0059ADBB /* Data+APIAdapter.swift in Sources */,
 				D0D5D44B1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
+				E7C70DB0213E80290079264F /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
