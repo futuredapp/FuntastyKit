@@ -37,12 +37,17 @@ public enum HTTPMethod: String, CustomStringConvertible {
 public typealias Parameters = [String: String]
 public typealias HTTPHeaders = [String: String]
 
+public struct MultipartFile {
+    let name, filename, mimeType: String
+    let data: Data
+}
+
 public enum RequestData {
     case urlEncoded(Parameters)
     case jsonParams(Parameters)
     case jsonBody(Encodable)
     case json(body: Data, query: Parameters)
-    case multipart(Parameters, Data?)
+    case multipart(Parameters, [MultipartFile])
     case base64Upload(Parameters)
 
     static let empty: RequestData = .jsonParams([:])

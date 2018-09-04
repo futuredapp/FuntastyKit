@@ -19,8 +19,8 @@ extension URLRequest {
             setJSON(parameters: parameters, using: jsonEncoder)
         case let .json(body, parameters):
             setJSON(parameters: parameters, body: body, using: jsonEncoder)
-        case let .multipart(parameters, data):
-            setMultipart(parameters: parameters, data: data, filename: "image.jpg", mimeType: "image/jpeg")
+        case let .multipart(parameters, files):
+            setMultipart(parameters: parameters, files: files)
         case .base64Upload(let parameters):
             appendBase64(parameters: parameters)
         }
@@ -33,14 +33,15 @@ extension URLRequest {
         setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
     }
 
-    mutating func setMultipart(parameters: Parameters, data: Data?, filename: String, mimeType: String, boundary: String = "---APIAdapter" + UUID().uuidString) {
+    mutating func setMultipart(parameters: Parameters = [:], files: [MultipartFile] = [], boundary: String = "APIAdapter" + UUID().uuidString) {
         setValue("multipart/form-data; charset=utf-8; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         for parameter in parameters {
             appendForm(data: Data(parameter.value.utf8), name: parameter.key, boundary: boundary)
         }
-        if let data = data {
-            appendForm(data: data, name: filename, boundary: boundary, mimeType: mimeType, filename: filename)
+        for file in files {
+            appendForm(data: file.data, name: file.name, boundary: boundary, mimeType: file.mimeType, filename: file.filename)
         }
+        httpBody?.appendRow("--\(boundary)")
     }
 
     mutating func setJSON(parameters: Parameters, body: Data? = nil, using jsonEncoder: JSONEncoder) {
