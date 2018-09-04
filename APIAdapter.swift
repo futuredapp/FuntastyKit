@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol APIAdapterDelegate: class {
-    func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningrequestCount: UInt)
+    func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningRequestCount: UInt)
     func apiAdapter(_ apiAdapter: APIAdapter, requests endpoint: APIEndpoint, signing request: URLRequest, completion: @escaping (URLRequest) -> Void)
 }
 

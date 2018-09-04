@@ -31,14 +31,14 @@ class ArchitectureTests: XCTestCase {
     func testArchitecture() {
 
         let holder = ServiceHolder()
-        holder.add(ExampleService.self, constructor: ExampleService.init)
+        holder.add(MockupService.self, constructor: ExampleService.init)
 
         let model = Model()
 
         let viewController = UIViewController()
         UIApplication.shared.keyWindow?.rootViewController = viewController
 
-        let coordinator = ExampleCoordinator(from: viewController, model: model, serviceHolder: holder)
+        let coordinator = MockupCoordinator(from: viewController, model: model, serviceHolder: holder)
         coordinator.start()
     }
 }

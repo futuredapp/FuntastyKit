@@ -24,7 +24,9 @@ final class APIAdapterTests: XCTestCase {
             let path = "get"
         }
 
-        let adapter = apiAdapter()
+        let delegate = MockupAPIAdapterDelegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
         let expectation = self.expectation(description: "Result")
         adapter.request(data: Endpoint()) { result in
             expectation.fulfill()
@@ -40,7 +42,9 @@ final class APIAdapterTests: XCTestCase {
             let path = "status/404"
         }
 
-        let adapter = apiAdapter()
+        let delegate = MockupAPIAdapterDelegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
         let expectation = self.expectation(description: "Result")
         adapter.request(data: Endpoint()) { result in
             expectation.fulfill()
@@ -73,7 +77,9 @@ final class APIAdapterTests: XCTestCase {
             let path = "json"
         }
 
-        let adapter = apiAdapter()
+        let delegate = MockupAPIAdapterDelegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
         let expectation = self.expectation(description: "Result")
         adapter.request(response: Endpoint()) { result in
             expectation.fulfill()
@@ -106,7 +112,9 @@ final class APIAdapterTests: XCTestCase {
 
         let user = User(uuid: UUID(), name: "Some Name", age: .random(in: 0...120))
         let endpoint = Endpoint(request: user)
-        let adapter = apiAdapter()
+        let delegate = MockupAPIAdapterDelegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
         let expectation = self.expectation(description: "Result")
         adapter.request(response: endpoint) { result in
             expectation.fulfill()
@@ -125,22 +133,8 @@ final class APIAdapterTests: XCTestCase {
             let path = "bearer"
             let authorized = true
         }
-        final class Delegate: APIAdapterDelegate {
-            func apiAdapter(_ apiAdapter: APIAdapter, requests endpoint: APIEndpoint, signing request: URLRequest, completion: @escaping (URLRequest) -> Void) {
-                if endpoint.authorized {
-                    var newRequest = request
-                    newRequest.addValue("Bearer " + UUID().uuidString, forHTTPHeaderField: "Authorization")
-                    completion(newRequest)
-                } else {
-                    completion(request)
-                }
-            }
 
-            func apiAdapter(_ apiAdapter: APIAdapter, didUpdateRunningRequestCount runningrequestCount: UInt) {
-            }
-        }
-
-        let delegate = Delegate()
+        let delegate = MockupAPIAdapterDelegate()
         var adapter = apiAdapter()
         adapter.delegate = delegate
 
