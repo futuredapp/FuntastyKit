@@ -60,7 +60,10 @@
 		E746EB05213DB7AC0059ADBB /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB00213DB7910059ADBB /* Data+APIAdapter.swift */; };
 		E746EB06213DB7AC0059ADBB /* URL+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFE213DB7450059ADBB /* URL+APIAdapter.swift */; };
 		E746EB07213DB7AC0059ADBB /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB00213DB7910059ADBB /* Data+APIAdapter.swift */; };
-		E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */; };
+		E746EB10213DC4810059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */; };
 		E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,7 +122,8 @@
 		E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAdapterTests.swift; sourceTree = "<group>"; };
 		E746EAFE213DB7450059ADBB /* URL+APIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+APIAdapter.swift"; sourceTree = "<group>"; };
 		E746EB00213DB7910059ADBB /* Data+APIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+APIAdapter.swift"; sourceTree = "<group>"; };
-		E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
+		E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupAPIAdapterDelegate.swift; sourceTree = "<group>"; };
+		E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupScene.swift; sourceTree = "<group>"; };
 		E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +300,15 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		E746EB08213DC3470059ADBB /* Mockups */ = {
+			isa = PBXGroup;
+			children = (
+				E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */,
+				E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */,
+			);
+			path = Mockups;
+			sourceTree = "<group>";
+		};
 		E7DDA7341F4AE01C008F5A46 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,9 +321,9 @@
 		E7DDA7351F4AE01C008F5A46 /* FuntastyKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */,
-				E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */,
+				E746EB08213DC3470059ADBB /* Mockups */,
 				E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */,
+				E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */,
 			);
 			path = FuntastyKitTests;
 			sourceTree = "<group>";
@@ -507,7 +520,7 @@
 					};
 					52D6DA0E1BF000BD002C0205 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 					DD7502791C68FCFC006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -686,7 +699,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */,
-				E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */,
+				E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */,
+				E746EB10213DC4810059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
 				E746EAFB213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,6 +757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
 				E746EAFC213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,6 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
 				E746EAFD213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,7 +1081,7 @@
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1089,7 +1105,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1106,7 +1122,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1123,7 +1139,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

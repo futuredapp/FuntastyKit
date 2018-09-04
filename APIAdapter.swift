@@ -68,23 +68,11 @@ public final class URLSessionAPIAdapter: APIAdapter {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.description
 
-        switch endpoint.data {
-        case .jsonBody(let encodable):
-            do {
-                try request.setJSONBody(encodable: encodable, using: jsonEncoder)
-            } catch {
-                return completion(.error(error))
-            }
-        case .urlEncoded(let parameters):
-            request.setURLEncoded(parameters: parameters)
-        case .jsonParams(let parameters):
-            request.setJSON(parameters: parameters, using: jsonEncoder)
-        case let .json(body, parameters):
-            request.setJSON(parameters: parameters, body: body, using: jsonEncoder)
-        case let .multipart(parameters, data):
-            request.setMultipart(parameters: parameters, data: data, filename: "image.jpg", mimeType: "image/jpeg")
-        case .base64Upload(let parameters):
-            request.appendBase64(parameters: parameters)
+        do {
+            try request.setRequestData(endpoint.data, using: jsonEncoder)
+        } catch {
+            completion(.error(error))
+            return
         }
 
         if let delegate = delegate {

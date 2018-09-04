@@ -9,6 +9,23 @@
 import Foundation
 
 extension URLRequest {
+    mutating func setRequestData(_ requestData: RequestData, using jsonEncoder: JSONEncoder) throws {
+        switch requestData {
+        case .jsonBody(let encodable):
+            try setJSONBody(encodable: encodable, using: jsonEncoder)
+        case .urlEncoded(let parameters):
+            setURLEncoded(parameters: parameters)
+        case .jsonParams(let parameters):
+            setJSON(parameters: parameters, using: jsonEncoder)
+        case let .json(body, parameters):
+            setJSON(parameters: parameters, body: body, using: jsonEncoder)
+        case let .multipart(parameters, data):
+            setMultipart(parameters: parameters, data: data, filename: "image.jpg", mimeType: "image/jpeg")
+        case .base64Upload(let parameters):
+            appendBase64(parameters: parameters)
+        }
+    }
+
     mutating func appendBase64(parameters: Parameters) {
         var urlComponents = URLComponents()
         urlComponents.queryItems = parameters.map(URLQueryItem.init)
