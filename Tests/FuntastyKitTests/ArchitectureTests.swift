@@ -26,7 +26,7 @@ import Foundation
 import XCTest
 import FuntastyKit
 
-class ArchitectureTests: XCTestCase {
+final class ArchitectureTests: XCTestCase {
 
     func testArchitecture() {
 

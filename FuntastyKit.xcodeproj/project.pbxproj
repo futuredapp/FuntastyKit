@@ -63,6 +63,7 @@
 		E746EB10213DC4810059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
 		E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
 		E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E7C70DAF213E7F6C0079264F /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */; };
 		E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */; };
 		E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		E746EAFE213DB7450059ADBB /* URL+APIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+APIAdapter.swift"; sourceTree = "<group>"; };
 		E746EB00213DB7910059ADBB /* Data+APIAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+APIAdapter.swift"; sourceTree = "<group>"; };
 		E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupAPIAdapterDelegate.swift; sourceTree = "<group>"; };
+		E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupScene.swift; sourceTree = "<group>"; };
 		E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
@@ -290,9 +292,10 @@
 		E746EADC213D10990059ADBB /* API */ = {
 			isa = PBXGroup;
 			children = (
-				E746EADD213D11BF0059ADBB /* AnyCodable.swift */,
+				E7C70DAE213E7F6C0079264F /* APIEndpoint.swift */,
 				E746EADF213D11BF0059ADBB /* APIAdapter.swift */,
 				E746EADE213D11BF0059ADBB /* APIAdapter+Types.swift */,
+				E746EADD213D11BF0059ADBB /* AnyCodable.swift */,
 				E746EAE0213D11BF0059ADBB /* URLRequest+APIAdapter.swift */,
 				E746EAFE213DB7450059ADBB /* URL+APIAdapter.swift */,
 				E746EB00213DB7910059ADBB /* Data+APIAdapter.swift */,
@@ -678,6 +681,7 @@
 				E746EB01213DB7910059ADBB /* Data+APIAdapter.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
 				D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */,
+				E7C70DAF213E7F6C0079264F /* APIEndpoint.swift in Sources */,
 				D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */,
 				E746EAE4213D11BF0059ADBB /* URLRequest+APIAdapter.swift in Sources */,
 				D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */,
