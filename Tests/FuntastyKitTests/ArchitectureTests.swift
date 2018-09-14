@@ -26,26 +26,26 @@ import Foundation
 import XCTest
 import FuntastyKit
 
-class FuntastyKitTests: XCTestCase {
+final class ArchitectureTests: XCTestCase {
 
     func testArchitecture() {
 
         let holder = ServiceHolder()
-        holder.add(ExampleService.self, constructor: ExampleService.init)
+        holder.add(MockupService.self, constructor: MockupService.init)
 
         let model = Model()
 
         let viewController = UIViewController()
         UIApplication.shared.keyWindow?.rootViewController = viewController
 
-        let coordinator = ExampleCoordinator(from: viewController, model: model, serviceHolder: holder)
+        let coordinator = MockupCoordinator(from: viewController, model: model, serviceHolder: holder)
         coordinator.start()
     }
 }
 
 #if os(Linux)
 extension FuntastyKitTests {
-    static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
+    static var allTests: [(String, (ArchitectureTests) -> () throws -> Void)] {
         return [
             ("testArchitecture", testArchitecture)
         ]

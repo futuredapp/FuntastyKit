@@ -12,34 +12,34 @@ import UIKit
 struct Model {
 }
 
-final class ExampleService: Service {
+final class MockupService: Service {
 }
 
 // MARK: - Controller
 
-protocol ExampleViewControllerInput: class {
+protocol MockupViewControllerInput: class {
     // TO-DO: Place your presenting methods here
 }
 
-final class ExampleViewController: UIViewController {
-    var viewModel: ExampleViewModel!
+final class MockupViewController: UIViewController {
+    var viewModel: MockupViewModel!
 }
 
-extension ExampleViewController: ExampleViewControllerInput {
+extension MockupViewController: MockupViewControllerInput {
     // TO-DO: Place your presenting methods here
 }
 
 // MARK: - View model
 
-final class ExampleViewModel {
-    private weak var viewController: ExampleViewControllerInput?
-    private let coordinator: ExampleCoordinatorInput
+final class MockupViewModel {
+    private weak var viewController: MockupViewControllerInput?
+    private let coordinator: MockupCoordinatorInput
 
     private let model: Model
 
-    private let service: ExampleService
+    private let service: MockupService
 
-    init(model: Model, coordinator: ExampleCoordinatorInput, viewController: ExampleViewControllerInput, service: ExampleService) {
+    init(model: Model, coordinator: MockupCoordinatorInput, viewController: MockupViewControllerInput, service: MockupService) {
         self.model = model
         self.service = service
         self.coordinator = coordinator
@@ -49,22 +49,22 @@ final class ExampleViewModel {
 
 // MARK: - Coordinator
 
-protocol ExampleCoordinatorInput: Coordinator {
+protocol MockupCoordinatorInput: Coordinator {
     // TO-DO: Place your navigation methods here
 }
 
-final class ExampleCoordinator: ModalCoordinator {
+final class MockupCoordinator: ModalCoordinator {
 
     var sourceViewController: UIViewController
     var destinationNavigationController: UINavigationController?
 
-    weak var viewController: ExampleViewController?
+    weak var viewController: MockupViewController?
     private var serviceHolder: ServiceHolder
 
     private let model: Model
 
     init(from source: UIViewController, model: Model, serviceHolder: ServiceHolder) {
-        let controller = ExampleViewController()
+        let controller = MockupViewController()
         self.destinationNavigationController = UINavigationController(rootViewController: controller)
         self.viewController = controller
         self.sourceViewController = source
@@ -72,12 +72,12 @@ final class ExampleCoordinator: ModalCoordinator {
         self.serviceHolder = serviceHolder
     }
 
-    func configure(viewController: ExampleViewController) {
-        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: viewController, service: serviceHolder.get())
+    func configure(viewController: MockupViewController) {
+        let viewModel = MockupViewModel(model: model, coordinator: self, viewController: viewController, service: serviceHolder.get())
         viewController.viewModel = viewModel
     }
 }
 
-extension ExampleCoordinator: ExampleCoordinatorInput {
+extension MockupCoordinator: MockupCoordinatorInput {
     // TO-DO: Place your navigation methods here
 }

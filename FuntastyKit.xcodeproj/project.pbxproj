@@ -33,8 +33,42 @@
 		DD7502881C68FEDE006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DA0F1BF000BD002C0205 /* FuntastyKit.framework */; };
 		DD7502921C690C7A006590AF /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D9F01BEFFFBE002C0205 /* FuntastyKit.framework */; };
 		E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */; };
-		E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */; };
-		E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */; };
+		E746EAFB213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
+		E746EAFC213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
+		E746EAFD213D6AB70059ADBB /* APIAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */; };
+		E746EB10213DC4810059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */; };
+		E7DCEF2A214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */; };
+		E7DCEF2B214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */; };
+		E7DCEF2C214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */; };
+		E7DCEF2D214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */; };
+		E7DCEF2E214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */; };
+		E7DCEF2F214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */; };
+		E7DCEF30214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */; };
+		E7DCEF31214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */; };
+		E7DCEF32214BF0E200E44C19 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */; };
+		E7DCEF33214BF0E200E44C19 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */; };
+		E7DCEF34214BF0E200E44C19 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */; };
+		E7DCEF35214BF0E200E44C19 /* APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */; };
+		E7DCEF36214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */; };
+		E7DCEF37214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */; };
+		E7DCEF38214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */; };
+		E7DCEF39214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */; };
+		E7DCEF3A214BF0E200E44C19 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */; };
+		E7DCEF3B214BF0E200E44C19 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */; };
+		E7DCEF3C214BF0E200E44C19 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */; };
+		E7DCEF3D214BF0E200E44C19 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */; };
+		E7DCEF3E214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */; };
+		E7DCEF3F214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */; };
+		E7DCEF40214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */; };
+		E7DCEF41214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */; };
+		E7DCEF42214BF0E200E44C19 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */; };
+		E7DCEF43214BF0E200E44C19 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */; };
+		E7DCEF44214BF0E200E44C19 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */; };
+		E7DCEF45214BF0E200E44C19 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */; };
+		E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */; };
+		E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +119,17 @@
 		DD75027A1C68FCFC006590AF /* FuntastyKit-macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD75028D1C690C7A006590AF /* FuntastyKit-tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit-tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70CC851203DCCD200871ACF /* KeyboardHeightConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardHeightConstraint.swift; path = Sources/AutoLayout/KeyboardHeightConstraint.swift; sourceTree = "<group>"; };
-		E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleScene.swift; sourceTree = "<group>"; };
-		E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuntastyKitTests.swift; sourceTree = "<group>"; };
+		E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAdapterTests.swift; sourceTree = "<group>"; };
+		E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupAPIAdapterDelegate.swift; sourceTree = "<group>"; };
+		E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+APIAdapter.swift"; sourceTree = "<group>"; };
+		E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+APIAdapter.swift"; sourceTree = "<group>"; };
+		E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAdapter.swift; sourceTree = "<group>"; };
+		E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+APIAdapter.swift"; sourceTree = "<group>"; };
+		E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIAdapter+Types.swift"; sourceTree = "<group>"; };
+		E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupScene.swift; sourceTree = "<group>"; };
+		E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectureTests.swift; sourceTree = "<group>"; };
 		E7DDA7381F4AE01C008F5A46 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				52D6D9961BEFF375002C0205 /* FuntastyKit.swift */,
+				E7DCEF22214BF0E200E44C19 /* API */,
 				D0C9B68D1E07369C00EA3376 /* Architecture */,
 				D0C9B67E1E072A5600EA3376 /* Extensions */,
 				D0C9B6651E07249C00EA3376 /* Protocols */,
@@ -248,6 +292,30 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		E746EB08213DC3470059ADBB /* Mockups */ = {
+			isa = PBXGroup;
+			children = (
+				E7DDA7361F4AE01C008F5A46 /* MockupScene.swift */,
+				E746EB0B213DC3C40059ADBB /* MockupAPIAdapterDelegate.swift */,
+			);
+			path = Mockups;
+			sourceTree = "<group>";
+		};
+		E7DCEF22214BF0E200E44C19 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E7DCEF23214BF0E200E44C19 /* URL+APIAdapter.swift */,
+				E7DCEF24214BF0E200E44C19 /* Data+APIAdapter.swift */,
+				E7DCEF25214BF0E200E44C19 /* APIAdapter.swift */,
+				E7DCEF26214BF0E200E44C19 /* URLRequest+APIAdapter.swift */,
+				E7DCEF27214BF0E200E44C19 /* APIEndpoint.swift */,
+				E7DCEF28214BF0E200E44C19 /* APIAdapter+Types.swift */,
+				E7DCEF29214BF0E200E44C19 /* AnyCodable.swift */,
+			);
+			name = API;
+			path = Sources/API;
+			sourceTree = "<group>";
+		};
 		E7DDA7341F4AE01C008F5A46 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,8 +328,9 @@
 		E7DDA7351F4AE01C008F5A46 /* FuntastyKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				E7DDA7361F4AE01C008F5A46 /* ExampleScene.swift */,
-				E7DDA7371F4AE01C008F5A46 /* FuntastyKitTests.swift */,
+				E746EB08213DC3470059ADBB /* Mockups */,
+				E746EAFA213D6AB70059ADBB /* APIAdapterTests.swift */,
+				E7DDA7371F4AE01C008F5A46 /* ArchitectureTests.swift */,
 			);
 			path = FuntastyKitTests;
 			sourceTree = "<group>";
@@ -437,7 +506,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "The Funtasty";
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
@@ -458,15 +527,15 @@
 					};
 					52D6DA0E1BF000BD002C0205 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 					DD7502791C68FCFC006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 					DD75028C1C690C7A006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -609,11 +678,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DCEF2E214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */,
+				E7DCEF32214BF0E200E44C19 /* APIAdapter.swift in Sources */,
 				E70CC852203DCCD200871ACF /* KeyboardHeightConstraint.swift in Sources */,
 				D0D5D4481E07EFAF004889D6 /* Coordinator.swift in Sources */,
 				D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */,
+				E7DCEF2A214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */,
 				B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */,
 				D0C9B6821E072A6200EA3376 /* UIWindow+RootViewController.swift in Sources */,
+				E7DCEF42214BF0E200E44C19 /* AnyCodable.swift in Sources */,
+				E7DCEF3E214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */,
+				E7DCEF3A214BF0E200E44C19 /* APIEndpoint.swift in Sources */,
+				E7DCEF36214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */,
 				D0C9B6861E072F2D00EA3376 /* Nibable.swift in Sources */,
 				D0D5D44E1E07F015004889D6 /* UIView+Extensions.swift in Sources */,
 				52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */,
@@ -630,8 +706,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7DDA73A1F4AE029008F5A46 /* FuntastyKitTests.swift in Sources */,
-				E7DDA7391F4AE027008F5A46 /* ExampleScene.swift in Sources */,
+				E7DDA73A1F4AE029008F5A46 /* ArchitectureTests.swift in Sources */,
+				E7DDA7391F4AE027008F5A46 /* MockupScene.swift in Sources */,
+				E746EB10213DC4810059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
+				E746EAFB213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,9 +717,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DCEF34214BF0E200E44C19 /* APIAdapter.swift in Sources */,
+				E7DCEF2C214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */,
 				D09AACCB1ED8683200438527 /* Errors.swift in Sources */,
+				E7DCEF40214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */,
 				52D6D9EA1BEFFFA4002C0205 /* FuntastyKit.swift in Sources */,
 				D0D5D44A1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
+				E7DCEF38214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */,
+				E7DCEF44214BF0E200E44C19 /* AnyCodable.swift in Sources */,
+				E7DCEF30214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */,
+				E7DCEF3C214BF0E200E44C19 /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,9 +734,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DCEF35214BF0E200E44C19 /* APIAdapter.swift in Sources */,
+				E7DCEF2D214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */,
 				D09AACCC1ED8683200438527 /* Errors.swift in Sources */,
+				E7DCEF41214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */,
 				52D6DA091BF00081002C0205 /* FuntastyKit.swift in Sources */,
 				D0D5D44C1E07EFB2004889D6 /* ServiceHolder.swift in Sources */,
+				E7DCEF39214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */,
+				E7DCEF45214BF0E200E44C19 /* AnyCodable.swift in Sources */,
+				E7DCEF31214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */,
+				E7DCEF3D214BF0E200E44C19 /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,9 +751,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DCEF33214BF0E200E44C19 /* APIAdapter.swift in Sources */,
+				E7DCEF2B214BF0E200E44C19 /* URL+APIAdapter.swift in Sources */,
 				D09AACCA1ED8683200438527 /* Errors.swift in Sources */,
+				E7DCEF3F214BF0E200E44C19 /* APIAdapter+Types.swift in Sources */,
 				52D6DA261BF00118002C0205 /* FuntastyKit.swift in Sources */,
 				D0D5D44B1E07EFB1004889D6 /* ServiceHolder.swift in Sources */,
+				E7DCEF37214BF0E200E44C19 /* URLRequest+APIAdapter.swift in Sources */,
+				E7DCEF43214BF0E200E44C19 /* AnyCodable.swift in Sources */,
+				E7DCEF2F214BF0E200E44C19 /* Data+APIAdapter.swift in Sources */,
+				E7DCEF3B214BF0E200E44C19 /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +768,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EB11213DC4820059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
+				E746EAFC213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,6 +777,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E746EB12213DC4830059ADBB /* MockupAPIAdapterDelegate.swift in Sources */,
+				E746EAFD213D6AB70059ADBB /* APIAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,6 +906,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -988,7 +1092,7 @@
 				PRODUCT_NAME = FuntastyKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1012,13 +1116,14 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 		DD7502831C68FCFC006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
@@ -1027,13 +1132,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		DD7502841C68FCFC006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
@@ -1043,18 +1150,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 		DD7502961C690C7A006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -1063,6 +1172,7 @@
 		DD7502971C690C7A006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Configs/FuntastyKitTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.FuntastyKit.FuntastyKit-tvOS-Tests";
