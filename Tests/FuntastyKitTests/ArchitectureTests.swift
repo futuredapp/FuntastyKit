@@ -31,7 +31,7 @@ final class ArchitectureTests: XCTestCase {
     func testArchitecture() {
 
         let holder = ServiceHolder()
-        holder.add(MockupService.self, constructor: ExampleService.init)
+        holder.add(MockupService.self, constructor: MockupService.init)
 
         let model = Model()
 
