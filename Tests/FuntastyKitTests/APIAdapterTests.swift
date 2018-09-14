@@ -119,6 +119,29 @@ final class APIAdapterTests: XCTestCase {
         wait(for: [expectation], timeout: timeout)
     }
 
+    func testURLEncodedPost() {
+        struct Endpoint: APIEndpoint {
+            let data: RequestData = .urlEncoded([
+                "someParameter": "someValue",
+                "anotherParameter": "anotherValue"
+            ])
+            let path = "post"
+            let method: HTTPMethod = .post
+        }
+
+        let delegate = MockupAPIAdapterDelegate()
+        var adapter = apiAdapter()
+        adapter.delegate = delegate
+        let expectation = self.expectation(description: "Result")
+        adapter.request(data: Endpoint()) { result in
+            expectation.fulfill()
+            if case let .error(error) = result {
+                XCTFail(error.localizedDescription)
+            }
+        }
+        wait(for: [expectation], timeout: timeout)
+    }
+
     func testValidJSONResponse() {
         struct TopLevel: Codable {
             let slideshow: Slideshow
