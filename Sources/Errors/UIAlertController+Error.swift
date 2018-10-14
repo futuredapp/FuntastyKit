@@ -18,7 +18,7 @@ public extension UIAlertController {
                 return
             }
         }
-        self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
+        self.addAction(UIAlertAction(title: UIAlertController.okButtonText, style: .default))
     }
 
     private static func alertTitleMessage(error: Error) -> (String, String) {
@@ -33,5 +33,9 @@ public extension UIAlertController {
 
     private static var defaultErrorText: String {
         return NSLocalizedString("Error", comment: "Error")
+    }
+
+    private static var okButtonText: String {
+        return NSLocalizedString("OK", comment: "OK")
     }
 }
