@@ -50,37 +50,37 @@ public extension UIViewController {
         let selectedIndexPaths = deselectable?.indexPathsForSelectedItems ?? []
 
         if let coordinator = transitionCoordinator {
-            let success = coordinator.animate(alongsideTransition: { context in
-                UIViewController.switchSelectedItemsState(on: deselectable,
-                                                          selectedIndexPaths: selectedIndexPaths,
-                                                          shouldBeSelected: false,
-                                                          animated: context.isAnimated)
-            }, completion: { context in
+            let success = coordinator.animate(alongsideTransition: { [weak self] context in
+                self?.switchSelectedItemsState(on: deselectable,
+                                               selectedIndexPaths: selectedIndexPaths,
+                                               shouldBeSelected: false,
+                                               animated: context.isAnimated)
+            }, completion: { [weak self] context in
                 if context.isCancelled {
-                    UIViewController.switchSelectedItemsState(on: deselectable,
-                                                              selectedIndexPaths: selectedIndexPaths,
-                                                              shouldBeSelected: true,
-                                                              animated: false)
+                    self?.switchSelectedItemsState(on: deselectable,
+                                                   selectedIndexPaths: selectedIndexPaths,
+                                                   shouldBeSelected: true,
+                                                   animated: false)
                 }
             })
             if !success {
-                UIViewController.switchSelectedItemsState(on: deselectable,
-                                                          selectedIndexPaths: selectedIndexPaths,
-                                                          shouldBeSelected: false,
-                                                          animated: false)
+                switchSelectedItemsState(on: deselectable,
+                                         selectedIndexPaths: selectedIndexPaths,
+                                         shouldBeSelected: false,
+                                         animated: false)
             }
         } else {
-            UIViewController.switchSelectedItemsState(on: deselectable,
-                                                      selectedIndexPaths: selectedIndexPaths,
-                                                      shouldBeSelected: false,
-                                                      animated: false)
+            switchSelectedItemsState(on: deselectable,
+                                     selectedIndexPaths: selectedIndexPaths,
+                                     shouldBeSelected: false,
+                                     animated: false)
         }
     }
 
-    private static func switchSelectedItemsState(on deselectable: Deselectable?,
-                                                 selectedIndexPaths: [IndexPath],
-                                                 shouldBeSelected: Bool,
-                                                 animated: Bool) {
+    private func switchSelectedItemsState(on deselectable: Deselectable?,
+                                          selectedIndexPaths: [IndexPath],
+                                          shouldBeSelected: Bool,
+                                          animated: Bool) {
         guard let deselectable = deselectable else {
             return
         }
