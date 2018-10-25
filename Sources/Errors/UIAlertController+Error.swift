@@ -39,7 +39,7 @@ public extension UIAlertController {
             return error.localizedDescription
         }
     }
-    
+
     private static var defaultErrorTitle: String {
         return NSLocalizedString("Error", comment: "Error")
     }
