@@ -10,19 +10,41 @@ import UIKit
 
 public extension UIAlertController {
     convenience init(error: Error, preferredStyle: UIAlertController.Style = .alert) {
-        switch error {
-        case let error as ResolvableError:
-            self.init(title: error.errorDescription ?? NSLocalizedString("Error", comment: "Error"), message: error.failureReason ?? error.localizedDescription, preferredStyle: preferredStyle)
+        self.init(title: UIAlertController.alertTitle(error: error),
+                  message: UIAlertController.alertMessage(error: error),
+                  preferredStyle: preferredStyle)
+        if let error = error as? ResolvableError {
             error.actions.map { $0.alertAction() }.forEach(self.addAction)
-            if error.actions.isEmpty {
-                self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
+            if !error.actions.isEmpty {
+                return
             }
-        case let error as LocalizedError:
-            self.init(title: error.errorDescription ?? NSLocalizedString("Error", comment: "Error"), message: error.failureReason ?? error.localizedDescription, preferredStyle: preferredStyle)
-            self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
-        default:
-            self.init(title: NSLocalizedString("Error", comment: "Error"), message: error.localizedDescription, preferredStyle: preferredStyle)
-            self.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"), style: .default))
         }
+        self.addAction(UIAlertAction(title: UIAlertController.okButtonText, style: .default))
+    }
+
+    private static func alertTitle(error: Error) -> String {
+        switch error {
+        case let error as LocalizedError:
+            return error.errorDescription ?? defaultErrorTitle
+        default:
+            return defaultErrorTitle
+        }
+    }
+
+    private static func alertMessage(error: Error) -> String {
+        switch error {
+        case let error as LocalizedError:
+            return error.failureReason ?? error.localizedDescription
+        default:
+            return error.localizedDescription
+        }
+    }
+
+    private static var defaultErrorTitle: String {
+        return NSLocalizedString("Error", comment: "Error")
+    }
+
+    private static var okButtonText: String {
+        return NSLocalizedString("OK", comment: "OK")
     }
 }
