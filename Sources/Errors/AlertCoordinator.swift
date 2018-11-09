@@ -34,13 +34,14 @@ public class AlertCoordinator: DefaultCoordinator {
         case error(Error)
         case custom(title: String?, message: String?, actions: [ErrorAction]?)
 
-        func alertController(preferredStyle: Style = .alert) -> UIAlertController {
+        func alertController(preferredStyle: Style = .alert, preferredAction: UIAlertAction? = nil) -> UIAlertController {
             switch self {
             case .error(let error):
                 return UIAlertController(error: error, preferredStyle: preferredStyle.controllerStyle)
             case .custom(let title, let message, let actions):
                 let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle.controllerStyle)
                 (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
+                alert.preferredAction = preferredAction
                 return alert
             }
         }
@@ -52,23 +53,26 @@ public class AlertCoordinator: DefaultCoordinator {
 
     private var type: InputType
     private var preferredStyle: Style
+    private var preferredAction: UIAlertAction?
 
     // MARK: - Inits
 
-    public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert) {
+    public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert, preferredAction: UIAlertAction? = nil) {
         self.parentViewController = parent
         self.type = .error(error)
         self.preferredStyle = preferredStyle
+        self.preferredAction = preferredAction
     }
 
-    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: Style = .alert) {
+    public init(parent: UIViewController, title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: Style = .alert, preferredAction: UIAlertAction? = nil) {
         self.parentViewController = parent
         self.type = .custom(title: title, message: message, actions: actions)
         self.preferredStyle = preferredStyle
+        self.preferredAction = preferredAction
     }
 
     public func start() {
-        let alert = type.alertController(preferredStyle: preferredStyle)
+        let alert = type.alertController(preferredStyle: preferredStyle, preferredAction: preferredAction)
         if case .actionSheet(let source) = preferredStyle, let sourceView = source {
             switch sourceView {
             case .button(let button):
