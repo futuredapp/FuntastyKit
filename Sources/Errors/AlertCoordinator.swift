@@ -111,21 +111,21 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert) {
+    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert, preferredAction: UIAlertAction? = nil) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle)
+        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle, preferredAction: preferredAction)
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
+    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert, preferredAction: UIAlertAction? = nil) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
+        let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle, preferredAction: preferredAction)
         alertCoordinator.start()
     }
 }
