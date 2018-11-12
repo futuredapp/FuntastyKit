@@ -62,7 +62,7 @@ public class AlertCoordinator: DefaultCoordinator {
 
     // MARK: - Inits
 
-    public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert, preferredAction: ErrorAction? = nil) {
+    public init(parent: UIViewController, error: Error, preferredStyle: Style = .alert) {
         self.parentViewController = parent
         self.type = .error(error)
         self.preferredStyle = preferredStyle
@@ -114,12 +114,12 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert, preferredAction: ErrorAction? = nil) {
+    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }
 
-        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle, preferredAction: preferredAction)
+        let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 
