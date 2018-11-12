@@ -17,6 +17,7 @@ public struct ErrorAction {
         case `default`
         case cancel
         case destructive
+        case preferred
     }
 
     public typealias ErrorHandler = () -> Void
