@@ -40,7 +40,14 @@ public class AlertCoordinator: DefaultCoordinator {
                 return UIAlertController(error: error, preferredStyle: preferredStyle.controllerStyle)
             case .custom(let title, let message, let actions):
                 let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle.controllerStyle)
-                (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))]).map { $0.alertAction() }.forEach(alert.addAction)
+                (actions ?? [ErrorAction(title: NSLocalizedString("OK", comment: "OK"))])
+                    .forEach { action in
+                        let alertAction = action.alertAction()
+                        alert.addAction(alertAction)
+                        if action.style == .preferred {
+                            alert.preferredAction = alertAction
+                        }
+                    }
                 return alert
             }
         }
@@ -92,12 +99,12 @@ public class AlertCoordinator: DefaultCoordinator {
 public extension ErrorAction {
     func alertStyle() -> UIAlertAction.Style {
         switch self.style {
-        case .default:
-            return .default
         case .cancel:
             return .cancel
         case .destructive:
             return .destructive
+        default:
+            return .default
         }
     }
 
