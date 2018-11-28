@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "FuntastyKit"
-  s.version = "1.2.0"
+  s.version = "1.2.1"
   s.summary = "A collection of Swift utilities and protocols used in our projects."
   s.description = <<-DESC
      A collection of Swift utilities and protocols used in our projects.
