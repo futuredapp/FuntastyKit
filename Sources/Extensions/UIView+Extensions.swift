@@ -18,7 +18,9 @@ public extension UIView {
             return layer.cornerRadius
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.cornerRadius = newValue
+            #endif
         }
     }
 
@@ -29,7 +31,9 @@ public extension UIView {
             return layer.shadowColor.flatMap(UIColor.init)
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.shadowColor = newValue?.cgColor
+            #endif
         }
     }
 
@@ -38,7 +42,9 @@ public extension UIView {
             return layer.shadowOffset
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.shadowOffset = newValue
+            #endif
         }
     }
 
@@ -47,7 +53,9 @@ public extension UIView {
             return layer.shadowRadius
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.shadowRadius = newValue
+            #endif
         }
     }
 
@@ -56,7 +64,9 @@ public extension UIView {
             return layer.shadowOpacity
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.shadowOpacity = newValue
+            #endif
         }
     }
 
@@ -67,7 +77,9 @@ public extension UIView {
             return layer.borderWidth
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.borderWidth = newValue
+            #endif
         }
     }
 
@@ -76,7 +88,9 @@ public extension UIView {
             return layer.borderColor.flatMap(UIColor.init)
         }
         set {
+            #if !TARGET_INTERFACE_BUILDER
             layer.borderColor = newValue?.cgColor
+            #endif
         }
     }
 }
