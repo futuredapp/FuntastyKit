@@ -9,11 +9,11 @@
 import UIKit
 
 @IBDesignable
-public extension UIView {
+extension UIView {
 
     // MARK: - Corner radius
 
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable open var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -26,7 +26,7 @@ public extension UIView {
 
     // MARK: - Shadow
 
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable open var shadowColor: UIColor? {
         get {
             return layer.shadowColor.flatMap(UIColor.init)
         }
@@ -37,7 +37,7 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var shadowOffset: CGSize {
+    @IBInspectable open var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -48,7 +48,7 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var shadowRadius: CGFloat {
+    @IBInspectable open var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
@@ -59,7 +59,7 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var shadowOpacity: Float {
+    @IBInspectable open var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -72,7 +72,7 @@ public extension UIView {
 
     // MARK: - Border
 
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -83,7 +83,7 @@ public extension UIView {
         }
     }
 
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable open var borderColor: UIColor? {
         get {
             return layer.borderColor.flatMap(UIColor.init)
         }
