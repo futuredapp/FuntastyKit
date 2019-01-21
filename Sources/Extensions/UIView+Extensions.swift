@@ -51,7 +51,7 @@ extension UIView {
         }
     }
 
-    @IBInspectable var shadowOpacity: Float {
+    @IBInspectable open var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -62,7 +62,7 @@ extension UIView {
 
     // MARK: - Border
 
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -71,7 +71,7 @@ extension UIView {
         }
     }
 
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable open var borderColor: UIColor? {
         get {
             return layer.borderColor.flatMap(UIColor.init)
         }
