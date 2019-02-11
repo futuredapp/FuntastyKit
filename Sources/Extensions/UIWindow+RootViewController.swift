@@ -21,7 +21,7 @@ public extension UIWindow {
      - parameter completion:     Completion block to be invoked after the transition finishes
      */
     @nonobjc
-    func setRootViewController(_ viewController: UIViewController, animated: Bool, duration: TimeInterval = 0.3, options: UIView.AnimationOptions = [.transitionCrossDissolve], completion: ((Bool) -> Void)? = nil) {
+    func setRootViewController(_ viewController: UIViewController, animated: Bool, duration: TimeInterval = 0.3, options: UIView.AnimationOptions = .transitionCrossDissolve, completion: ((Bool) -> Void)? = nil) {
         if animated {
             UIView.transition(with: self, duration: duration, options: options, animations: {
                 self.rootViewController = viewController
