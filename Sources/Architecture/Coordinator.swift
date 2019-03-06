@@ -71,6 +71,7 @@ public extension DefaultCoordinator {
         get {
             return nil
         }
+        // swiftlint:disable:next unused_setter_value
         set {
         }
     }

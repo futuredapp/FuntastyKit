@@ -114,7 +114,7 @@ public extension ErrorAction {
 }
 
 public extension DefaultCoordinator {
-    public func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert) {
+    func showAlert(for error: Error, preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }
@@ -123,7 +123,7 @@ public extension DefaultCoordinator {
         alertCoordinator.start()
     }
 
-    public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
+    func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
         guard let viewController = self.viewController else {
             return
         }
