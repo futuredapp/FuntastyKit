@@ -98,9 +98,9 @@ public extension ShowCoordinator {
         }
         configure(viewController: viewController)
         if isDetail {
-            sourceViewController.show(viewController, sender: nil)
-        } else {
             sourceViewController.showDetailViewController(viewController, sender: nil)
+        } else {
+            sourceViewController.show(viewController, sender: nil)
         }
     }
 }
