@@ -31,6 +31,12 @@ public protocol DefaultCoordinator: Coordinator {
     var delegate: CoordinatorDelegate? { get set }
 }
 
+public protocol ShowCoordinator: DefaultCoordinator {
+    var sourceViewController: UIViewController { get }
+    var isDetail: Bool { get }
+    func configure(viewController: ViewController)
+}
+
 public protocol PushCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var navigationController: UINavigationController { get }
@@ -78,6 +84,24 @@ public extension DefaultCoordinator {
     func stop() {
         delegate?.willStop(in: self)
         delegate?.didStop(in: self)
+    }
+}
+
+public extension ShowCoordinator {
+    var isDetail: Bool {
+        return false
+    }
+
+    func start() {
+        guard let viewController = viewController else {
+            return
+        }
+        configure(viewController: viewController)
+        if isDetail {
+            sourceViewController.showDetailViewController(viewController, sender: nil)
+        } else {
+            sourceViewController.show(viewController, sender: nil)
+        }
     }
 }
 
