@@ -54,18 +54,6 @@ public protocol TabBarItemCoordinator: DefaultCoordinator {
     var destinationNavigationController: UINavigationController? { get }
 }
 
-public enum PresentationStyle {
-    case push
-    case modal
-}
-
-public protocol PushModalCoordinator: DefaultCoordinator {
-    func configure(controller: ViewController)
-    var navigationController: UINavigationController? { get }
-    var presentationStyle: PresentationStyle { get }
-    var destinationNavigationController: UINavigationController? { get }
-}
-
 public extension DefaultCoordinator {
     // default implementation if not overriden
     var animated: Bool {
@@ -77,6 +65,7 @@ public extension DefaultCoordinator {
         get {
             return nil
         }
+        // swiftlint:disable:next unused_setter_value
         set {
         }
     }
@@ -143,46 +132,6 @@ public extension ModalCoordinator {
         delegate?.willStop(in: self)
         viewController?.dismiss(animated: animated) {
             self.delegate?.didStop(in: self)
-        }
-    }
-}
-
-public extension PushModalCoordinator {
-    // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
-    // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
-    // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
-    var presentationStyle: PresentationStyle {
-        return self.destinationNavigationController != nil ? .modal : .push
-    }
-
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
-
-        configure(controller: viewController)
-
-        switch presentationStyle {
-        case .modal where destinationNavigationController != nil:
-            navigationController?.present(destinationNavigationController!, animated: animated, completion: nil)
-        case .push:
-            navigationController?.pushViewController(viewController, animated: animated)
-        default:
-            break
-        }
-    }
-
-    func stop() {
-        delegate?.willStop(in: self)
-
-        switch presentationStyle {
-        case .modal:
-            viewController?.dismiss(animated: animated) {
-                self.delegate?.didStop(in: self)
-            }
-        case .push:
-            _ = navigationController?.popViewController(animated: animated)
-            delegate?.didStop(in: self)
         }
     }
 }
