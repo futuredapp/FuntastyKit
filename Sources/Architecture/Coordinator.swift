@@ -31,6 +31,12 @@ public protocol DefaultCoordinator: Coordinator {
     var delegate: CoordinatorDelegate? { get set }
 }
 
+public protocol ShowCoordinator: DefaultCoordinator {
+    var sourceViewController: UIViewController { get }
+    var isDetail: Bool { get }
+    func configure(viewController: ViewController)
+}
+
 public protocol PushCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var navigationController: UINavigationController { get }
@@ -45,18 +51,6 @@ public protocol ModalCoordinator: DefaultCoordinator {
 public protocol TabBarItemCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
     var tabBarController: UITabBarController? { get }
-    var destinationNavigationController: UINavigationController? { get }
-}
-
-public enum PresentationStyle {
-    case push
-    case modal
-}
-
-public protocol PushModalCoordinator: DefaultCoordinator {
-    func configure(controller: ViewController)
-    var navigationController: UINavigationController? { get }
-    var presentationStyle: PresentationStyle { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
@@ -79,6 +73,24 @@ public extension DefaultCoordinator {
     func stop() {
         delegate?.willStop(in: self)
         delegate?.didStop(in: self)
+    }
+}
+
+public extension ShowCoordinator {
+    var isDetail: Bool {
+        return false
+    }
+
+    func start() {
+        guard let viewController = viewController else {
+            return
+        }
+        configure(viewController: viewController)
+        if isDetail {
+            sourceViewController.showDetailViewController(viewController, sender: nil)
+        } else {
+            sourceViewController.show(viewController, sender: nil)
+        }
     }
 }
 
@@ -120,46 +132,6 @@ public extension ModalCoordinator {
         delegate?.willStop(in: self)
         viewController?.dismiss(animated: animated) {
             self.delegate?.didStop(in: self)
-        }
-    }
-}
-
-public extension PushModalCoordinator {
-    // By default, to distinguish between modal and push a presence of destinationNavigationController is checked
-    // as this is a good heuristics (it's usually not desired to push another navigation controller). This behaviour
-    // can be redefined by redeclaring this property on any concrete PushModalCoordinator.
-    var presentationStyle: PresentationStyle {
-        return self.destinationNavigationController != nil ? .modal : .push
-    }
-
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
-
-        configure(controller: viewController)
-
-        switch presentationStyle {
-        case .modal where destinationNavigationController != nil:
-            navigationController?.present(destinationNavigationController!, animated: animated, completion: nil)
-        case .push:
-            navigationController?.pushViewController(viewController, animated: animated)
-        default:
-            break
-        }
-    }
-
-    func stop() {
-        delegate?.willStop(in: self)
-
-        switch presentationStyle {
-        case .modal:
-            viewController?.dismiss(animated: animated) {
-                self.delegate?.didStop(in: self)
-            }
-        case .push:
-            _ = navigationController?.popViewController(animated: animated)
-            delegate?.didStop(in: self)
         }
     }
 }
