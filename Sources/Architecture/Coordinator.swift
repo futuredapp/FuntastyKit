@@ -156,7 +156,7 @@ public extension TabBarItemCoordinator {
         }
 
         var mutableViewControllers = viewControllers
-        if let index = mutableViewControllers.index(of: destinationNavigationController ?? viewController) {
+        if let index = mutableViewControllers.firstIndex(of: destinationNavigationController ?? viewController) {
             mutableViewControllers.remove(at: index)
         }
 
