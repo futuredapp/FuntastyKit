@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+               BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
                BuildableName = "FuntastyKit.framework"
-               BlueprintName = "FuntastyKit-tvOS"
+               BlueprintName = "FuntastyKit"
                ReferencedContainer = "container:FuntastyKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD75028C1C690C7A006590AF"
-               BuildableName = "FuntastyKit-tvOS Tests.xctest"
-               BlueprintName = "FuntastyKit-tvOS Tests"
+               BlueprintIdentifier = "52D6D9851BEFF229002C0205"
+               BuildableName = "FuntastyKit Tests.xctest"
+               BlueprintName = "FuntastyKit Tests"
                ReferencedContainer = "container:FuntastyKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
             BuildableName = "FuntastyKit.framework"
-            BlueprintName = "FuntastyKit-tvOS"
+            BlueprintName = "FuntastyKit"
             ReferencedContainer = "container:FuntastyKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
             BuildableName = "FuntastyKit.framework"
-            BlueprintName = "FuntastyKit-tvOS"
+            BlueprintName = "FuntastyKit"
             ReferencedContainer = "container:FuntastyKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
             BuildableName = "FuntastyKit.framework"
-            BlueprintName = "FuntastyKit-tvOS"
+            BlueprintName = "FuntastyKit"
             ReferencedContainer = "container:FuntastyKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
