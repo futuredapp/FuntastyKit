@@ -3,7 +3,7 @@
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/FuntastyKit.svg)
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
-[![Build Status](https://app.bitrise.io/app/b2201bef8986b898/status.svg?token=55zmQOJfJyHGQ2nOwaQ23Q&branch=master)](https://app.bitrise.io/app/b2201bef8986b898)
+![Continuous integration](https://img.shields.io/bitrise/b2201bef8986b898.svg?label=ci&token=55zmQOJfJyHGQ2nOwaQ23Q)
 
 FuntastyKit iOS framework contains:
 
