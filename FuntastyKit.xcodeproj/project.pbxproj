@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52D6D9871BEFF229002C0205 /* FuntastyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* FuntastyKit.framework */; };
 		52D6D9981BEFF375002C0205 /* FuntastyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D6D9961BEFF375002C0205 /* FuntastyKit.swift */; };
+		A73DC66922CE39ED00244E9C /* KeyboardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73DC66822CE39ED00244E9C /* KeyboardScrollView.swift */; };
 		B91C3C311E0967D2005336D2 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C301E0967D2005336D2 /* UITableView+Extensions.swift */; };
 		B91C3C331E09682D005336D2 /* StoryboardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91C3C321E09682D005336D2 /* StoryboardType.swift */; };
 		D09AACC51ED8683200438527 /* AlertCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09AACC21ED8683200438527 /* AlertCoordinator.swift */; };
@@ -40,6 +41,7 @@
 		52D6D97C1BEFF229002C0205 /* FuntastyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FuntastyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9861BEFF229002C0205 /* FuntastyKit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FuntastyKit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9961BEFF375002C0205 /* FuntastyKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FuntastyKit.swift; path = Sources/FuntastyKit.swift; sourceTree = "<group>"; };
+		A73DC66822CE39ED00244E9C /* KeyboardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardScrollView.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* FuntastyKit.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FuntastyKit.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* FuntastyKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FuntastyKitTests.plist; sourceTree = "<group>"; };
 		B91C3C301E0967D2005336D2 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Extensions.swift"; path = "Sources/Extensions/UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				D0C9B6651E07249C00EA3376 /* Protocols */,
 				D09AACC11ED8681900438527 /* Errors */,
 				D0EC60511E07229800D3E4D8 /* AutoLayout */,
+				A73DC66722CE39B400244E9C /* Subclasses */,
 				E7DDA7341F4AE01C008F5A46 /* Tests */,
 				52D6D99C1BEFF38C002C0205 /* Configs */,
 				52D6D97D1BEFF229002C0205 /* Products */,
@@ -110,6 +113,14 @@
 				DD7502731C68FC20006590AF /* Tests */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		A73DC66722CE39B400244E9C /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				A73DC66822CE39ED00244E9C /* KeyboardScrollView.swift */,
+			);
+			name = Subclasses;
 			sourceTree = "<group>";
 		};
 		D09AACC11ED8681900438527 /* Errors */ = {
@@ -336,6 +347,7 @@
 				D09AACCD1ED8683200438527 /* UIAlertController+Error.swift in Sources */,
 				D0C9B6811E072A6200EA3376 /* UIViewController+Deselection.swift in Sources */,
 				D0D5D4491E07EFAF004889D6 /* ServiceHolder.swift in Sources */,
+				A73DC66922CE39ED00244E9C /* KeyboardScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
