@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
      storyboards and for handling keyboard, hairline and keyboard height constraints
   DESC
   s.homepage = "https://github.com/thefuntasty/FuntastyKit"
-  s.license = { :type => "MIT", :file => "LICENSE" }
+  s.license = { type: "MIT", file: "LICENSE" }
   s.author = { "Matěj K. Jirásek" => "matej.jirasek@thefuntasty.com" }
   s.social_media_url = "https://twitter.com/TheFuntasty"
   s.platform = :ios, "9.0"
