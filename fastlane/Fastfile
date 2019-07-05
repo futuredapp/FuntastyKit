@@ -1,8 +1,10 @@
 
+fastlane_require "fastlane-plugin-brew"
+
 desc "Lint and test the library"
 lane :test do
-  # Using the package manager supplied SwiftLint, no Brew needed
-  sh "cd ..; swift run swiftlint; cd -;"
+  brew(command: "install swiftlint")
+  swiftlint
   pod_lib_lint
   spm(
     command: "generate-xcodeproj"
