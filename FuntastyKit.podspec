@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "FuntastyKit"
-  s.version = "1.4.0"
+  s.version = "1.5.0"
   s.summary = "A collection of Swift utilities and protocols used in our projects."
   s.description = <<-DESC
      MVVM-C architecture, service holder for code injection of services

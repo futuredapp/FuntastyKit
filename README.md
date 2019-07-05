@@ -18,5 +18,5 @@ FuntastyKit iOS framework contains:
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.4'
+pod 'FuntastyKit', '~> 1.5'
 ```
