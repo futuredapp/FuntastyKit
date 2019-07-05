@@ -9,6 +9,9 @@ let package = Package(
             name: "FuntastyKit",
             targets: ["FuntastyKit"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/realm/SwiftLint.git", from: "0.33.0")
+    ],
     targets: [
         .target(
             name: "FuntastyKit",
