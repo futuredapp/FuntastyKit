@@ -64,3 +64,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+fastlane/README.md
+
+# Project, because it can be generated using SPM
+*.xcodeproj
