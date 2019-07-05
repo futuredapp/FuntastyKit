@@ -6,8 +6,6 @@ lane :test do
   brew(command: "install swiftlint")
   swiftlint
   pod_lib_lint
-  spm(
-    command: "generate-xcodeproj"
-  )
+  spm(command: "generate-xcodeproj")
   run_tests
 end
