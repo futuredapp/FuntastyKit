@@ -3,7 +3,7 @@
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/FuntastyKit.svg)
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
-![Continuous integration](https://img.shields.io/bitrise/b2201bef8986b898.svg?label=ci&token=55zmQOJfJyHGQ2nOwaQ23Q)
+![Continuous integration](https://img.shields.io/bitrise/6f0c129e47a9b6f1.svg?token=Mfr5_Ek19pSrcZew0Pp9Bg)
 
 FuntastyKit iOS framework contains:
 
@@ -18,5 +18,5 @@ FuntastyKit iOS framework contains:
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.4'
+pod 'FuntastyKit', '~> 1.5'
 ```
