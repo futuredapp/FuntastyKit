@@ -29,7 +29,7 @@ public extension Nibable where Self: UIView {
     init(owner: AnyObject? = nil) {
         let views = Self.nib.instantiate(withOwner: owner, options: [:])
         self = views.lazy.compactMap { $0 as? Self }.first ?? { () -> Self in
-            fatalError("Nib for class \(Self.nibName) cound not be loaded!")
+            fatalError("Nib for class \(Self.nibName) could not be loaded!")
         }()
     }
 

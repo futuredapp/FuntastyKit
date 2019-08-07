@@ -2,11 +2,12 @@ disabled_rules:
   - line_length
 excluded:
   - Pods
+  - .build
 opt_in_rules:
   - vertical_whitespace
   - empty_count
   - switch_case_on_newline
-  - redundant_nil_coalesing
+  - redundant_nil_coalescing
   - overridden_super_call
   - explicit_init
   - conditional_returns_on_newline
@@ -16,7 +17,7 @@ opt_in_rules:
   - attributes
 
 # Rule configurations
-variable_name:
+identifier_name:
   excluded:
     - id
     - to
