@@ -12,9 +12,6 @@ import UIKit
 struct Model {
 }
 
-final class ExampleService: Service {
-}
-
 // MARK: - Controller
 
 protocol ExampleViewControllerInput: class {
@@ -37,11 +34,8 @@ final class ExampleViewModel {
 
     private let model: Model
 
-    private let service: ExampleService
-
-    init(model: Model, coordinator: ExampleCoordinatorInput, viewController: ExampleViewControllerInput, service: ExampleService) {
+    init(model: Model, coordinator: ExampleCoordinatorInput, viewController: ExampleViewControllerInput) {
         self.model = model
-        self.service = service
         self.coordinator = coordinator
         self.viewController = viewController
     }
@@ -59,21 +53,19 @@ final class ExampleCoordinator: ModalCoordinator {
     var destinationNavigationController: UINavigationController?
 
     weak var viewController: ExampleViewController?
-    private var serviceHolder: ServiceHolder
 
     private let model: Model
 
-    init(from source: UIViewController, model: Model, serviceHolder: ServiceHolder) {
+    init(from source: UIViewController, model: Model) {
         let controller = ExampleViewController()
         self.destinationNavigationController = UINavigationController(rootViewController: controller)
         self.viewController = controller
         self.sourceViewController = source
         self.model = model
-        self.serviceHolder = serviceHolder
     }
 
     func configure(viewController: ExampleViewController) {
-        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: viewController, service: serviceHolder.get())
+        let viewModel = ExampleViewModel(model: model, coordinator: self, viewController: viewController)
         viewController.viewModel = viewModel
     }
 }
