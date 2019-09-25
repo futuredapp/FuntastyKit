@@ -32,7 +32,7 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol ShowCoordinator: DefaultCoordinator {
-    /// sourceViewController should be used as 'weak var', otherwise memory leak will emerge
+    /// When used on Split View Controlelr as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
 
