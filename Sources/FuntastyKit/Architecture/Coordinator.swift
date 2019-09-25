@@ -32,8 +32,9 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol ShowCoordinator: DefaultCoordinator {
-    var sourceViewController: UIViewController { get }
+    var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
+
     func configure(viewController: ViewController)
 }
 
