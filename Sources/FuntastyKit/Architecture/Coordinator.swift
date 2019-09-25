@@ -32,6 +32,7 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol ShowCoordinator: DefaultCoordinator {
+    /// sourceViewController should be used as 'weak var', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
 
