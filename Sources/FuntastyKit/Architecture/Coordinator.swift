@@ -32,8 +32,10 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol ShowCoordinator: DefaultCoordinator {
-    var sourceViewController: UIViewController { get }
+    /// When used on Split View Controlelr as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
+    var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
+
     func configure(viewController: ViewController)
 }
 
@@ -87,9 +89,9 @@ public extension ShowCoordinator {
         }
         configure(viewController: viewController)
         if isDetail {
-            sourceViewController.showDetailViewController(viewController, sender: nil)
+            sourceViewController?.showDetailViewController(viewController, sender: nil)
         } else {
-            sourceViewController.show(viewController, sender: nil)
+            sourceViewController?.show(viewController, sender: nil)
         }
     }
 }
