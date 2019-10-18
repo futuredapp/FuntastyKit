@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "FuntastyKit"
-  s.version = "1.5.0"
+  s.version = "1.6.0"
   s.summary = "A collection of Swift utilities and protocols used in our projects."
   s.description = <<-DESC
      MVVM-C architecture, service holder for code injection of services
@@ -14,11 +14,16 @@ Pod::Spec.new do |s|
   s.platform = :ios, "9.0"
   s.swift_version = "5.0"
   s.source = { :git => "https://github.com/thefuntasty/FuntastyKit.git", :tag => s.version.to_s }
-  s.source_files = "Sources/FuntastyKit/**/*"
-  s.frameworks = "Foundation", "UIKit"
+  s.frameworks = ["Foundation", "UIKit"]
+  s.default_subspec = "Core"
 
-  s.subspec "Designales" do |ss|
+  s.subspec "Core" do |ss|
+    ss.source_files = "Sources/FuntastyKit/*"
+  end
+
+  s.subspec "Designables" do |ss|
+    ss.dependency "FuntastyKit/Core"
     ss.source_files = "Sources/FuntastyKitDesignables/*"
-    ss.frameworks = "Foundation", "UIKit"
   end
 end
+
