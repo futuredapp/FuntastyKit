@@ -16,4 +16,9 @@ Pod::Spec.new do |s|
   s.source = { :git => "https://github.com/thefuntasty/FuntastyKit.git", :tag => s.version.to_s }
   s.source_files = "Sources/FuntastyKit/**/*"
   s.frameworks = "Foundation", "UIKit"
+
+  s.subspec "Designales" do |ss|
+    ss.source_files = "Sources/FuntastyKitDesignables/*"
+    ss.frameworks = "Foundation", "UIKit"
+  end
 end
