@@ -18,12 +18,12 @@ Pod::Spec.new do |s|
   s.default_subspec = "Core"
 
   s.subspec "Core" do |ss|
-    ss.source_files = "Sources/FuntastyKit/*"
+    ss.source_files = Dir["Sources/FuntastyKit/*"]
   end
 
   s.subspec "Designables" do |ss|
     ss.dependency "FuntastyKit/Core"
-    ss.source_files = "Sources/FuntastyKitDesignables/*"
+    ss.source_files = Dir["Sources/FuntastyKitDesignables/*"]
   end
 end
 
