@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   DESC
   s.homepage = "https://github.com/thefuntasty/FuntastyKit"
   s.license = { type: "MIT", file: "LICENSE" }
-  s.author = { "Matěj K. Jirásek" => "matej.jirasek@thefuntasty.com" }
-  s.social_media_url = "https://twitter.com/TheFuntasty"
+  s.author = { "Matěj K. Jirásek" => "matej.jirasek@futured.app" }
+  s.social_media_url = "https://twitter.com/Futuredapps"
   s.platform = :ios, "9.0"
   s.swift_version = "5.0"
   s.source = { :git => "https://github.com/thefuntasty/FuntastyKit.git", :tag => s.version.to_s }
