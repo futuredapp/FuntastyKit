@@ -1,11 +1,3 @@
-//
-//  UIViewController+Deselection.swift
-//  FuntastyKit
-//
-//  Created by Zev Eisenberg on 5/13/16, modified by Petr Zvoníček.
-//  Copyright © 2016 Raizlabs, The Funtasty. All rights reserved.
-//
-
 import UIKit
 
 public protocol Deselectable {
