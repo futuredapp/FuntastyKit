@@ -32,7 +32,7 @@ The name of the framework comes from the name of our company before rebranding, 
 
 ## Authors
 
-If you have any question or issues, please contact the current maintainer:
+If you have any questions or issues, please contact the current maintainer:
 
 - Matěj K. Jirásek, matej.jirasek@futured.app
 
