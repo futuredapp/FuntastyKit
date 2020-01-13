@@ -23,7 +23,7 @@ pod 'FuntastyKit', '~> 1.5'
 For adding using Swift package manager either use Xcode or add following line to your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/thefuntasty/FuntastyKit.git", from: "0.5.0")
+.package(url: "https://github.com/thefuntasty/FuntastyKit.git", from: "1.5.0")
 ```
 
 ## Note on the name
