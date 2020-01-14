@@ -1,11 +1,3 @@
-//
-//  UITableView+Extensions.swift
-//  FuntastyKit
-//
-//  Created by Patrik Potoček on 20.12.16.
-//  Copyright © 2016 The Funtasty. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

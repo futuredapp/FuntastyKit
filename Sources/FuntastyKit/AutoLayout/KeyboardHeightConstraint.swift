@@ -1,11 +1,3 @@
-//
-//  KeyboardHeightConstraint.swift
-//  FuntastyKit-iOS
-//
-//  Created by Matěj Jirásek on 07/02/2018.
-//  Copyright © 2018 The Funtasty. All rights reserved.
-//
-
 import UIKit
 
 public final class KeyboardHeightConstraint: NSLayoutConstraint {
