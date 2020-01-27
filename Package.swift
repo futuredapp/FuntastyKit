@@ -7,11 +7,17 @@ let package = Package(
     products: [
         .library(
             name: "FuntastyKit",
-            targets: ["FuntastyKit"])
+            targets: ["FuntastyKit"]),
+        .library(
+            name: "FuntastyKitDesignables",
+            targets: ["FuntastyKitDesignables"])
     ],
     targets: [
         .target(
             name: "FuntastyKit",
+            dependencies: []),
+        .target(
+            name: "FuntastyKitDesignables",
             dependencies: []),
         .testTarget(
             name: "FuntastyKitTests",

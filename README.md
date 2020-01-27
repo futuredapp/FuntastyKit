@@ -19,6 +19,11 @@ If you want to use CocoaPods for dependency management, add following line to yo
 ```ruby
 pod 'FuntastyKit', '~> 1.6'
 ```
+If you also want to use designables extensions:
+
+```ruby
+pod 'FuntastyKit', '~> 1.6', subspecs: ['Designables']
+```
 
 For adding using Swift package manager either use Xcode or add following line to your `Package.swift` file:
 

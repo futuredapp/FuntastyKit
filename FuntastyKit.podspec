@@ -14,6 +14,16 @@ Pod::Spec.new do |s|
   s.platform = :ios, "9.0"
   s.swift_version = "5.0"
   s.source = { :git => "https://github.com/futuredapp/FuntastyKit.git", :tag => s.version.to_s }
-  s.source_files = "Sources/FuntastyKit/**/*"
-  s.frameworks = "Foundation", "UIKit"
+  s.frameworks = ["Foundation", "UIKit"]
+  s.default_subspec = "Core"
+
+  s.subspec "Core" do |ss|
+    ss.source_files = Dir["Sources/FuntastyKit/*"]
+  end
+
+  s.subspec "Designables" do |ss|
+    ss.dependency "FuntastyKit/Core"
+    ss.source_files = Dir["Sources/FuntastyKitDesignables/*"]
+  end
 end
+
