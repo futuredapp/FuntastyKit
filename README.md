@@ -17,7 +17,7 @@ The FuntastyKit for iOS contains:
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.6'
+pod 'FuntastyKit', '~> 2.0'
 ```
 
 If you also want to use IBInspectable extensions also add:
@@ -29,7 +29,7 @@ pod 'FuntastyKit', '~> 2.0', subspecs: ['IBInspectable']
 When using Swift package manager add following line to your `Package.swift` file or add the repository using Xcode:
 
 ```swift
-.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "1.6.0")
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.0.0")
 ```
 
 ## Note on the name
