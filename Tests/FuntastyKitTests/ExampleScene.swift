@@ -1,11 +1,3 @@
-//
-//  ExampleScene.swift
-//  FuntastyKit-iOS
-//
-//  Created by Matěj Jirásek on 21/08/2017.
-//  Copyright © 2017 The Funtasty. All rights reserved.
-//
-
 import UIKit
 @testable import FuntastyKit
 

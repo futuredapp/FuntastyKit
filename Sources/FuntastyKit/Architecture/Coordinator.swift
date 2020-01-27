@@ -1,11 +1,3 @@
-//
-//  Coordinator.swift
-//  FuntastyKit
-//
-//  Created by Petr Zvoníček on 18.12.16.
-//  Copyright © 2016 The Funtasty. All rights reserved.
-//
-
 import UIKit
 
 public protocol Coordinator {

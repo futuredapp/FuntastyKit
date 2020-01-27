@@ -7,7 +7,7 @@
 
 FuntastyKit iOS framework contains:
 
-- MVVM-C architecture used at The Funtasty, the template for this architecture can be found at https://github.com/thefuntasty/MVVM-C-Template
+- MVVM-C architecture used at [Futured](https://www.futured.app/en/), the template for this architecture can be found at https://github.com/thefuntasty/MVVM-C-Template
 - Some regularly used UIKit extensions
 - Protocols for simple initialization from XIB files, storyboards and for handling keyboard
 - Hairline constraint for one-pixel designs
@@ -17,10 +17,43 @@ FuntastyKit iOS framework contains:
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.5' 
+pod 'FuntastyKit', '~> 1.6'
 ```
-or if you also want to use designables extensions:
+If you also want to use designables extensions:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.5', subspecs: ['Designables'] 
+pod 'FuntastyKit', '~> 1.6', subspecs: ['Designables']
 ```
+
+For adding using Swift package manager either use Xcode or add following line to your `Package.swift` file:
+
+```swift
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "1.6.0")
+```
+
+## Note on the name
+
+The name of the framework comes from the name of our company before rebranding, Funtasty. Now, we are called Futured, but FuturedKit will be very probably based on SwiftUI instead of UIKit.
+
+## Authors
+
+If you have any questions or issues, please contact the current maintainer:
+
+- Matěj K. Jirásek, matej.jirasek@futured.app
+
+Over the years many inside and outside contributors made improvements to this library, namely:
+
+- [Petr Zvoníček](https://github.com/zvonicek)
+- [Matěj K. Jirásek](https://github.com/mkj-is)
+- [Patrik Potoček](https://github.com/Patrez)
+- [Roman Podymov](https://github.com/RomanPodymov)
+- [Radek Doležal](https://github.com/eRDe33)
+- [Tomáš Babulák](https://github.com/tomasbabulak)
+- [Mikoláš Stuchlík](https://github.com/mikolasstuchlik)
+- [Marek Staňa](https://github.com/mstana)
+- [Martin Pinka](https://github.com/crinos9)
+- [Adam Bezák](https://github.com/bezoadam)
+
+## License
+
+FTTestingKit is available under the MIT license. See the [LICENSE file](LICENSE) for more info.

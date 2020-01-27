@@ -1,11 +1,3 @@
-//
-//  UIWindow+RootViewController.swift
-//  Swiftilities
-//
-//  Created by Nicholas Bonatsakis on 2/5/16.
-//  Copyright © 2016 Raizlabs. All rights reserved.
-//
-
 import UIKit
 
 /**
