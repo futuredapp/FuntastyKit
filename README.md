@@ -22,7 +22,7 @@ pod 'FuntastyKit', '~> 1.6'
 If you also want to use designables extensions:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.6', subspecs: ['Designables']
+pod 'FuntastyKit', '~> 2.0', subspecs: ['IBInspectable']
 ```
 
 For adding using Swift package manager either use Xcode or add following line to your `Package.swift` file:

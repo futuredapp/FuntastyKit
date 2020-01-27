@@ -9,15 +9,15 @@ let package = Package(
             name: "FuntastyKit",
             targets: ["FuntastyKit"]),
         .library(
-            name: "FuntastyKitDesignables",
-            targets: ["FuntastyKitDesignables"])
+            name: "FuntastyKitIBInspectable",
+            targets: ["FuntastyKitIBInspectable"])
     ],
     targets: [
         .target(
             name: "FuntastyKit",
             dependencies: []),
         .target(
-            name: "FuntastyKitDesignables",
+            name: "FuntastyKitIBInspectable",
             dependencies: []),
         .testTarget(
             name: "FuntastyKitTests",
