@@ -5,37 +5,38 @@
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
 ![Continuous integration](https://img.shields.io/bitrise/6f0c129e47a9b6f1.svg?token=Mfr5_Ek19pSrcZew0Pp9Bg)
 
-FuntastyKit iOS framework contains:
+The FuntastyKit for iOS contains:
 
-- MVVM-C architecture used at [Futured](https://www.futured.app/en/), the template for this architecture can be found at https://github.com/thefuntasty/MVVM-C-Template
-- Some regularly used UIKit extensions
-- Protocols for simple initialization from XIB files, storyboards and for handling keyboard
-- Hairline constraint for one-pixel designs
+- MVVM-C architecture used at [Futured](https://www.futured.app/en/), the template for this architecture can be found at https://github.com/futuredapp/MVVM-C-Templates.
+- Some regularly used UIKit extensions.
+- Protocols for simple initialization from XIB files, storyboards and for handling keyboard.
+- Hairline constraint for one-pixel designs.
 
 ## Installation
 
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.6'
+pod 'FuntastyKit', '~> 2.0'
 ```
-If you also want to use designables extensions:
+
+If you also want to use IBInspectable extensions also add:
 
 ```ruby
-pod 'FuntastyKit', '~> 1.6', subspecs: ['Designables']
+pod 'FuntastyKit', '~> 2.0', subspecs: ['IBInspectable']
 ```
 
-For adding using Swift package manager either use Xcode or add following line to your `Package.swift` file:
+When using Swift package manager add following line to your `Package.swift` file or add the repository using Xcode:
 
 ```swift
-.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "1.6.0")
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.0.0")
 ```
 
 ## Note on the name
 
 The name of the framework comes from the name of our company before rebranding, Funtasty. Now, we are called Futured, but FuturedKit will be very probably based on SwiftUI instead of UIKit.
 
-## Authors
+## Contributors
 
 If you have any questions or issues, please contact the current maintainer:
 
