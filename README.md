@@ -57,4 +57,4 @@ Over the years many inside and outside contributors made improvements to this li
 
 ## License
 
-FTTestingKit is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
+FuntastyKit is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
