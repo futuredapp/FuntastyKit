@@ -33,7 +33,7 @@ public protocol ShowCoordinator: DefaultCoordinator {
 
 public protocol PushCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
-    var navigationController: UINavigationController { get }
+    var navigationController: UINavigationController? { get }
 }
 
 public protocol ModalCoordinator: DefaultCoordinator {
@@ -95,12 +95,12 @@ public extension PushCoordinator {
         }
 
         configure(viewController: viewController)
-        navigationController.pushViewController(viewController, animated: animated)
+        navigationController?.pushViewController(viewController, animated: animated)
     }
 
     func stop() {
         delegate?.willStop(in: self)
-        navigationController.popViewController(animated: animated)
+        navigationController?.popViewController(animated: animated)
         delegate?.didStop(in: self)
     }
 }
