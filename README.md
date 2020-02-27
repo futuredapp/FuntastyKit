@@ -17,19 +17,19 @@ The FuntastyKit for iOS contains:
 If you want to use CocoaPods for dependency management, add following line to your `Podfile`:
 
 ```ruby
-pod 'FuntastyKit', '~> 2.0'
+pod 'FuntastyKit', '~> 2.1'
 ```
 
 If you also want to use IBInspectable extensions also add:
 
 ```ruby
-pod 'FuntastyKit', '~> 2.0', subspecs: ['IBInspectable']
+pod 'FuntastyKit', '~> 2.1', subspecs: ['IBInspectable']
 ```
 
 When using Swift package manager add following line to your `Package.swift` file or add the repository using Xcode:
 
 ```swift
-.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.0.0")
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.1.0")
 ```
 
 ## Note on the name
@@ -57,4 +57,4 @@ Over the years many inside and outside contributors made improvements to this li
 
 ## License
 
-FTTestingKit is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
+FuntastyKit is available under the MIT license. See the [LICENSE file](LICENSE) for more info.
