@@ -53,6 +53,7 @@ Over the years many inside and outside contributors made improvements to this li
 - [Mikoláš Stuchlík](https://github.com/mikolasstuchlik)
 - [Marek Staňa](https://github.com/mstana)
 - [Martin Pinka](https://github.com/crinos9)
+- [Adam Salih](https://github.com/adamsalih)
 - [Adam Bezák](https://github.com/bezoadam)
 
 ## License
