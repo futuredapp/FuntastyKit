@@ -14,7 +14,7 @@ public extension UIWindow {
      */
     @nonobjc
     func setRootViewController(_ viewController: UIViewController, animated: Bool, duration: TimeInterval = 0.3, options: UIView.AnimationOptions = .transitionCrossDissolve, completion: ((Bool) -> Void)? = nil) {
-         rootViewController = viewController
+        rootViewController = viewController
         if animated {
             UIView.transition(with: self, duration: duration, options: options, animations: nil, completion: completion)
         }
