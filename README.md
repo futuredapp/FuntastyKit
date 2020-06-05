@@ -1,3 +1,5 @@
+<img alt="Sonar logo" align="right" src="Documentation/Sonar.svg">
+
 # FuntastyKit
 
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
