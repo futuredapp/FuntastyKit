@@ -31,7 +31,7 @@ pod 'FuntastyKit', '~> 2.2', subspecs: ['IBInspectable']
 When using Swift package manager add following line to your `Package.swift` file or add the repository using Xcode:
 
 ```swift
-.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.1.0")
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.2.1")
 ```
 
 ## Note on the name
