@@ -1,4 +1,4 @@
-<img alt="Sonar logo" align="right" src="Documentation/Sonar.svg">
+<img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg">
 
 # FuntastyKit
 
