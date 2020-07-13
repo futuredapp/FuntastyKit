@@ -14,13 +14,3 @@ final class FuntastyKitTests: XCTestCase {
         coordinator.start()
     }
 }
-
-#if os(Linux)
-extension FuntastyKitTests {
-    static var allTests: [(String, (FuntastyKitTests) -> () throws -> Void)] {
-        return [
-            ("testArchitecture", testArchitecture)
-        ]
-    }
-}
-#endif
