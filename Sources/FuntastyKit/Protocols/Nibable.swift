@@ -11,9 +11,8 @@ import UIKit
 public extension UIView {
 
     static var nibName: String {
-        return String(describing: self)
+        String(describing: self)
     }
-
 }
 
 public protocol Nibable {
@@ -23,7 +22,7 @@ public protocol Nibable {
 public extension Nibable where Self: UIView {
 
     static var nib: UINib {
-        return UINib(nibName: Self.nibName, bundle: nil)
+        UINib(nibName: Self.nibName, bundle: nil)
     }
 
     init(owner: AnyObject? = nil) {
@@ -32,5 +31,4 @@ public extension Nibable where Self: UIView {
             fatalError("Nib for class \(Self.nibName) could not be loaded!")
         }()
     }
-
 }

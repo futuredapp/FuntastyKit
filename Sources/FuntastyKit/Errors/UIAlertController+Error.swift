@@ -33,10 +33,10 @@ public extension UIAlertController {
     }
 
     private static var defaultErrorTitle: String {
-        return NSLocalizedString("Error", comment: "Error")
+        NSLocalizedString("Error", comment: "Error")
     }
 
     private static var okButtonText: String {
-        return NSLocalizedString("OK", comment: "OK")
+        NSLocalizedString("OK", comment: "OK")
     }
 }

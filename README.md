@@ -1,11 +1,10 @@
-<img alt="Sonar logo" align="right" src="Documentation/Sonar.svg">
+<img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg">
 
 # FuntastyKit
-
+ 
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/FuntastyKit.svg)
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
-![Continuous integration](https://img.shields.io/bitrise/6f0c129e47a9b6f1.svg?token=Mfr5_Ek19pSrcZew0Pp9Bg)
 
 The FuntastyKit for iOS contains:
 

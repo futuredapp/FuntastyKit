@@ -101,7 +101,9 @@ public extension ErrorAction {
     }
 
     func alertAction() -> UIAlertAction {
-        return UIAlertAction(title: self.title, style: self.alertStyle(), handler: { _ in self.action?() })
+        UIAlertAction(title: self.title, style: self.alertStyle()) { _ in
+            self.action?()
+        }
     }
 }
 

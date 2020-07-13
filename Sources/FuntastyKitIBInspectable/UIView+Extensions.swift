@@ -7,7 +7,7 @@ extension UIView {
 
     @IBInspectable open var cornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
+            layer.cornerRadius
         }
         set {
             layer.cornerRadius = newValue
@@ -18,7 +18,7 @@ extension UIView {
 
     @IBInspectable open var shadowColor: UIColor? {
         get {
-            return layer.shadowColor.flatMap(UIColor.init)
+            layer.shadowColor.flatMap(UIColor.init)
         }
         set {
             layer.shadowColor = newValue?.cgColor
@@ -27,7 +27,7 @@ extension UIView {
 
     @IBInspectable open var shadowOffset: CGSize {
         get {
-            return layer.shadowOffset
+            layer.shadowOffset
         }
         set {
             layer.shadowOffset = newValue
@@ -36,7 +36,7 @@ extension UIView {
 
     @IBInspectable open var shadowRadius: CGFloat {
         get {
-            return layer.shadowRadius
+            layer.shadowRadius
         }
         set {
             layer.shadowRadius = newValue
@@ -45,7 +45,7 @@ extension UIView {
 
     @IBInspectable open var shadowOpacity: Float {
         get {
-            return layer.shadowOpacity
+            layer.shadowOpacity
         }
         set {
             layer.shadowOpacity = newValue
@@ -56,7 +56,7 @@ extension UIView {
 
     @IBInspectable open var borderWidth: CGFloat {
         get {
-            return layer.borderWidth
+            layer.borderWidth
         }
         set {
             layer.borderWidth = newValue
@@ -65,7 +65,7 @@ extension UIView {
 
     @IBInspectable open var borderColor: UIColor? {
         get {
-            return layer.borderColor.flatMap(UIColor.init)
+            layer.borderColor.flatMap(UIColor.init)
         }
         set {
             layer.borderColor = newValue?.cgColor
