@@ -1,6 +1,6 @@
 import Foundation
-import XCTest
 import FuntastyKit
+import XCTest
 
 final class FuntastyKitTests: XCTestCase {
 

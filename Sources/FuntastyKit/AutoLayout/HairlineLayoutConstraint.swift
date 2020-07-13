@@ -7,5 +7,4 @@ public class HairlineLayoutConstraint: NSLayoutConstraint {
         super.awakeFromNib()
         self.constant /= UIScreen.main.scale
     }
-
 }

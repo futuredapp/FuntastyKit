@@ -1,12 +1,12 @@
-import UIKit
 @testable import FuntastyKit
+import UIKit
 
 struct Model {
 }
 
 // MARK: - Controller
 
-protocol ExampleViewControllerInput: class {
+protocol ExampleViewControllerInput: AnyObject {
     // TO-DO: Place your presenting methods here
 }
 

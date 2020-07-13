@@ -51,13 +51,13 @@ public protocol TabBarItemCoordinator: DefaultCoordinator {
 public extension DefaultCoordinator {
     // default implementation if not overriden
     var animated: Bool {
-        return true
+        true
     }
 
     // default implementation of nil delegate, should be overriden when needed
     var delegate: CoordinatorDelegate? {
         get {
-            return nil
+            nil
         }
         // swiftlint:disable:next unused_setter_value
         set {
@@ -72,7 +72,7 @@ public extension DefaultCoordinator {
 
 public extension ShowCoordinator {
     var isDetail: Bool {
-        return false
+        false
     }
 
     func start() {
@@ -159,7 +159,7 @@ public extension TabBarItemCoordinator {
     }
 }
 
-public protocol CoordinatorDelegate: class {
+public protocol CoordinatorDelegate: AnyObject {
     func willStop(in coordinator: Coordinator)
     func didStop(in coordinator: Coordinator)
 }

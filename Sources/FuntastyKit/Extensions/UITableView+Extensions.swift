@@ -19,5 +19,4 @@ public extension UITableView {
             fatalError("Cell with \(type.nibName) reuse identifier does not exist.")
         }
     }
-
 }

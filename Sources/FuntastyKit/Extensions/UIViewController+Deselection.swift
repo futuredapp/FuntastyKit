@@ -8,7 +8,7 @@ public protocol Deselectable {
 
 extension UITableView: Deselectable {
     @nonobjc public var indexPathsForSelectedItems: [IndexPath]? {
-        return indexPathsForSelectedRows
+        indexPathsForSelectedRows
     }
 
     @nonobjc
@@ -43,36 +43,46 @@ public extension UIViewController {
 
         if let coordinator = transitionCoordinator {
             let success = coordinator.animate(alongsideTransition: { [weak self] context in
-                self?.switchSelectedItemsState(on: deselectable,
-                                               selectedIndexPaths: selectedIndexPaths,
-                                               shouldBeSelected: false,
-                                               animated: context.isAnimated)
+                self?.switchSelectedItemsState(
+                    on: deselectable,
+                    selectedIndexPaths: selectedIndexPaths,
+                    shouldBeSelected: false,
+                    animated: context.isAnimated
+                )
             }, completion: { [weak self] context in
                 if context.isCancelled {
-                    self?.switchSelectedItemsState(on: deselectable,
-                                                   selectedIndexPaths: selectedIndexPaths,
-                                                   shouldBeSelected: true,
-                                                   animated: false)
+                    self?.switchSelectedItemsState(
+                        on: deselectable,
+                        selectedIndexPaths: selectedIndexPaths,
+                        shouldBeSelected: true,
+                        animated: false
+                    )
                 }
             })
             if !success {
-                switchSelectedItemsState(on: deselectable,
-                                         selectedIndexPaths: selectedIndexPaths,
-                                         shouldBeSelected: false,
-                                         animated: false)
+                switchSelectedItemsState(
+                    on: deselectable,
+                    selectedIndexPaths: selectedIndexPaths,
+                    shouldBeSelected: false,
+                    animated: false
+                )
             }
         } else {
-            switchSelectedItemsState(on: deselectable,
-                                     selectedIndexPaths: selectedIndexPaths,
-                                     shouldBeSelected: false,
-                                     animated: false)
+            switchSelectedItemsState(
+                on: deselectable,
+                selectedIndexPaths: selectedIndexPaths,
+                shouldBeSelected: false,
+                animated: false
+            )
         }
     }
 
-    private func switchSelectedItemsState(on deselectable: Deselectable?,
-                                          selectedIndexPaths: [IndexPath],
-                                          shouldBeSelected: Bool,
-                                          animated: Bool) {
+    private func switchSelectedItemsState(
+        on deselectable: Deselectable?,
+        selectedIndexPaths: [IndexPath],
+        shouldBeSelected: Bool,
+        animated: Bool
+    ) {
         guard let deselectable = deselectable else {
             return
         }
