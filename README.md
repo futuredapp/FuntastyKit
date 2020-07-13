@@ -1,8 +1,7 @@
 <img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg">
 
 # FuntastyKit
-
-![Test](https://github.com/futuredapp/FuntastyKit/workflows/Test/badge.svg)
+ 
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/FuntastyKit.svg)
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
