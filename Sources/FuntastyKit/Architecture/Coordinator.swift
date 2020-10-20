@@ -106,6 +106,8 @@ public extension PushCoordinator {
 }
 
 public extension ModalCoordinator {
+    var destinationNavigationController: UINavigationController? { nil }
+
     func start() {
         guard let viewController = viewController else {
             return
@@ -131,6 +133,8 @@ public extension ModalCoordinator {
 }
 
 public extension TabBarItemCoordinator {
+    var destinationNavigationController: UINavigationController? { nil }
+
     func start() {
         guard let viewController = viewController else {
             return
