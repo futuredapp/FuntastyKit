@@ -1,7 +1,7 @@
 <img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg">
 
 # FuntastyKit
- 
+
 ![Cocoapods](https://img.shields.io/cocoapods/v/FuntastyKit.svg)
 ![Cocoapods platforms](https://img.shields.io/cocoapods/p/FuntastyKit.svg)
 ![License](https://img.shields.io/cocoapods/l/FuntastyKit.svg)
@@ -30,7 +30,7 @@ pod 'FuntastyKit', '~> 2.2', subspecs: ['IBInspectable']
 When using Swift package manager add following line to your `Package.swift` file or add the repository using Xcode:
 
 ```swift
-.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.2.1")
+.package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "2.2.2")
 ```
 
 ## Note on the name
