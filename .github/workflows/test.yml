@@ -11,7 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Lint
       run: |
-        brew install swiftlint
         swiftlint --strict
     - name: Pod lib lint
       run: |
