@@ -24,7 +24,7 @@ public protocol DefaultCoordinator: Coordinator {
 }
 
 public protocol ShowCoordinator: DefaultCoordinator {
-    /// When used on Split View Controlelr as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
+    /// When used on Split View Controller as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
 
@@ -49,12 +49,12 @@ public protocol TabBarItemCoordinator: DefaultCoordinator {
 }
 
 public extension DefaultCoordinator {
-    // default implementation if not overriden
+    // default implementation if not overridden
     var animated: Bool {
         true
     }
 
-    // default implementation of nil delegate, should be overriden when needed
+    // default implementation of nil delegate, should be overridden when needed
     var delegate: CoordinatorDelegate? {
         get {
             nil
