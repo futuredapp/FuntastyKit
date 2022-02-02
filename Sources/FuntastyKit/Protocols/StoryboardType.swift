@@ -13,7 +13,7 @@ public protocol StoryboardType {
     static var name: String { get }
 }
 
-public struct StoryboardReference<S: StoryboardType, T> {
+public struct StoryboardReference<S: StoryboardType, T: UIViewController> {
 
     private let id: String
     private let bundle: Bundle?

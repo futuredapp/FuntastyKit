@@ -23,27 +23,26 @@ public protocol DefaultCoordinator: Coordinator {
     var delegate: CoordinatorDelegate? { get set }
 }
 
-public protocol ShowCoordinator: DefaultCoordinator {
+public protocol ConfiguringCoordinator: DefaultCoordinator {
+    func configure(viewController: ViewController)
+}
+
+public protocol ShowCoordinator: ConfiguringCoordinator {
     /// When used on Split View Controller as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
-
-    func configure(viewController: ViewController)
 }
 
-public protocol PushCoordinator: DefaultCoordinator {
-    func configure(viewController: ViewController)
+public protocol PushCoordinator: ConfiguringCoordinator {
     var navigationController: UINavigationController? { get }
 }
 
-public protocol ModalCoordinator: DefaultCoordinator {
-    func configure(viewController: ViewController)
+public protocol ModalCoordinator: ConfiguringCoordinator {
     var sourceViewController: UIViewController { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
-public protocol TabBarItemCoordinator: DefaultCoordinator {
-    func configure(viewController: ViewController)
+public protocol TabBarItemCoordinator: ConfiguringCoordinator {
     var tabBarController: UITabBarController? { get }
     var destinationNavigationController: UINavigationController? { get }
 }
