@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 public protocol Deselectable {
     var indexPathsForSelectedItems: [IndexPath]? { get }
 

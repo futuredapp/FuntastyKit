@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 public protocol Coordinator {
     /// Triggers navigation to the corresponding controller
     func start()
@@ -14,6 +15,7 @@ extension Coordinator {
     public func stop() {}
 }
 
+@MainActor
 public protocol DefaultCoordinator: Coordinator {
     associatedtype ViewController: UIViewController
 
@@ -22,25 +24,30 @@ public protocol DefaultCoordinator: Coordinator {
     var delegate: (any CoordinatorDelegate)? { get set }
 }
 
+@MainActor
 public protocol ConfiguringCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
 }
 
+@MainActor
 public protocol ShowCoordinator: ConfiguringCoordinator {
     /// When used on Split View Controller as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
 }
 
+@MainActor
 public protocol PushCoordinator: ConfiguringCoordinator {
     var navigationController: UINavigationController? { get }
 }
 
+@MainActor
 public protocol ModalCoordinator: ConfiguringCoordinator {
     var sourceViewController: UIViewController { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
+@MainActor
 public protocol TabBarItemCoordinator: ConfiguringCoordinator {
     var tabBarController: UITabBarController? { get }
     var destinationNavigationController: UINavigationController? { get }
@@ -154,6 +161,7 @@ extension TabBarItemCoordinator {
     }
 }
 
+@MainActor
 public protocol CoordinatorDelegate: AnyObject {
     func willStop(in coordinator: any Coordinator)
     func didStop(in coordinator: any Coordinator)
