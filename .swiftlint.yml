@@ -23,7 +23,6 @@ opt_in_rules:
   - empty_collection_literal
   - empty_count
   - empty_string
-  - empty_xctest_method
   - enum_case_associated_values_count
   - explicit_init
   - fallthrough

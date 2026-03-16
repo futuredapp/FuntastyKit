@@ -18,5 +18,7 @@ struct FuntastyKitTests {
 
         let coordinator = ExampleCoordinator(from: viewController, model: model)
         coordinator.start()
+
+        #expect(coordinator.viewController?.viewModel != nil)
     }
 }

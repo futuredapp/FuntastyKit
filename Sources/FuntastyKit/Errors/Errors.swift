@@ -12,7 +12,7 @@ public struct ErrorAction: Sendable {
         case preferred
     }
 
-    public typealias ErrorHandler = @Sendable () -> Void
+    public typealias ErrorHandler = @MainActor @Sendable () -> Void
 
     public let title: String
     public var action: ErrorHandler?
