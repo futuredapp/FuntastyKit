@@ -4,6 +4,8 @@
 
 ![License](https://img.shields.io/github/license/futuredapp/FuntastyKit.svg)
 
+> Requires **Swift 6.2** / **iOS 16+**
+
 The FuntastyKit for iOS contains:
 
 - MVVM-C architecture used at [Futured](https://www.futured.app/en/), the template for this architecture can be found at https://github.com/futuredapp/MVVM-C-Templates.
