@@ -6,10 +6,10 @@ This is an iOS framework — use the Xcode toolchain (`xcrun`), not the local Sw
 
 ```bash
 # Build (requires iOS SDK via Xcode)
-xcodebuild build -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator
+xcodebuild build -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max' -sdk iphonesimulator
 
 # Run tests (matches CI)
-xcodebuild test -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator
+xcodebuild test -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max' -sdk iphonesimulator
 
 # Lint
 swiftlint --strict
