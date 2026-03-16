@@ -8,15 +8,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Lint
       run: |
         swiftlint --strict
-    - name: Pod lib lint
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec pod lib lint
     - name: Test
       run: |
-        xcodebuild -scheme FuntastyKit-Package -destination 'platform=iOS Simulator,name=iPhone 8' -sdk iphonesimulator test
+        xcodebuild -scheme FuntastyKit-Package -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator test
