@@ -15,9 +15,9 @@ public class AlertCoordinator: DefaultCoordinator {
         var controllerStyle: UIAlertController.Style {
             switch self {
             case .alert:
-                return .alert
+                .alert
             case .actionSheet:
-                return .actionSheet
+                .actionSheet
             }
         }
     }
@@ -76,7 +76,7 @@ public class AlertCoordinator: DefaultCoordinator {
                 alert.popoverPresentationController?.sourceView = view
             }
         }
-        parentViewController.present(alert, animated: animated, completion: nil)
+        parentViewController.present(alert, animated: animated)
         viewController = alert
     }
 
@@ -90,13 +90,13 @@ public class AlertCoordinator: DefaultCoordinator {
 
 extension ErrorAction {
     public func alertStyle() -> UIAlertAction.Style {
-        switch self.style {
+        switch style {
         case .cancel:
-            return .cancel
+            .cancel
         case .destructive:
-            return .destructive
+            .destructive
         default:
-            return .default
+            .default
         }
     }
 
@@ -109,18 +109,14 @@ extension ErrorAction {
 
 extension DefaultCoordinator {
     public func showAlert(for error: any Error, preferredStyle: AlertCoordinator.Style = .alert) {
-        guard let viewController = self.viewController else {
-            return
-        }
+        guard let viewController else { return }
 
         let alertCoordinator = AlertCoordinator(parent: viewController, error: error, preferredStyle: preferredStyle)
         alertCoordinator.start()
     }
 
     public func showAlert(title: String?, message: String?, actions: [ErrorAction]? = nil, preferredStyle: AlertCoordinator.Style = .alert) {
-        guard let viewController = self.viewController else {
-            return
-        }
+        guard let viewController else { return }
 
         let alertCoordinator = AlertCoordinator(parent: viewController, title: title, message: message, actions: actions, preferredStyle: preferredStyle)
         alertCoordinator.start()

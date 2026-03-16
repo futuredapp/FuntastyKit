@@ -19,18 +19,18 @@ extension UIAlertController {
     private static func alertTitle(error: any Error) -> String {
         switch error {
         case let error as any LocalizedError:
-            return error.errorDescription ?? defaultErrorTitle
+            error.errorDescription ?? defaultErrorTitle
         default:
-            return defaultErrorTitle
+            defaultErrorTitle
         }
     }
 
     private static func alertMessage(error: any Error) -> String {
         switch error {
         case let error as any LocalizedError:
-            return error.failureReason ?? error.localizedDescription
+            error.failureReason ?? error.localizedDescription
         default:
-            return error.localizedDescription
+            error.localizedDescription
         }
     }
 

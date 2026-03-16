@@ -84,9 +84,8 @@ extension UIViewController {
         shouldBeSelected: Bool,
         animated: Bool
     ) {
-        guard let deselectable else {
-            return
-        }
+        guard let deselectable else { return }
+
         selectedIndexPaths.forEach {
             if shouldBeSelected {
                 deselectable.selectItem(at: $0, animated: animated)

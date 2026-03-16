@@ -74,9 +74,8 @@ extension ShowCoordinator {
     }
 
     public func start() {
-        guard let viewController else {
-            return
-        }
+        guard let viewController else { return }
+
         configure(viewController: viewController)
         if isDetail {
             sourceViewController?.showDetailViewController(viewController, sender: nil)
@@ -88,9 +87,7 @@ extension ShowCoordinator {
 
 extension PushCoordinator {
     public func start() {
-        guard let viewController else {
-            return
-        }
+        guard let viewController else { return }
 
         configure(viewController: viewController)
         navigationController?.pushViewController(viewController, animated: animated)
@@ -107,18 +104,16 @@ extension ModalCoordinator {
     public var destinationNavigationController: UINavigationController? { nil }
 
     public func start() {
-        guard let viewController else {
-            return
-        }
+        guard let viewController else { return }
 
         configure(viewController: viewController)
 
         if let destinationNavigationController {
             // wrapper navigation controller given, present it
-            sourceViewController.present(destinationNavigationController, animated: animated, completion: nil)
+            sourceViewController.present(destinationNavigationController, animated: animated)
         } else {
             // no wrapper navigation controller given, present actual controller
-            sourceViewController.present(viewController, animated: animated, completion: nil)
+            sourceViewController.present(viewController, animated: animated)
         }
     }
 
@@ -134,9 +129,8 @@ extension TabBarItemCoordinator {
     public var destinationNavigationController: UINavigationController? { nil }
 
     public func start() {
-        guard let viewController else {
-            return
-        }
+        guard let viewController else { return }
+
         configure(viewController: viewController)
 
         var viewControllers = tabBarController?.viewControllers ?? []
@@ -147,9 +141,8 @@ extension TabBarItemCoordinator {
 
     public func stop() {
         delegate?.willStop(in: self)
-        guard let viewController, let viewControllers = tabBarController?.viewControllers else {
-            return
-        }
+
+        guard let viewController, let viewControllers = tabBarController?.viewControllers else { return }
 
         var mutableViewControllers = viewControllers
         if let index = mutableViewControllers.firstIndex(of: destinationNavigationController ?? viewController) {
