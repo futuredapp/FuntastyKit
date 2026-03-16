@@ -1,14 +1,20 @@
-import Foundation
 import FuntastyKit
-import XCTest
+import Testing
+import UIKit
 
-final class FuntastyKitTests: XCTestCase {
+@Suite
+@MainActor
+struct FuntastyKitTests {
 
-    func testArchitecture() {
+    @Test
+    func architecture() {
         let model = Model()
 
+        let window = UIWindow()
+
         let viewController = UIViewController()
-        UIApplication.shared.keyWindow?.rootViewController = viewController
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
 
         let coordinator = ExampleCoordinator(from: viewController, model: model)
         coordinator.start()

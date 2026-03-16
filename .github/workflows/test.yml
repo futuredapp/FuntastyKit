@@ -14,4 +14,4 @@ jobs:
         swiftlint --strict
     - name: Test
       run: |
-        xcodebuild -scheme FuntastyKit-Package -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator test
+        xcodebuild -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 16' -sdk iphonesimulator test

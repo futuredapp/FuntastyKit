@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "FuntastyKit",
-            targets: ["FuntastyKit"]),
+            targets: ["FuntastyKit"])
     ],
     targets: [
         .target(
@@ -15,7 +15,6 @@ let package = Package(
             swiftSettings: [.defaultIsolation(MainActor.self)]),
         .testTarget(
             name: "FuntastyKitTests",
-            dependencies: ["FuntastyKit"],
-            swiftSettings: [.defaultIsolation(MainActor.self)]),
+            dependencies: ["FuntastyKit"])
     ]
 )
