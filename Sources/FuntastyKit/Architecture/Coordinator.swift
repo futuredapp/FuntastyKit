@@ -11,8 +11,7 @@ public protocol Coordinator {
 }
 
 extension Coordinator {
-    public func stop() {
-    }
+    public func stop() {}
 }
 
 public protocol DefaultCoordinator: Coordinator {
