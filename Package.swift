@@ -1,26 +1,21 @@
-// swift-tools-version:5.1
+// swift-tools-version:6.2
 import PackageDescription
 
 let package = Package(
     name: "FuntastyKit",
-    platforms: [.iOS(.v9)],
+    platforms: [.iOS(.v16)],
     products: [
         .library(
             name: "FuntastyKit",
             targets: ["FuntastyKit"]),
-        .library(
-            name: "FuntastyKitIBInspectable",
-            targets: ["FuntastyKitIBInspectable"])
     ],
     targets: [
         .target(
             name: "FuntastyKit",
-            dependencies: []),
-        .target(
-            name: "FuntastyKitIBInspectable",
-            dependencies: []),
+            swiftSettings: [.defaultIsolation(MainActor.self)]),
         .testTarget(
             name: "FuntastyKitTests",
-            dependencies: ["FuntastyKit"])
+            dependencies: ["FuntastyKit"],
+            swiftSettings: [.defaultIsolation(MainActor.self)]),
     ]
 )
