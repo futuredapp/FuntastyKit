@@ -1,18 +1,22 @@
-import Foundation
 import UIKit
 
-public extension UITableView {
+extension UIView {
+    public static var nibName: String {
+        String(describing: self)
+    }
+}
 
-    func registerNib<T: UITableViewCell>(for cellClass: T.Type) {
+extension UITableView {
+    public func registerNib<T: UITableViewCell>(for cellClass: T.Type) {
         let nib = UINib(nibName: cellClass.nibName, bundle: nil)
         register(nib, forCellReuseIdentifier: cellClass.nibName)
     }
 
-    func registerCellClass<T: UITableViewCell>(_ type: T.Type) {
+    public func registerCellClass<T: UITableViewCell>(_ type: T.Type) {
         register(type, forCellReuseIdentifier: type.nibName)
     }
 
-    func dequeueReusableCell<T: UITableViewCell>(withType type: T.Type) -> T {
+    public func dequeueReusableCell<T: UITableViewCell>(withType type: T.Type) -> T {
         if let cell = dequeueReusableCell(withIdentifier: type.nibName) as? T {
             return cell
         } else {

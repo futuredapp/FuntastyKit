@@ -1,11 +1,13 @@
 import UIKit
 
-public extension UIAlertController {
-    convenience init(error: Error, preferredStyle: UIAlertController.Style = .alert) {
-        self.init(title: UIAlertController.alertTitle(error: error),
-                  message: UIAlertController.alertMessage(error: error),
-                  preferredStyle: preferredStyle)
-        if let error = error as? ResolvableError {
+extension UIAlertController {
+    public convenience init(error: any Error, preferredStyle: UIAlertController.Style = .alert) {
+        self.init(
+            title: UIAlertController.alertTitle(error: error),
+            message: UIAlertController.alertMessage(error: error),
+            preferredStyle: preferredStyle
+        )
+        if let error = error as? any ResolvableError {
             error.actions.map { $0.alertAction() }.forEach(self.addAction)
             if !error.actions.isEmpty {
                 return
@@ -14,18 +16,18 @@ public extension UIAlertController {
         self.addAction(UIAlertAction(title: UIAlertController.okButtonText, style: .default))
     }
 
-    private static func alertTitle(error: Error) -> String {
+    private static func alertTitle(error: any Error) -> String {
         switch error {
-        case let error as LocalizedError:
+        case let error as any LocalizedError:
             return error.errorDescription ?? defaultErrorTitle
         default:
             return defaultErrorTitle
         }
     }
 
-    private static func alertMessage(error: Error) -> String {
+    private static func alertMessage(error: any Error) -> String {
         switch error {
-        case let error as LocalizedError:
+        case let error as any LocalizedError:
             return error.failureReason ?? error.localizedDescription
         default:
             return error.localizedDescription

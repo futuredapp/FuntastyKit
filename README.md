@@ -1,4 +1,4 @@
-<img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg">
+<img alt="FuntastyKit logo" align="right" src="Documentation/FuntastyKit.svg" height="65">
 
 # FuntastyKit
 
