@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 public protocol Coordinator {
     /// Triggers navigation to the corresponding controller
     func start()
@@ -10,51 +11,56 @@ public protocol Coordinator {
     func stop()
 }
 
-public extension Coordinator {
-    func stop() {
-    }
+extension Coordinator {
+    public func stop() {}
 }
 
+@MainActor
 public protocol DefaultCoordinator: Coordinator {
     associatedtype ViewController: UIViewController
-    var viewController: ViewController? { get }
 
+    var viewController: ViewController? { get }
     var animated: Bool { get }
-    var delegate: CoordinatorDelegate? { get set }
+    var delegate: (any CoordinatorDelegate)? { get set }
 }
 
+@MainActor
 public protocol ConfiguringCoordinator: DefaultCoordinator {
     func configure(viewController: ViewController)
 }
 
+@MainActor
 public protocol ShowCoordinator: ConfiguringCoordinator {
     /// When used on Split View Controller as Detail View Controller, sourceViewController should be 'weak', otherwise memory leak will emerge
     var sourceViewController: UIViewController? { get }
     var isDetail: Bool { get }
 }
 
+@MainActor
 public protocol PushCoordinator: ConfiguringCoordinator {
     var navigationController: UINavigationController? { get }
 }
 
+@MainActor
 public protocol ModalCoordinator: ConfiguringCoordinator {
     var sourceViewController: UIViewController { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
+@MainActor
 public protocol TabBarItemCoordinator: ConfiguringCoordinator {
     var tabBarController: UITabBarController? { get }
     var destinationNavigationController: UINavigationController? { get }
 }
 
-public extension DefaultCoordinator {
+extension DefaultCoordinator {
     // default implementation if not overridden
-    var animated: Bool {
+    public var animated: Bool {
         true
     }
 
     // default implementation of nil delegate, should be overridden when needed
-    var delegate: CoordinatorDelegate? {
+    public var delegate: (any CoordinatorDelegate)? {
         get {
             nil
         }
@@ -63,21 +69,20 @@ public extension DefaultCoordinator {
         }
     }
 
-    func stop() {
+    public func stop() {
         delegate?.willStop(in: self)
         delegate?.didStop(in: self)
     }
 }
 
-public extension ShowCoordinator {
-    var isDetail: Bool {
+extension ShowCoordinator {
+    public var isDetail: Bool {
         false
     }
 
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
+    public func start() {
+        guard let viewController else { return }
+
         configure(viewController: viewController)
         if isDetail {
             sourceViewController?.showDetailViewController(viewController, sender: nil)
@@ -87,43 +92,39 @@ public extension ShowCoordinator {
     }
 }
 
-public extension PushCoordinator {
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
+extension PushCoordinator {
+    public func start() {
+        guard let viewController else { return }
 
         configure(viewController: viewController)
         navigationController?.pushViewController(viewController, animated: animated)
     }
 
-    func stop() {
+    public func stop() {
         delegate?.willStop(in: self)
         navigationController?.popViewController(animated: animated)
         delegate?.didStop(in: self)
     }
 }
 
-public extension ModalCoordinator {
-    var destinationNavigationController: UINavigationController? { nil }
+extension ModalCoordinator {
+    public var destinationNavigationController: UINavigationController? { nil }
 
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
+    public func start() {
+        guard let viewController else { return }
 
         configure(viewController: viewController)
 
-        if let destinationNavigationController = destinationNavigationController {
+        if let destinationNavigationController {
             // wrapper navigation controller given, present it
-            sourceViewController.present(destinationNavigationController, animated: animated, completion: nil)
+            sourceViewController.present(destinationNavigationController, animated: animated)
         } else {
             // no wrapper navigation controller given, present actual controller
-            sourceViewController.present(viewController, animated: animated, completion: nil)
+            sourceViewController.present(viewController, animated: animated)
         }
     }
 
-    func stop() {
+    public func stop() {
         delegate?.willStop(in: self)
         viewController?.dismiss(animated: animated) {
             self.delegate?.didStop(in: self)
@@ -131,13 +132,12 @@ public extension ModalCoordinator {
     }
 }
 
-public extension TabBarItemCoordinator {
-    var destinationNavigationController: UINavigationController? { nil }
+extension TabBarItemCoordinator {
+    public var destinationNavigationController: UINavigationController? { nil }
 
-    func start() {
-        guard let viewController = viewController else {
-            return
-        }
+    public func start() {
+        guard let viewController else { return }
+
         configure(viewController: viewController)
 
         var viewControllers = tabBarController?.viewControllers ?? []
@@ -146,11 +146,10 @@ public extension TabBarItemCoordinator {
         tabBarController?.setViewControllers(viewControllers, animated: animated)
     }
 
-    func stop() {
+    public func stop() {
         delegate?.willStop(in: self)
-        guard let viewController = viewController, let viewControllers = tabBarController?.viewControllers else {
-            return
-        }
+
+        guard let viewController, let viewControllers = tabBarController?.viewControllers else { return }
 
         var mutableViewControllers = viewControllers
         if let index = mutableViewControllers.firstIndex(of: destinationNavigationController ?? viewController) {
@@ -162,7 +161,8 @@ public extension TabBarItemCoordinator {
     }
 }
 
+@MainActor
 public protocol CoordinatorDelegate: AnyObject {
-    func willStop(in coordinator: Coordinator)
-    func didStop(in coordinator: Coordinator)
+    func willStop(in coordinator: any Coordinator)
+    func didStop(in coordinator: any Coordinator)
 }

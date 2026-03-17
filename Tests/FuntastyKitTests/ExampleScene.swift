@@ -6,12 +6,15 @@ struct Model {
 
 // MARK: - Controller
 
+@MainActor
 protocol ExampleViewControllerInput: AnyObject {
     // TO-DO: Place your presenting methods here
 }
 
+@MainActor
 final class ExampleViewController: UIViewController {
-    var viewModel: ExampleViewModel!
+
+    var viewModel: ExampleViewModel?
 }
 
 extension ExampleViewController: ExampleViewControllerInput {
@@ -20,13 +23,14 @@ extension ExampleViewController: ExampleViewControllerInput {
 
 // MARK: - View model
 
+@MainActor
 final class ExampleViewModel {
-    private weak var viewController: ExampleViewControllerInput?
-    private let coordinator: ExampleCoordinatorInput
+    private weak var viewController: (any ExampleViewControllerInput)?
+    private let coordinator: any ExampleCoordinatorInput
 
     private let model: Model
 
-    init(model: Model, coordinator: ExampleCoordinatorInput, viewController: ExampleViewControllerInput) {
+    init(model: Model, coordinator: any ExampleCoordinatorInput, viewController: any ExampleViewControllerInput) {
         self.model = model
         self.coordinator = coordinator
         self.viewController = viewController
@@ -35,10 +39,12 @@ final class ExampleViewModel {
 
 // MARK: - Coordinator
 
+@MainActor
 protocol ExampleCoordinatorInput: Coordinator {
     // TO-DO: Place your navigation methods here
 }
 
+@MainActor
 final class ExampleCoordinator: ModalCoordinator {
 
     var sourceViewController: UIViewController

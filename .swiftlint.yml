@@ -1,17 +1,18 @@
 disabled_rules:
   - line_length
 excluded:
-  - Pods
-  - vendor
+  - .build
+  - .claude
+analyzer_rules:
+  - unused_declaration
+  - unused_import
 opt_in_rules:
-  - anyobject_protocol
   - array_init
   - attributes
   - closure_body_length
   - closure_end_indentation
   - closure_spacing
   - collection_alignment
-  - conditional_returns_on_newline
   - contains_over_filter_count
   - contains_over_filter_is_empty
   - contains_over_first_not_nil
@@ -22,7 +23,6 @@ opt_in_rules:
   - empty_collection_literal
   - empty_count
   - empty_string
-  - empty_xctest_method
   - enum_case_associated_values_count
   - explicit_init
   - fallthrough
@@ -34,24 +34,29 @@ opt_in_rules:
   - function_default_parameter_at_end
   - identical_operands
   - implicit_return
+  - implicitly_unwrapped_optional
   - joined_default_parameter
   - last_where
   - legacy_multiple
   - legacy_random
+  - let_var_whitespace
   - literal_expression_end_indentation
   - lower_acl_than_parent
   - modifier_order
+  - multiline_arguments
   - multiline_function_chains
   - multiline_literal_brackets
   - multiline_parameters
   - multiline_parameters_brackets
   - nimble_operator
+  - no_extension_access_modifier
   - number_separator
   - object_literal
   - operator_usage_whitespace
   - optional_enum_case_matching
   - overridden_super_call
   - override_in_extension
+  - pattern_matching_keywords
   - prefer_self_type_over_type_of_self
   - private_action
   - private_outlet
@@ -69,8 +74,6 @@ opt_in_rules:
   - trailing_closure
   - unneeded_parentheses_in_closure_argument
   - untyped_error_in_catch
-  - unused_declaration
-  - unused_import
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces
   - yoda_condition
@@ -82,6 +85,9 @@ identifier_name:
     - x
     - y
     - z
+    - pr
+
+type_body_length: 400
 
 # Disable errors, allow only warnings
 cyclomatic_complexity:

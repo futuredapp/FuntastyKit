@@ -5,18 +5,16 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-26
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
+    - name: Install SwiftLint
+      run: |
+        brew install swiftlint
     - name: Lint
       run: |
         swiftlint --strict
-    - name: Pod lib lint
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bundle exec pod lib lint
     - name: Test
       run: |
-        xcodebuild -scheme FuntastyKit-Package -destination 'platform=iOS Simulator,name=iPhone 8' -sdk iphonesimulator test
+        xcodebuild -scheme FuntastyKit -destination 'platform=iOS Simulator,name=iPhone 17 Pro Max' -sdk iphonesimulator test

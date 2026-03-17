@@ -1,7 +1,9 @@
 import UIKit
 
+@MainActor
 public protocol Deselectable {
     var indexPathsForSelectedItems: [IndexPath]? { get }
+
     func selectItem(at indexPath: IndexPath?, animated: Bool)
     func deselectItem(at indexPath: IndexPath, animated: Bool)
 }
@@ -29,7 +31,7 @@ extension UICollectionView: Deselectable {
     }
 }
 
-public extension UIViewController {
+extension UIViewController {
 
     ///  Smoothly deselect selected rows in a table view during an animated
     ///  transition, and intelligently reselect those rows if the interactive
@@ -38,7 +40,7 @@ public extension UIViewController {
     ///
     ///  - parameter deselectable: The (de)selectable view in which to perform deselection/reselection.
     @nonobjc
-    func smoothlyDeselectItems(on deselectable: Deselectable?) {
+    public func smoothlyDeselectItems(on deselectable: (any Deselectable)?) {
         let selectedIndexPaths = deselectable?.indexPathsForSelectedItems ?? []
 
         if let coordinator = transitionCoordinator {
@@ -78,17 +80,19 @@ public extension UIViewController {
     }
 
     private func switchSelectedItemsState(
-        on deselectable: Deselectable?,
+        on deselectable: (any Deselectable)?,
         selectedIndexPaths: [IndexPath],
         shouldBeSelected: Bool,
         animated: Bool
     ) {
-        guard let deselectable = deselectable else {
-            return
-        }
+        guard let deselectable else { return }
+
         selectedIndexPaths.forEach {
-            let switchSelectionFunc = shouldBeSelected ? deselectable.selectItem : deselectable.deselectItem
-            switchSelectionFunc($0, animated)
+            if shouldBeSelected {
+                deselectable.selectItem(at: $0, animated: animated)
+            } else {
+                deselectable.deselectItem(at: $0, animated: animated)
+            }
         }
     }
 }

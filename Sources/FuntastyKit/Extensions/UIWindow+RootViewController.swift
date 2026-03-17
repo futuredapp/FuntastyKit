@@ -3,7 +3,7 @@ import UIKit
 /**
  *  UIWindow extension for setting the rootViewController on a UIWindow instance in a safe and animatable way.
  */
-public extension UIWindow {
+extension UIWindow {
 
     /**
      Set the rootViewController on this UIWindow instance.
@@ -13,7 +13,13 @@ public extension UIWindow {
      - parameter completion:     Completion block to be invoked after the transition finishes
      */
     @nonobjc
-    func setRootViewController(_ viewController: UIViewController, animated: Bool, duration: TimeInterval = 0.3, options: UIView.AnimationOptions = .transitionCrossDissolve, completion: ((Bool) -> Void)? = nil) {
+    public func setRootViewController(
+        _ viewController: UIViewController,
+        animated: Bool,
+        duration: TimeInterval = 0.3,
+        options: UIView.AnimationOptions = .transitionCrossDissolve,
+        completion: ((Bool) -> Void)? = nil
+    ) {
         rootViewController = viewController
         if animated {
             UIView.transition(with: self, duration: duration, options: options, animations: nil, completion: completion)
