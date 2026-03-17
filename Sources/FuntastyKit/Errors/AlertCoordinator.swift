@@ -22,6 +22,7 @@ public class AlertCoordinator: DefaultCoordinator {
         }
     }
 
+    @MainActor
     enum InputType {
         case error(any Error)
         case custom(title: String?, message: String?, actions: [ErrorAction]?)
@@ -88,6 +89,7 @@ public class AlertCoordinator: DefaultCoordinator {
     }
 }
 
+@MainActor
 extension ErrorAction {
     public func alertStyle() -> UIAlertAction.Style {
         switch style {

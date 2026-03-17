@@ -27,11 +27,9 @@ Tests are in `FuntastyKitTests`.
 
 ## Architecture
 
-Swift 6.2 with `defaultIsolation: MainActor.self` on the FuntastyKit target — all code in the module is MainActor-isolated by default. Use `nonisolated` to opt out where required.
+Swift 6.2 with explicit `@MainActor` annotations on all public protocols and UIKit-facing types. No `defaultIsolation` — all isolation is spelled out in source. Extensions on `@MainActor` protocols and UIKit classes inherit isolation automatically; only standalone types/extensions that create UIKit objects need their own `@MainActor`.
 
-Public protocols (`Coordinator`, `DefaultCoordinator`, `CoordinatorDelegate`, `Deselectable`, etc.) also carry explicit `@MainActor` annotations. This is redundant within the module but ensures consumers see the correct isolation in the module interface regardless of their Swift version.
-
-Tests use Swift Testing (`import Testing`, `@Suite`, `@Test`). The test target does **not** have `defaultIsolation` — adding it causes "crosses into main actor-isolated code" errors on cross-module protocol conformances. Types conforming to library protocols need explicit `@MainActor` annotations.
+Tests use Swift Testing (`import Testing`, `@Suite`, `@Test`). Types in the test target that conform to library protocols need explicit `@MainActor` annotations.
 
 Coordinator protocol hierarchy for UIKit navigation:
 `Coordinator` → `DefaultCoordinator` → `ConfiguringCoordinator` → `PushCoordinator` / `ModalCoordinator` / `ShowCoordinator` / `TabBarItemCoordinator`

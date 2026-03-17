@@ -10,24 +10,19 @@ extension UIWindow {
 
      - parameter viewController: The view controller to set
      - parameter animated:       Whether or not to animate the transition, animation is a cross-fade
-     - returns: `true` if the animation finished, `false` if it was interrupted. Always `true` when not animated.
+     - parameter completion:     Completion block to be invoked after the transition finishes
      */
     @nonobjc
-    @discardableResult
     public func setRootViewController(
         _ viewController: UIViewController,
         animated: Bool,
         duration: TimeInterval = 0.3,
-        options: UIView.AnimationOptions = .transitionCrossDissolve
-    ) async -> Bool {
+        options: UIView.AnimationOptions = .transitionCrossDissolve,
+        completion: ((Bool) -> Void)? = nil
+    ) {
         rootViewController = viewController
-        guard animated else {
-            return true
-        }
-        return await withCheckedContinuation { continuation in
-            UIView.transition(with: self, duration: duration, options: options, animations: nil) { finished in
-                continuation.resume(returning: finished)
-            }
+        if animated {
+            UIView.transition(with: self, duration: duration, options: options, animations: nil, completion: completion)
         }
     }
 }
