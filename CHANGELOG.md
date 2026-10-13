@@ -10,7 +10,7 @@ See the [migration guide](Documentation/Migration-3.0.md) for upgrade steps.
 
 - Requires Swift 6.2 (Xcode 26) and iOS 16.
 - CocoaPods support removed; the package is distributed via Swift Package Manager only.
-- `Coordinator`, `DefaultCoordinator`, `ConfiguringCoordinator`, `PushCoordinator`, `ModalCoordinator`, `ShowCoordinator`, `TabBarItemCoordinator`, `CoordinatorDelegate` and `Deselectable` are `@MainActor`.
+- `Coordinator`, `DefaultCoordinator`, `ConfiguringCoordinator`, `PushCoordinator`, `ModalCoordinator`, `ShowCoordinator`, `TabBarItemCoordinator`, `CoordinatorDelegate`, `Deselectable`, `AlertCoordinator` and `ErrorAction.alertStyle()` / `alertAction()` are `@MainActor`.
 - `ErrorAction.ErrorHandler` is `@MainActor @Sendable () -> Void`.
 
 ### Added
