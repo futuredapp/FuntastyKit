@@ -2,6 +2,8 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
 ## [3.0.0] - 2026-03-17
 
 See the [migration guide](Documentation/Migration-3.0.md) for upgrade steps.
@@ -33,4 +35,5 @@ See the [migration guide](Documentation/Migration-3.0.md) for upgrade steps.
 
 See [GitHub Releases](https://github.com/futuredapp/FuntastyKit/releases) for 2.3.0 and older.
 
+[Unreleased]: https://github.com/futuredapp/FuntastyKit/compare/3.0.0...HEAD
 [3.0.0]: https://github.com/futuredapp/FuntastyKit/compare/2.3.0...3.0.0
