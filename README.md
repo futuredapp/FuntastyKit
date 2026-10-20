@@ -21,6 +21,8 @@ When using Swift package manager add following line to your `Package.swift` file
 .package(url: "https://github.com/futuredapp/FuntastyKit.git", from: "3.0.0")
 ```
 
+Upgrading from 2.x? See the [migration guide](Documentation/Migration-3.0.md) and the [changelog](CHANGELOG.md).
+
 ## Note on the name
 
 The name of the framework comes from the name of our company before rebranding, Funtasty. Now, we are called Futured, but FuturedKit will be very probably based on SwiftUI instead of UIKit.
